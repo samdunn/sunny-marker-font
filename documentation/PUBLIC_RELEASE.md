@@ -45,16 +45,17 @@ all styles under OFL 1.1. The repository includes editable UFO sources, a standa
 fontmake build, license and contributor files, a specimen and a full glyph atlas.
 `make submission` generates a candidate Google Fonts package with metadata.
 
-Before submitting:
+The public source links now resolve. Sam Dunn confirmed signing Google's CLA
+on 2026-09-16 and confirmed there is no separate proprietary edition and that
+he will maintain the project during onboarding. The signature was reported by
+the copyright holder; it has not been independently verified here.
 
-1. Verify the final public repository URL in license/font metadata and the
-   submission package; rebuild if it changes.
-2. Run the complete Google Fonts profile on the final package, including public
-   link checks after publication.
-3. The copyright holder signs Google's Contributor License Agreement.
-4. Supply the designer profile, including an approved photo and public webpage.
-5. Request Google Fonts onboarding/design review and disclose the documented
-   FontBakery warnings and AI-assisted design provenance.
+The 1.311 candidate adds metadata required by the current Fontspector checker.
+Its seven remaining language-sample failures and warnings are disclosed in
+[`GOOGLE_FONTS.md`](GOOGLE_FONTS.md). Google Fonts still needs to review the
+design, resolve technical onboarding items and add a designer profile. An
+approved designer photo has not yet been supplied. An initial proposal does
+not mean acceptance into the collection.
 
 Automated scans establish what was checked at this revision. They cannot prove
 absence of every possible secret, vulnerability or legal issue in future changes.

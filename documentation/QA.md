@@ -28,7 +28,8 @@ The optical axis defaults to 14; the 30 static styles remain at display size 36.
 The completed 1.310 run reports **zero FAIL and ERROR results**: 125 PASS /
 9 WARN for the Google Fonts profile, and 413 PASS / 24 WARN for representative
 statics. The interpolation check passes. See `quality-summary.json` for the
-warning categories and the publication limitation.
+warning categories. These results are from FontBakery, not the newer
+Fontspector checker.
 
 `make check` runs the complete, unmodified FontBakery 1.1.0 Google Fonts profile
 and representative static format checks. It enables network and interpolation
@@ -36,16 +37,15 @@ checks without suppressing check IDs. Raw reports go to ignored `qa/`; the CI
 job reports completion. A timeout fails the run. Two worker processes and a
 45-minute per-profile limit accommodate the four-axis interpolation analysis.
 
-The submission package adds Google Fonts metadata checks. Public source URL
-checks remain blocked while the repository is private; see `PUBLIC_RELEASE.md`.
-Design acceptance and the contributor agreement are separate from automated QA.
-
-The extracted submission ZIP was checked separately for metadata, descriptions,
-article assets and licensing: 52 PASS, 2 WARN, 9 SKIP, 1 INFO, and one expected
-FAIL for the private repository URL (HTTP 404). Its article and specimen image
-pass. The two warnings request a Google Fonts designer profile and review of
-subset routing for extra marks and symbols. This package is prepared for review,
-not yet ready to submit unchanged from a private source repository.
+The source repository is now public. The separate **1.311 Google Fonts
+onboarding candidate** corrects metadata without changing outlines, spacing,
+layout or axis ranges. Fontspector 1.7.4 was run against the complete extracted
+candidate, including metadata, license and article assets. It reports 148 PASS,
+22 WARN, 7 FAIL, 42 SKIP and 9 INFO, with no ERROR or FATAL results. The seven
+failures concern language sample strings that require three characters outside
+the current coverage. See [`GOOGLE_FONTS.md`](GOOGLE_FONTS.md) for the exact
+failures, remaining warnings and reproduction command. No check is suppressed.
+This is an initial review candidate, not a production-ready Google Fonts package.
 
 The font does not implement every optional orthography or a complete mathematical
 symbol set. Review warnings for large variable-font size, decomposed carons,

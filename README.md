@@ -109,6 +109,20 @@ geometry code. This replaces direct UFO edits. See [`CONTRIBUTING.md`](CONTRIBUT
 tools and source files support repeatable builds. Generated intermediates,
 private configuration and raw audit logs are ignored by Git.
 
+## Google Fonts review
+
+Submitted for initial review in [google/fonts#10972](https://github.com/google/fonts/issues/10972).
+
+The [1.311 onboarding candidate](release/sunny-marker-googlefonts-1.311.zip)
+adds Google Fonts metadata to the 1.310 variable font. It has identical outlines,
+spacing, layout tables and axis ranges. The website and npm package remain on
+the general release, **1.310**.
+
+Run `make submission` after building to reproduce the candidate. Google's
+current Fontspector checks identified remaining language-sample failures and
+warnings that need onboarding review; this is not an accepted Google Fonts
+release. See [the candidate report](documentation/GOOGLE_FONTS.md).
+
 ## Project files
 
 - `sources/`: editable UFO masters and designspaces.

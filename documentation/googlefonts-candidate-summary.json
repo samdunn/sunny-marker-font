@@ -1,0 +1,91 @@
+{
+  "version": "1.311",
+  "base_release": "1.310",
+  "tool": "Fontspector 1.7.4",
+  "profile": "googlefonts; all candidate package files supplied; network enabled; no check exclusions",
+  "date": "2026-09-16",
+  "result": {
+    "SKIP": 42,
+    "PASS": 148,
+    "INFO": 9,
+    "WARN": 22,
+    "FAIL": 7
+  },
+  "failures": [
+    {
+      "check": "googlefonts/tofu",
+      "results": [
+        {
+          "message": "We detected support for the Amarakaeri language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ̱ (U+0331)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        },
+        {
+          "message": "We detected support for the Qʼeqchiʼ language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ʼ (U+02BC)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        },
+        {
+          "message": "We detected support for the Otomi, Mezquital language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ̱ (U+0331)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        },
+        {
+          "message": "We detected support for the Secoya language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ̱ (U+0331)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        },
+        {
+          "message": "We detected support for the Purepecha language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ŋ (U+014B)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        },
+        {
+          "message": "We detected support for the Yapese language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ʼ (U+02BC)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        },
+        {
+          "message": "We detected support for the Yucateco language because the font contained all the base exemplars for the language, but the font is missing the following codepoints needed to render the specimen 16 sample text (This suggests there's something wrong with the sample text):\n\n* ʼ (U+02BC)",
+          "severity": "FAIL",
+          "code": "bad-sample-text"
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "alt_caron",
+    "contour_count",
+    "file_size",
+    "googlefonts/fvar_instances",
+    "googlefonts/glyphsets/shape_languages",
+    "googlefonts/metadata/designer_profiles",
+    "googlefonts/metadata/subsets_correct",
+    "googlefonts/metadata/unreachable_subsetting",
+    "googlefonts/separator_glyphs",
+    "googlefonts/varfont/slnt_needs_italic",
+    "googlefonts/vendor_id",
+    "math_signs_width",
+    "opentype/GDEF_mark_chars",
+    "opentype/fsselection_wws",
+    "overlapping_path_segments",
+    "rupee",
+    "soft_dotted",
+    "suspicious_sidebearings"
+  ],
+  "verification": {
+    "changed_font_tables": [
+      "head",
+      "name",
+      "STAT",
+      "fvar"
+    ],
+    "outlines_spacing_layout_unchanged": true,
+    "axis_ranges_unchanged": true,
+    "glyphs": 336,
+    "latin_core_codepoints": 319,
+    "latin_core_missing": []
+  },
+  "status": "Initial onboarding review candidate; not accepted or production-ready for Google Fonts.",
+  "archive_sha256": "01082e6ff192b500b9713606fc428533c633d1897624dc2cb754395606dce451"
+}
