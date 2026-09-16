@@ -4,6 +4,9 @@ Sunny Marker **1.311** is a review candidate derived from the **1.310** general
 release. The website, npm package and regular desktop downloads remain 1.310.
 This candidate has not been accepted into Google Fonts.
 
+Initial proposal: [google/fonts#10972 — Add Sunny Marker](https://github.com/google/fonts/issues/10972),
+submitted on 2026-09-16.
+
 ## Contents and reproducibility
 
 - [Candidate ZIP](../release/sunny-marker-googlefonts-1.311.zip): the variable

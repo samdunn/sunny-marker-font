@@ -111,6 +111,8 @@ private configuration and raw audit logs are ignored by Git.
 
 ## Google Fonts review
 
+Submitted for initial review in [google/fonts#10972](https://github.com/google/fonts/issues/10972).
+
 The [1.311 onboarding candidate](release/sunny-marker-googlefonts-1.311.zip)
 adds Google Fonts metadata to the 1.310 variable font. It has identical outlines,
 spacing, layout tables and axis ranges. The website and npm package remain on
