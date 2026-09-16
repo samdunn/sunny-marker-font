@@ -439,6 +439,17 @@
         height: auto;
         border-radius: 12px;
       }
+      .specimen-note-canvas {
+        isolation: isolate;
+        overflow: hidden;
+        border-radius: 12px;
+        background-color: #e9f1f6;
+        background-image: radial-gradient(circle, #b6cbd8 0.8px, transparent 1px);
+        background-size: 18px 18px;
+      }
+      .specimen-note-canvas img {
+        mix-blend-mode: multiply;
+      }
       .specimen-grid figcaption {
         padding-top: 12px;
       }
@@ -887,13 +898,15 @@ A little note goes a long way.</textarea
           </div>
           <div class="specimen-grid">
             <figure>
-              <img
-                src="specimens/margin-notes.png"
-                width="1600"
-                height="1200"
-                loading="lazy"
-                alt="Three small, slightly rotated handwritten notes: COULD WE TRY THIS OVER HERE, YES, THIS ONE, and A LITTLE MORE ROOM TO BREATHE."
-              />
+              <div class="specimen-note-canvas">
+                <img
+                  src="specimens/margin-notes.png"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                  alt="Three small, slightly rotated handwritten notes: COULD WE TRY THIS OVER HERE, YES, THIS ONE, and A LITTLE MORE ROOM TO BREATHE."
+                />
+              </div>
               <figcaption>
                 <h3 class="marker">In the margins</h3>
                 <p>A few small notes, with room to breathe.</p>
@@ -906,7 +919,6 @@ A little note goes a long way.</textarea
                   >
                     Try this sample
                   </button>
-                  <a class="text-link" href="specimens/margin-notes.png" download>Download PNG ↓</a>
                 </div>
               </figcaption>
             </figure>
@@ -930,7 +942,6 @@ A little note goes a long way.</textarea
                   >
                     Try this sample
                   </button>
-                  <a class="text-link" href="specimens/small-labels.png" download>Download PNG ↓</a>
                 </div>
               </figcaption>
             </figure>
@@ -954,7 +965,6 @@ A little note goes a long way.</textarea
                   >
                     Try this sample
                   </button>
-                  <a class="text-link" href="specimens/wide-open.png" download>Download PNG ↓</a>
                 </div>
               </figcaption>
             </figure>
@@ -3138,7 +3148,10 @@ A little note goes a long way.</textarea
         </section>
       </main>
       <footer>
-        <span>Sunny Marker · Designed by Sam Dunn · Free for personal &amp; commercial use</span>
+        <span
+          >Sunny Marker · Designed by <a href="https://samdunn.org">Sam Dunn</a> · Free for personal
+          &amp; commercial use</span
+        >
         <div>
           <a href="OFL.txt">Open Font License</a><a href="README.md">Web setup</a
           ><a href="https://sunnysdk.com">Made for Sunny ↗</a>
