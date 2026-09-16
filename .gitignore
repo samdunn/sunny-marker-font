@@ -1,0 +1,37 @@
+.DS_Store
+__pycache__/
+# regenerable build intermediates (run scripts/make_weights.py + make_variable.py)
+build/masters.pickle
+build/vf-masters/
+glyphs/svg/
+proofs/_*.png
+.venv/
+documentation/fontbakery-*.json
+documentation/fontbakery-*.log
+
+# Local configuration, credentials, generated intermediates, and audit output
+.env
+.env.*
+!.env.example
+.dev.vars*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+.sunny/
+.wrangler/
+.idea/
+.vscode/
+.venv*/
+build/masters.json
+qa/
+*.log
+/build/
+/release/googlefonts/
+*.egg-info/
+
+/release/sunny-marker-public-source-*.zip
+/packages/sunny-marker/files/
+/packages/sunny-marker/OFL.txt
+node_modules/

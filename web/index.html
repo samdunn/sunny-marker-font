@@ -1,0 +1,3342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Sunny Marker is a flexible handwritten font. Try your own words, adjust the width, weight and slant, and download it free under the Open Font License."
+    />
+    <title>Sunny Marker — a little more character</title>
+    <link rel="stylesheet" href="sunny-marker.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #fbfaf7;
+        --ink: #242424;
+        --muted: #696662;
+        --line: #dedbd6;
+        --sun: #ffd44e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          15px/1.55 system-ui,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+      button,
+      a,
+      input,
+      textarea,
+      summary {
+        -webkit-tap-highlight-color: transparent;
+      }
+      :focus-visible {
+        outline: 3px solid #242424;
+        outline-offset: 5px;
+      }
+      .wrap {
+        max-width: 1280px;
+        margin: auto;
+        padding: 0 5vw;
+      }
+      .marker {
+        font-family: "Sunny Marker", sans-serif;
+        font-synthesis: none;
+        font-optical-sizing: auto;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        gap: 24px;
+      }
+      .wordmark {
+        font-size: 26px;
+        font-weight: 700;
+        font-variation-settings:
+          "wght" 700,
+          "wdth" 100,
+          "opsz" 36;
+        letter-spacing: 0.015em;
+        line-height: 1;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        flex: none;
+        gap: 0;
+        height: 52px;
+        margin-left: -20.52px;
+        color: #171c25;
+      }
+      .brand-bright {
+        display: block;
+        flex: none;
+        width: 76px;
+        height: 76px;
+        margin-right: -7px;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        font-size: 13px;
+      }
+      nav a {
+        white-space: nowrap;
+      }
+      .github-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 44px;
+        min-height: 44px;
+        text-decoration: none;
+      }
+      .github-link:hover {
+        text-decoration: underline;
+      }
+      .github-link svg {
+        flex: none;
+      }
+      .download {
+        background: var(--ink);
+        color: var(--paper);
+        border: 0;
+        border-radius: 8px;
+        padding: 11px 19px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .hero {
+        text-align: center;
+        padding: 36px 0 34px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.035em;
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--muted);
+        margin: 0 0 16px;
+      }
+      h1 {
+        font-weight: 600;
+        font-size: clamp(61px, 12.7vw, 165px);
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        margin: 0;
+        font-stretch: 95%;
+      }
+      .hero .hero-note {
+        font-family: "Sunny Marker", sans-serif;
+        max-width: 460px;
+        margin: 16px auto 0;
+        color: var(--muted);
+        font-size: 20px;
+      }
+      .tester {
+        background: #f1efeb;
+        border-radius: 12px;
+        scroll-margin-top: 20px;
+      }
+      .tester-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 18px 24px 0;
+      }
+      h2 {
+        font-size: 15px;
+        font-weight: 650;
+        margin: 0;
+      }
+      .presets {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+      button {
+        cursor: pointer;
+      }
+      .preset {
+        border: 0;
+        border-radius: 6px;
+        background: #fffefb;
+        color: var(--ink);
+        padding: 6px 11px;
+        font-size: 12px;
+      }
+      .preset:hover {
+        background: #e7e3dd;
+      }
+      .preset[aria-pressed="true"] {
+        background: var(--sun);
+        color: var(--ink);
+      }
+      .writing {
+        padding: 12px 24px;
+      }
+      .case-toggle {
+        display: flex;
+        gap: 3px;
+        width: fit-content;
+        margin-bottom: 10px;
+        padding: 3px;
+        border-radius: 9px;
+        background: #e4e1dc;
+      }
+      .case-option {
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--muted);
+        font:
+          12px/1.4 system-ui,
+          sans-serif;
+        min-height: 34px;
+        padding: 7px 12px;
+      }
+      .case-option:hover {
+        background: #d8d4ce;
+      }
+      .case-option[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      #preview {
+        display: block;
+        width: 100%;
+        height: 120px;
+        min-height: 110px;
+        resize: vertical;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.2;
+        padding: 8px 4px;
+        overflow-wrap: anywhere;
+      }
+      #preview:focus-visible {
+        outline-offset: 8px;
+      }
+      .hint {
+        font-size: 11px;
+        color: var(--muted);
+        margin: 14px 0 0;
+      }
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 35px;
+        padding: 14px 24px 18px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+      }
+      output {
+        float: right;
+        font-variant-numeric: tabular-nums;
+        color: var(--muted);
+      }
+      input[type="range"] {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        height: 24px;
+        margin: 9px 0 0;
+        accent-color: var(--ink);
+      }
+      .ends {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .advanced {
+        padding: 0 24px 18px;
+        font-size: 12px;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--muted);
+        width: fit-content;
+      }
+      .advanced-inner {
+        padding: 20px 0 5px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 35px;
+      }
+      .advanced label + label {
+        margin-top: 15px;
+      }
+      .code {
+        padding: 14px 16px;
+        background: #eeebe5;
+        border-radius: 7px;
+        min-width: 0;
+      }
+      pre {
+        margin: 0 0 10px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        font-size: 11px;
+        line-height: 1.7;
+      }
+      .copy {
+        font-size: 12px;
+        font-weight: 550;
+        min-height: 36px;
+        padding: 8px 14px;
+        border: 0;
+        border-radius: 7px;
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .copy:hover {
+        background: #424242;
+      }
+      .status {
+        margin-left: 10px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .text-link {
+        font-size: 12px;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        border-top: 1px solid var(--line);
+        padding: 23px 0 30px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      footer div {
+        display: flex;
+        gap: 23px;
+        flex-wrap: wrap;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .glyph-gallery {
+        padding: 36px 0 24px;
+        scroll-margin-top: 20px;
+      }
+      .gallery-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+      .gallery-heading h2 {
+        font-size: 20px;
+      }
+      .gallery-heading p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .scribble {
+        text-align: right;
+        font-size: 18px;
+        color: #5b5752;
+        margin: 0 24px 10px;
+        transform: rotate(-3deg);
+        transform-origin: right center;
+      }
+      .scribble span {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 25px;
+      }
+      .tester-top h2,
+      .gallery-heading h2 {
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+      .preset {
+        font-family: "Sunny Marker", sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+      .download {
+        font-family: "Sunny Marker", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      .specimens {
+        padding: 32px 0 0;
+        scroll-margin-top: 24px;
+      }
+      .specimens-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px 24px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+      .specimens-heading h2 {
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+      .specimens-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .specimen-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .specimen-grid figure {
+        margin: 0;
+        min-width: 0;
+      }
+      .specimen-grid img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+      .specimen-grid figcaption {
+        padding-top: 12px;
+      }
+      .specimen-grid h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+      .specimen-grid p {
+        margin: 4px 0 10px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .specimen-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .specimen-use {
+        min-height: 36px;
+        padding: 8px 12px;
+        border: 0;
+        border-radius: 7px;
+        background: #eeece8;
+        color: var(--ink);
+        font-size: 12px;
+      }
+      .specimen-use:hover {
+        background: #dedbd6;
+      }
+      .glyph-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px 20px;
+        padding: 8px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: var(--paper);
+      }
+      .glyph-toolbar .hint {
+        margin: 0;
+      }
+      .glyph-detail {
+        min-height: 20px;
+        font-size: 11px;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .glyph-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+        gap: 0;
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .glyph-card {
+        min-width: 0;
+        scroll-margin-block: 100px;
+      }
+      .glyph-card[hidden] {
+        display: none;
+      }
+      .glyph-button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: inherit;
+      }
+      .glyph-button:hover {
+        background: #eeece8;
+      }
+      .glyph-button[aria-pressed="true"] {
+        background: #ffeaa0;
+      }
+      .glyph-button:focus-visible {
+        outline-offset: -3px;
+      }
+      .glyph-drawing {
+        height: 68px;
+        display: grid;
+        place-items: center;
+        font-size: 40px;
+        line-height: 1.2;
+      }
+      .glyph-drawing svg {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+      }
+      .glyph-name,
+      .glyph-code {
+        display: none;
+      }
+      .empty-glyph {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      #glyph-search {
+        min-height: 42px;
+        padding: 10px 12px;
+        border: 1px solid #c9c5bf;
+        border-radius: 8px;
+        background: #f1efeb;
+        width: min(100%, 290px);
+        color: inherit;
+        font-size: 13px;
+      }
+      #glyph-search::placeholder {
+        color: var(--muted);
+        opacity: 1;
+      }
+      @media (max-width: 850px) {
+        nav .try-link[href="#tester"] {
+          display: none;
+        }
+      }
+      @media (max-width: 650px) {
+        .wrap {
+          padding: 0 6vw;
+        }
+        header {
+          padding: 21px 0;
+          gap: 4px;
+        }
+        nav {
+          gap: 4px;
+        }
+        .github-label {
+          display: none;
+        }
+        nav .try-link {
+          display: none;
+        }
+        .download {
+          padding: 9px 8px;
+          font-size: 12px;
+        }
+        .hero {
+          padding: 28px 0;
+        }
+        .scribble {
+          font-size: 18px;
+          margin: 0 10px 14px;
+        }
+        .scribble span {
+          font-size: 25px;
+        }
+        .specimen-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .glyph-grid {
+          grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+        }
+        .glyph-drawing {
+          height: 56px;
+          font-size: 34px;
+        }
+        .glyph-toolbar {
+          gap: 8px 12px;
+        }
+        .glyph-toolbar #glyph-search {
+          flex: 1;
+          min-width: 0;
+          width: auto;
+        }
+        .glyph-detail {
+          width: 100%;
+        }
+        .hero .hero-note {
+          font-family: "Sunny Marker", sans-serif;
+          font-size: 20px;
+          max-width: 320px;
+        }
+        h1 {
+          font-size: clamp(48px, 12.8vw, 83px);
+          font-stretch: 85%;
+        }
+        .tester-top {
+          padding: 16px 16px 0;
+          align-items: start;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .writing {
+          padding: 10px 16px;
+        }
+        #preview {
+          height: 120px;
+          font-size: 24px;
+        }
+        .controls {
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+          padding: 14px 16px;
+        }
+        .advanced {
+          padding: 0 16px 16px;
+        }
+        .advanced-inner {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        footer {
+          gap: 12px;
+        }
+        .eyebrow {
+          font-size: 13px;
+          letter-spacing: 0.025em;
+        }
+        .presets {
+          margin-left: -8px;
+        }
+        .preset {
+          padding: 6px 8px;
+          font-size: 13px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      .install {
+        margin: 0 0 28px;
+        padding: 24px 0 0;
+        scroll-margin-top: 24px;
+        border-top: 1px solid var(--line);
+      }
+      .install p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 10px 0 15px;
+      }
+      .install-command {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 16px;
+        background: #eeece8;
+        border-radius: 10px;
+      }
+      .install-command pre {
+        flex: 1;
+        margin: 0;
+        min-width: 0;
+      }
+      .install-command button {
+        flex: none;
+      }
+      .install details {
+        margin-top: 18px;
+      }
+      .install details pre {
+        margin: 12px 0;
+      }
+      .install .install-import {
+        margin: 16px 0;
+      }
+      .install-hero {
+        max-width: 420px;
+        margin: 20px auto 0;
+      }
+      .install-hero .install-command {
+        background: #eeece8;
+        padding: 12px;
+        gap: 12px;
+      }
+      .install-hero pre {
+        font-size: 13px;
+        text-align: left;
+      }
+      .install-hero .text-link {
+        display: inline-block;
+        margin-top: 12px;
+      }
+      .install-hero .status {
+        display: block;
+        margin: 6px 0 0;
+        min-height: 0;
+      }
+      .install-hero .status:empty {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="wordmark marker" href="https://sunnysdk.com" aria-label="Sunny home"
+          ><img
+            class="brand-bright"
+            src="branding/bright.png"
+            width="76"
+            height="76"
+            alt=""
+            aria-hidden="true"
+          />SUNNY</a
+        >
+        <nav aria-label="Main">
+          <a
+            class="github-link"
+            href="https://github.com/buildinternet/sunny-marker-font"
+            aria-label="Sunny Marker on GitHub"
+            title="View Sunny Marker on GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"
+              />
+            </svg>
+            <span class="github-label">GitHub</span>
+          </a>
+          <a class="try-link" href="#tester">Try the font</a>
+          <a class="try-link" href="#specimens">Specimens</a>
+          <a class="try-link" href="#glyphs">Glyphs</a>
+          <a class="download" href="downloads/SunnyMarker-1.310.zip" download
+            >Download free <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </header>
+      <main>
+        <section class="hero" aria-labelledby="title">
+          <p class="eyebrow marker">A handwritten variable font by Sunny</p>
+          <h1 class="marker" id="title">SUNNY MARKER</h1>
+          <p class="marker hero-note">SMALL NOTES. BIG PERSONALITY.</p>
+          <div class="install-hero">
+            <div class="install-command">
+              <pre><code id="install-command">npm install @sunnyai/sunny-marker</code></pre>
+              <button
+                class="copy"
+                id="copy-install"
+                type="button"
+                aria-label="Copy install command"
+              >
+                Copy
+              </button>
+            </div>
+            <p class="hint">Run in your project folder.</p>
+            <span class="status" id="install-status" role="status"></span
+            ><a class="text-link" href="#install">CSS + Next.js setup ↓</a>
+          </div>
+        </section>
+        <div class="scribble marker" aria-hidden="true">
+          PSST… TRY YOUR OWN WORDS <span>↙</span>
+        </div>
+        <section class="tester" id="tester" aria-labelledby="tester-title">
+          <div class="tester-top">
+            <h2 class="marker" id="tester-title">Make it your own.</h2>
+            <div class="presets" role="group" aria-label="Type presets">
+              <button class="preset" data-preset="note" aria-pressed="true">Note</button
+              ><button class="preset" data-preset="label" aria-pressed="false">Label</button
+              ><button class="preset" data-preset="headline" aria-pressed="false">Headline</button
+              ><button class="preset" data-preset="poster" aria-pressed="false">Poster</button>
+            </div>
+          </div>
+          <div class="writing">
+            <div class="case-toggle" role="group" aria-label="Letter case">
+              <button class="case-option" type="button" data-case="upper" aria-pressed="true">
+                All caps</button
+              ><button class="case-option" type="button" data-case="normal" aria-pressed="false">
+                Normal
+              </button>
+            </div>
+            <label class="sr-only" for="preview">Your words to try in Sunny Marker</label
+            ><textarea id="preview" class="marker" spellcheck="false" maxlength="2000">
+Make room for good things.
+A little note goes a long way.</textarea
+            >
+            <p class="hint">Type your own words. Drag a slider. Find your kind of Sunny.</p>
+            <p id="font-status" class="hint" role="status" hidden></p>
+          </div>
+          <div class="controls">
+            <label for="width"
+              >Width <output id="width-value" for="width">100%</output
+              ><input id="width" type="range" min="75" max="125" step="0.5" value="100" /><span
+                class="ends"
+                ><span>Condensed</span><span>Expanded</span></span
+              ></label
+            >
+            <label for="weight"
+              >Weight <output id="weight-value" for="weight">400</output
+              ><input id="weight" type="range" min="300" max="700" step="1" value="400" /><span
+                class="ends"
+                ><span>Light</span><span>Bold</span></span
+              ></label
+            >
+            <label for="slant"
+              >Slant <output id="slant-value" for="slant">0°</output
+              ><input id="slant" type="range" min="0" max="9" step="0.1" value="0" /><span
+                class="ends"
+                ><span>Upright</span><span>Slanted</span></span
+              ></label
+            >
+            <label for="size"
+              >Size <output id="size-value" for="size">24 px</output
+              ><input id="size" type="range" min="16" max="120" step="1" value="24" /><span
+                class="ends"
+                ><span>Small</span><span>Big</span></span
+              ></label
+            >
+          </div>
+          <details class="advanced">
+            <summary>More options &amp; CSS</summary>
+            <div class="advanced-inner">
+              <div>
+                <label for="auto-optical"
+                  ><input id="auto-optical" type="checkbox" checked /> Automatic optical size</label
+                ><label for="optical"
+                  >Optical size <output id="optical-value" for="optical">Auto</output
+                  ><input id="optical" type="range" min="10" max="36" value="14" disabled
+                /></label>
+                <p class="hint">Adjusts spacing and small details for the size you use.</p>
+              </div>
+              <div class="code">
+                <pre id="settings"></pre>
+                <button class="copy" id="copy" type="button">Copy CSS</button
+                ><span class="status" id="copy-status" role="status"></span>
+              </div>
+            </div>
+          </details>
+        </section>
+        <section id="specimens" class="specimens" aria-labelledby="specimens-title">
+          <div class="specimens-heading">
+            <h2 id="specimens-title" class="marker">A little Sunny, in the wild.</h2>
+            <p>Small notes, useful labels, and room to play.</p>
+          </div>
+          <div class="specimen-grid">
+            <figure>
+              <img
+                src="specimens/margin-notes.png"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                alt="Three small, slightly rotated handwritten notes: COULD WE TRY THIS OVER HERE, YES, THIS ONE, and A LITTLE MORE ROOM TO BREATHE."
+              />
+              <figcaption>
+                <h3 class="marker">In the margins</h3>
+                <p>A few small notes, with room to breathe.</p>
+                <div class="specimen-actions">
+                  <button
+                    type="button"
+                    class="specimen-use"
+                    data-sample="margins"
+                    aria-label="Try the margin notes sample"
+                  >
+                    Try this sample
+                  </button>
+                  <a class="text-link" href="specimens/margin-notes.png" download>Download PNG ↓</a>
+                </div>
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="specimens/small-labels.png"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                alt="A yellow specimen reading FRESH PERSPECTIVE, SMALL BATCH, NO. 027, and GOOD IDEAS, IN SMALL SPACES in condensed Sunny Marker."
+              />
+              <figcaption>
+                <h3 class="marker">Small but mighty</h3>
+                <p>Condensed lettering for labels and little spaces.</p>
+                <div class="specimen-actions">
+                  <button
+                    type="button"
+                    class="specimen-use"
+                    data-sample="labels"
+                    aria-label="Try the condensed labels sample"
+                  >
+                    Try this sample
+                  </button>
+                  <a class="text-link" href="specimens/small-labels.png" download>Download PNG ↓</a>
+                </div>
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="specimens/wide-open.png"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                alt="MAKE SOME ROOM in expanded white Sunny Marker on charcoal, with a yellow sparkle and the lowercase note for the good stuff."
+              />
+              <figcaption>
+                <h3 class="marker">Wide open</h3>
+                <p>Expanded headlines with a softer lowercase note.</p>
+                <div class="specimen-actions">
+                  <button
+                    type="button"
+                    class="specimen-use"
+                    data-sample="wide"
+                    aria-label="Try the expanded headline sample"
+                  >
+                    Try this sample
+                  </button>
+                  <a class="text-link" href="specimens/wide-open.png" download>Download PNG ↓</a>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        <section id="glyphs" class="glyph-gallery" aria-labelledby="glyphs-title">
+          <div class="gallery-heading">
+            <div>
+              <h2 id="glyphs-title" class="marker">Every little character.</h2>
+              <p>336 glyphs. Letters, accents, arrows, and the little extras.</p>
+            </div>
+            <a class="text-link" href="glyph-atlas/all-glyphs.png" download
+              >Download glyph sheet ↓</a
+            >
+          </div>
+          <div class="glyph-toolbar">
+            <label class="sr-only" for="glyph-search"
+              >Find a glyph by character, name, or Unicode</label
+            >
+            <input
+              id="glyph-search"
+              type="search"
+              placeholder="Search glyphs…"
+              autocomplete="off"
+            />
+            <span id="glyph-count" class="hint" role="status">336 glyphs</span>
+            <span id="glyph-detail" class="glyph-detail" role="status"
+              >Select a character for details.</span
+            >
+          </div>
+          <ul class="glyph-grid" aria-label="Complete glyph collection">
+            <!-- GLYPH CARDS START -->
+            <li class="glyph-card" data-search="a u+0041 a" aria-label="A: U+0041">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">A</span></div>
+              <span class="glyph-name" title="A">A</span><span class="glyph-code">U+0041</span>
+            </li>
+            <li class="glyph-card" data-search="b u+0042 b" aria-label="B: U+0042">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">B</span></div>
+              <span class="glyph-name" title="B">B</span><span class="glyph-code">U+0042</span>
+            </li>
+            <li class="glyph-card" data-search="c u+0043 c" aria-label="C: U+0043">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">C</span></div>
+              <span class="glyph-name" title="C">C</span><span class="glyph-code">U+0043</span>
+            </li>
+            <li class="glyph-card" data-search="d u+0044 d" aria-label="D: U+0044">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">D</span></div>
+              <span class="glyph-name" title="D">D</span><span class="glyph-code">U+0044</span>
+            </li>
+            <li class="glyph-card" data-search="e u+0045 e" aria-label="E: U+0045">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">E</span></div>
+              <span class="glyph-name" title="E">E</span><span class="glyph-code">U+0045</span>
+            </li>
+            <li class="glyph-card" data-search="f u+0046 f" aria-label="F: U+0046">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">F</span></div>
+              <span class="glyph-name" title="F">F</span><span class="glyph-code">U+0046</span>
+            </li>
+            <li class="glyph-card" data-search="g u+0047 g" aria-label="G: U+0047">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">G</span></div>
+              <span class="glyph-name" title="G">G</span><span class="glyph-code">U+0047</span>
+            </li>
+            <li class="glyph-card" data-search="h u+0048 h" aria-label="H: U+0048">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">H</span></div>
+              <span class="glyph-name" title="H">H</span><span class="glyph-code">U+0048</span>
+            </li>
+            <li class="glyph-card" data-search="i u+0049 i" aria-label="I: U+0049">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">I</span></div>
+              <span class="glyph-name" title="I">I</span><span class="glyph-code">U+0049</span>
+            </li>
+            <li class="glyph-card" data-search="j u+004a j" aria-label="J: U+004A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">J</span></div>
+              <span class="glyph-name" title="J">J</span><span class="glyph-code">U+004A</span>
+            </li>
+            <li class="glyph-card" data-search="k u+004b k" aria-label="K: U+004B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">K</span></div>
+              <span class="glyph-name" title="K">K</span><span class="glyph-code">U+004B</span>
+            </li>
+            <li class="glyph-card" data-search="l u+004c l" aria-label="L: U+004C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">L</span></div>
+              <span class="glyph-name" title="L">L</span><span class="glyph-code">U+004C</span>
+            </li>
+            <li class="glyph-card" data-search="m u+004d m" aria-label="M: U+004D">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">M</span></div>
+              <span class="glyph-name" title="M">M</span><span class="glyph-code">U+004D</span>
+            </li>
+            <li class="glyph-card" data-search="n u+004e n" aria-label="N: U+004E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">N</span></div>
+              <span class="glyph-name" title="N">N</span><span class="glyph-code">U+004E</span>
+            </li>
+            <li class="glyph-card" data-search="o u+004f o" aria-label="O: U+004F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">O</span></div>
+              <span class="glyph-name" title="O">O</span><span class="glyph-code">U+004F</span>
+            </li>
+            <li class="glyph-card" data-search="p u+0050 p" aria-label="P: U+0050">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">P</span></div>
+              <span class="glyph-name" title="P">P</span><span class="glyph-code">U+0050</span>
+            </li>
+            <li class="glyph-card" data-search="q u+0051 q" aria-label="Q: U+0051">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Q</span></div>
+              <span class="glyph-name" title="Q">Q</span><span class="glyph-code">U+0051</span>
+            </li>
+            <li class="glyph-card" data-search="r u+0052 r" aria-label="R: U+0052">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">R</span></div>
+              <span class="glyph-name" title="R">R</span><span class="glyph-code">U+0052</span>
+            </li>
+            <li class="glyph-card" data-search="s u+0053 s" aria-label="S: U+0053">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">S</span></div>
+              <span class="glyph-name" title="S">S</span><span class="glyph-code">U+0053</span>
+            </li>
+            <li class="glyph-card" data-search="t u+0054 t" aria-label="T: U+0054">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">T</span></div>
+              <span class="glyph-name" title="T">T</span><span class="glyph-code">U+0054</span>
+            </li>
+            <li class="glyph-card" data-search="u u+0055 u" aria-label="U: U+0055">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">U</span></div>
+              <span class="glyph-name" title="U">U</span><span class="glyph-code">U+0055</span>
+            </li>
+            <li class="glyph-card" data-search="v u+0056 v" aria-label="V: U+0056">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">V</span></div>
+              <span class="glyph-name" title="V">V</span><span class="glyph-code">U+0056</span>
+            </li>
+            <li class="glyph-card" data-search="w u+0057 w" aria-label="W: U+0057">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">W</span></div>
+              <span class="glyph-name" title="W">W</span><span class="glyph-code">U+0057</span>
+            </li>
+            <li class="glyph-card" data-search="x u+0058 x" aria-label="X: U+0058">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">X</span></div>
+              <span class="glyph-name" title="X">X</span><span class="glyph-code">U+0058</span>
+            </li>
+            <li class="glyph-card" data-search="y u+0059 y" aria-label="Y: U+0059">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Y</span></div>
+              <span class="glyph-name" title="Y">Y</span><span class="glyph-code">U+0059</span>
+            </li>
+            <li class="glyph-card" data-search="z u+005a z" aria-label="Z: U+005A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Z</span></div>
+              <span class="glyph-name" title="Z">Z</span><span class="glyph-code">U+005A</span>
+            </li>
+            <li class="glyph-card" data-search="a u+0061 a" aria-label="a: U+0061">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">a</span></div>
+              <span class="glyph-name" title="a">a</span><span class="glyph-code">U+0061</span>
+            </li>
+            <li class="glyph-card" data-search="b u+0062 b" aria-label="b: U+0062">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">b</span></div>
+              <span class="glyph-name" title="b">b</span><span class="glyph-code">U+0062</span>
+            </li>
+            <li class="glyph-card" data-search="c u+0063 c" aria-label="c: U+0063">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">c</span></div>
+              <span class="glyph-name" title="c">c</span><span class="glyph-code">U+0063</span>
+            </li>
+            <li class="glyph-card" data-search="d u+0064 d" aria-label="d: U+0064">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">d</span></div>
+              <span class="glyph-name" title="d">d</span><span class="glyph-code">U+0064</span>
+            </li>
+            <li class="glyph-card" data-search="e u+0065 e" aria-label="e: U+0065">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">e</span></div>
+              <span class="glyph-name" title="e">e</span><span class="glyph-code">U+0065</span>
+            </li>
+            <li class="glyph-card" data-search="f u+0066 f" aria-label="f: U+0066">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">f</span></div>
+              <span class="glyph-name" title="f">f</span><span class="glyph-code">U+0066</span>
+            </li>
+            <li class="glyph-card" data-search="g u+0067 g" aria-label="g: U+0067">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">g</span></div>
+              <span class="glyph-name" title="g">g</span><span class="glyph-code">U+0067</span>
+            </li>
+            <li class="glyph-card" data-search="h u+0068 h" aria-label="h: U+0068">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">h</span></div>
+              <span class="glyph-name" title="h">h</span><span class="glyph-code">U+0068</span>
+            </li>
+            <li class="glyph-card" data-search="i u+0069 i" aria-label="i: U+0069">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">i</span></div>
+              <span class="glyph-name" title="i">i</span><span class="glyph-code">U+0069</span>
+            </li>
+            <li class="glyph-card" data-search="j u+006a j" aria-label="j: U+006A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">j</span></div>
+              <span class="glyph-name" title="j">j</span><span class="glyph-code">U+006A</span>
+            </li>
+            <li class="glyph-card" data-search="k u+006b k" aria-label="k: U+006B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">k</span></div>
+              <span class="glyph-name" title="k">k</span><span class="glyph-code">U+006B</span>
+            </li>
+            <li class="glyph-card" data-search="l u+006c l" aria-label="l: U+006C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">l</span></div>
+              <span class="glyph-name" title="l">l</span><span class="glyph-code">U+006C</span>
+            </li>
+            <li class="glyph-card" data-search="m u+006d m" aria-label="m: U+006D">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">m</span></div>
+              <span class="glyph-name" title="m">m</span><span class="glyph-code">U+006D</span>
+            </li>
+            <li class="glyph-card" data-search="n u+006e n" aria-label="n: U+006E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">n</span></div>
+              <span class="glyph-name" title="n">n</span><span class="glyph-code">U+006E</span>
+            </li>
+            <li class="glyph-card" data-search="o u+006f o" aria-label="o: U+006F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">o</span></div>
+              <span class="glyph-name" title="o">o</span><span class="glyph-code">U+006F</span>
+            </li>
+            <li class="glyph-card" data-search="p u+0070 p" aria-label="p: U+0070">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">p</span></div>
+              <span class="glyph-name" title="p">p</span><span class="glyph-code">U+0070</span>
+            </li>
+            <li class="glyph-card" data-search="q u+0071 q" aria-label="q: U+0071">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">q</span></div>
+              <span class="glyph-name" title="q">q</span><span class="glyph-code">U+0071</span>
+            </li>
+            <li class="glyph-card" data-search="r u+0072 r" aria-label="r: U+0072">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">r</span></div>
+              <span class="glyph-name" title="r">r</span><span class="glyph-code">U+0072</span>
+            </li>
+            <li class="glyph-card" data-search="s u+0073 s" aria-label="s: U+0073">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">s</span></div>
+              <span class="glyph-name" title="s">s</span><span class="glyph-code">U+0073</span>
+            </li>
+            <li class="glyph-card" data-search="t u+0074 t" aria-label="t: U+0074">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">t</span></div>
+              <span class="glyph-name" title="t">t</span><span class="glyph-code">U+0074</span>
+            </li>
+            <li class="glyph-card" data-search="u u+0075 u" aria-label="u: U+0075">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">u</span></div>
+              <span class="glyph-name" title="u">u</span><span class="glyph-code">U+0075</span>
+            </li>
+            <li class="glyph-card" data-search="v u+0076 v" aria-label="v: U+0076">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">v</span></div>
+              <span class="glyph-name" title="v">v</span><span class="glyph-code">U+0076</span>
+            </li>
+            <li class="glyph-card" data-search="w u+0077 w" aria-label="w: U+0077">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">w</span></div>
+              <span class="glyph-name" title="w">w</span><span class="glyph-code">U+0077</span>
+            </li>
+            <li class="glyph-card" data-search="x u+0078 x" aria-label="x: U+0078">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">x</span></div>
+              <span class="glyph-name" title="x">x</span><span class="glyph-code">U+0078</span>
+            </li>
+            <li class="glyph-card" data-search="y u+0079 y" aria-label="y: U+0079">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">y</span></div>
+              <span class="glyph-name" title="y">y</span><span class="glyph-code">U+0079</span>
+            </li>
+            <li class="glyph-card" data-search="z u+007a z" aria-label="z: U+007A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">z</span></div>
+              <span class="glyph-name" title="z">z</span><span class="glyph-code">U+007A</span>
+            </li>
+            <li class="glyph-card" data-search="zero u+0030 0" aria-label="zero: U+0030">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">0</span></div>
+              <span class="glyph-name" title="zero">zero</span
+              ><span class="glyph-code">U+0030</span>
+            </li>
+            <li class="glyph-card" data-search="one u+0031 1" aria-label="one: U+0031">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">1</span></div>
+              <span class="glyph-name" title="one">one</span><span class="glyph-code">U+0031</span>
+            </li>
+            <li class="glyph-card" data-search="two u+0032 2" aria-label="two: U+0032">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">2</span></div>
+              <span class="glyph-name" title="two">two</span><span class="glyph-code">U+0032</span>
+            </li>
+            <li class="glyph-card" data-search="three u+0033 3" aria-label="three: U+0033">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">3</span></div>
+              <span class="glyph-name" title="three">three</span
+              ><span class="glyph-code">U+0033</span>
+            </li>
+            <li class="glyph-card" data-search="four u+0034 4" aria-label="four: U+0034">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">4</span></div>
+              <span class="glyph-name" title="four">four</span
+              ><span class="glyph-code">U+0034</span>
+            </li>
+            <li class="glyph-card" data-search="five u+0035 5" aria-label="five: U+0035">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">5</span></div>
+              <span class="glyph-name" title="five">five</span
+              ><span class="glyph-code">U+0035</span>
+            </li>
+            <li class="glyph-card" data-search="six u+0036 6" aria-label="six: U+0036">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">6</span></div>
+              <span class="glyph-name" title="six">six</span><span class="glyph-code">U+0036</span>
+            </li>
+            <li class="glyph-card" data-search="seven u+0037 7" aria-label="seven: U+0037">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">7</span></div>
+              <span class="glyph-name" title="seven">seven</span
+              ><span class="glyph-code">U+0037</span>
+            </li>
+            <li class="glyph-card" data-search="eight u+0038 8" aria-label="eight: U+0038">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">8</span></div>
+              <span class="glyph-name" title="eight">eight</span
+              ><span class="glyph-code">U+0038</span>
+            </li>
+            <li class="glyph-card" data-search="nine u+0039 9" aria-label="nine: U+0039">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">9</span></div>
+              <span class="glyph-name" title="nine">nine</span
+              ><span class="glyph-code">U+0039</span>
+            </li>
+            <li class="glyph-card" data-search="exclam u+0021 !" aria-label="exclam: U+0021">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">!</span></div>
+              <span class="glyph-name" title="exclam">exclam</span
+              ><span class="glyph-code">U+0021</span>
+            </li>
+            <li class="glyph-card" data-search="question u+003f ?" aria-label="question: U+003F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">?</span></div>
+              <span class="glyph-name" title="question">question</span
+              ><span class="glyph-code">U+003F</span>
+            </li>
+            <li class="glyph-card" data-search="period u+002e ." aria-label="period: U+002E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">.</span></div>
+              <span class="glyph-name" title="period">period</span
+              ><span class="glyph-code">U+002E</span>
+            </li>
+            <li class="glyph-card" data-search="comma u+002c ," aria-label="comma: U+002C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">,</span></div>
+              <span class="glyph-name" title="comma">comma</span
+              ><span class="glyph-code">U+002C</span>
+            </li>
+            <li class="glyph-card" data-search="semicolon u+003b ;" aria-label="semicolon: U+003B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">;</span></div>
+              <span class="glyph-name" title="semicolon">semicolon</span
+              ><span class="glyph-code">U+003B</span>
+            </li>
+            <li class="glyph-card" data-search='quotedbl u+0022 "' aria-label="quotedbl: U+0022">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">&quot;</span></div>
+              <span class="glyph-name" title="quotedbl">quotedbl</span
+              ><span class="glyph-code">U+0022</span>
+            </li>
+            <li class="glyph-card" data-search="parenleft u+0028 (" aria-label="parenleft: U+0028">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">(</span></div>
+              <span class="glyph-name" title="parenleft">parenleft</span
+              ><span class="glyph-code">U+0028</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="parenright u+0029 )"
+              aria-label="parenright: U+0029"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">)</span></div>
+              <span class="glyph-name" title="parenright">parenright</span
+              ><span class="glyph-code">U+0029</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="bracketleft u+005b ["
+              aria-label="bracketleft: U+005B"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">[</span></div>
+              <span class="glyph-name" title="bracketleft">bracketleft</span
+              ><span class="glyph-code">U+005B</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="bracketright u+005d ]"
+              aria-label="bracketright: U+005D"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">]</span></div>
+              <span class="glyph-name" title="bracketright">bracketright</span
+              ><span class="glyph-code">U+005D</span>
+            </li>
+            <li class="glyph-card" data-search="braceleft u+007b {" aria-label="braceleft: U+007B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">{</span></div>
+              <span class="glyph-name" title="braceleft">braceleft</span
+              ><span class="glyph-code">U+007B</span>
+            </li>
+            <li class="glyph-card" data-search="slash u+002f /" aria-label="slash: U+002F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">/</span></div>
+              <span class="glyph-name" title="slash">slash</span
+              ><span class="glyph-code">U+002F</span>
+            </li>
+            <li class="glyph-card" data-search="backslash u+005c \" aria-label="backslash: U+005C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">\</span></div>
+              <span class="glyph-name" title="backslash">backslash</span
+              ><span class="glyph-code">U+005C</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="hyphen u+002d, u+2010 -"
+              aria-label="hyphen: U+002D, U+2010"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">-</span></div>
+              <span class="glyph-name" title="hyphen">hyphen</span
+              ><span class="glyph-code">U+002D, U+2010</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="underscore u+005f _"
+              aria-label="underscore: U+005F"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">_</span></div>
+              <span class="glyph-name" title="underscore">underscore</span
+              ><span class="glyph-code">U+005F</span>
+            </li>
+            <li class="glyph-card" data-search="plus u+002b +" aria-label="plus: U+002B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">+</span></div>
+              <span class="glyph-name" title="plus">plus</span
+              ><span class="glyph-code">U+002B</span>
+            </li>
+            <li class="glyph-card" data-search="equal u+003d =" aria-label="equal: U+003D">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">=</span></div>
+              <span class="glyph-name" title="equal">equal</span
+              ><span class="glyph-code">U+003D</span>
+            </li>
+            <li class="glyph-card" data-search="at u+0040 @" aria-label="at: U+0040">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">@</span></div>
+              <span class="glyph-name" title="at">at</span><span class="glyph-code">U+0040</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="numbersign u+0023 #"
+              aria-label="numbersign: U+0023"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">#</span></div>
+              <span class="glyph-name" title="numbersign">numbersign</span
+              ><span class="glyph-code">U+0023</span>
+            </li>
+            <li class="glyph-card" data-search="dollar u+0024 $" aria-label="dollar: U+0024">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">$</span></div>
+              <span class="glyph-name" title="dollar">dollar</span
+              ><span class="glyph-code">U+0024</span>
+            </li>
+            <li class="glyph-card" data-search="percent u+0025 %" aria-label="percent: U+0025">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">%</span></div>
+              <span class="glyph-name" title="percent">percent</span
+              ><span class="glyph-code">U+0025</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ampersand u+0026 &amp;"
+              aria-label="ampersand: U+0026"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">&amp;</span></div>
+              <span class="glyph-name" title="ampersand">ampersand</span
+              ><span class="glyph-code">U+0026</span>
+            </li>
+            <li class="glyph-card" data-search="asterisk u+002a *" aria-label="asterisk: U+002A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">*</span></div>
+              <span class="glyph-name" title="asterisk">asterisk</span
+              ><span class="glyph-code">U+002A</span>
+            </li>
+            <li class="glyph-card" data-search="less u+003c &lt;" aria-label="less: U+003C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">&lt;</span></div>
+              <span class="glyph-name" title="less">less</span
+              ><span class="glyph-code">U+003C</span>
+            </li>
+            <li class="glyph-card" data-search="greater u+003e &gt;" aria-label="greater: U+003E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">&gt;</span></div>
+              <span class="glyph-name" title="greater">greater</span
+              ><span class="glyph-code">U+003E</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="arrowright u+2192 →"
+              aria-label="arrowright: U+2192"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">→</span></div>
+              <span class="glyph-name" title="arrowright">arrowright</span
+              ><span class="glyph-code">U+2192</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="arrowupright u+2197 ↗"
+              aria-label="arrowupright: U+2197"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">↗</span></div>
+              <span class="glyph-name" title="arrowupright">arrowupright</span
+              ><span class="glyph-code">U+2197</span>
+            </li>
+            <li class="glyph-card" data-search="arrowup u+2191 ↑" aria-label="arrowup: U+2191">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">↑</span></div>
+              <span class="glyph-name" title="arrowup">arrowup</span
+              ><span class="glyph-code">U+2191</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="arrowupleft u+2196 ↖"
+              aria-label="arrowupleft: U+2196"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">↖</span></div>
+              <span class="glyph-name" title="arrowupleft">arrowupleft</span
+              ><span class="glyph-code">U+2196</span>
+            </li>
+            <li class="glyph-card" data-search="arrowleft u+2190 ←" aria-label="arrowleft: U+2190">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">←</span></div>
+              <span class="glyph-name" title="arrowleft">arrowleft</span
+              ><span class="glyph-code">U+2190</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="arrowdownright u+2198 ↘"
+              aria-label="arrowdownright: U+2198"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">↘</span></div>
+              <span class="glyph-name" title="arrowdownright">arrowdownright</span
+              ><span class="glyph-code">U+2198</span>
+            </li>
+            <li class="glyph-card" data-search="arrowdown u+2193 ↓" aria-label="arrowdown: U+2193">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">↓</span></div>
+              <span class="glyph-name" title="arrowdown">arrowdown</span
+              ><span class="glyph-code">U+2193</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="arrowdownleft u+2199 ↙"
+              aria-label="arrowdownleft: U+2199"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">↙</span></div>
+              <span class="glyph-name" title="arrowdownleft">arrowdownleft</span
+              ><span class="glyph-code">U+2199</span>
+            </li>
+            <li class="glyph-card" data-search="star u+2605 ★" aria-label="star: U+2605">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">★</span></div>
+              <span class="glyph-name" title="star">star</span
+              ><span class="glyph-code">U+2605</span>
+            </li>
+            <li class="glyph-card" data-search="sparkle u+2727 ✧" aria-label="sparkle: U+2727">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">✧</span></div>
+              <span class="glyph-name" title="sparkle">sparkle</span
+              ><span class="glyph-code">U+2727</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="heart u+2661, u+2764 ♡"
+              aria-label="heart: U+2661, U+2764"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">♡</span></div>
+              <span class="glyph-name" title="heart">heart</span
+              ><span class="glyph-code">U+2661, U+2764</span>
+            </li>
+            <li class="glyph-card" data-search="sun u+2600 ☀" aria-label="sun: U+2600">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">☀</span></div>
+              <span class="glyph-name" title="sun">sun</span><span class="glyph-code">U+2600</span>
+            </li>
+            <li class="glyph-card" data-search="check u+2713 ✓" aria-label="check: U+2713">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">✓</span></div>
+              <span class="glyph-name" title="check">check</span
+              ><span class="glyph-code">U+2713</span>
+            </li>
+            <li class="glyph-card" data-search="cross u+2717 ✗" aria-label="cross: U+2717">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">✗</span></div>
+              <span class="glyph-name" title="cross">cross</span
+              ><span class="glyph-code">U+2717</span>
+            </li>
+            <li class="glyph-card" data-search="colon u+003a :" aria-label="colon: U+003A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">:</span></div>
+              <span class="glyph-name" title="colon">colon</span
+              ><span class="glyph-code">U+003A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="braceright u+007d }"
+              aria-label="braceright: U+007D"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">}</span></div>
+              <span class="glyph-name" title="braceright">braceright</span
+              ><span class="glyph-code">U+007D</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="quotesingle u+0027 &#x27;"
+              aria-label="quotesingle: U+0027"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">&#x27;</span></div>
+              <span class="glyph-name" title="quotesingle">quotesingle</span
+              ><span class="glyph-code">U+0027</span>
+            </li>
+            <li class="glyph-card" data-search="quoteleft u+2018 ‘" aria-label="quoteleft: U+2018">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">‘</span></div>
+              <span class="glyph-name" title="quoteleft">quoteleft</span
+              ><span class="glyph-code">U+2018</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="quoteright u+2019 ’"
+              aria-label="quoteright: U+2019"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">’</span></div>
+              <span class="glyph-name" title="quoteright">quoteright</span
+              ><span class="glyph-code">U+2019</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="quotedblleft u+201c “"
+              aria-label="quotedblleft: U+201C"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">“</span></div>
+              <span class="glyph-name" title="quotedblleft">quotedblleft</span
+              ><span class="glyph-code">U+201C</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="quotedblright u+201d ”"
+              aria-label="quotedblright: U+201D"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">”</span></div>
+              <span class="glyph-name" title="quotedblright">quotedblright</span
+              ><span class="glyph-code">U+201D</span>
+            </li>
+            <li class="glyph-card" data-search="agrave u+00c0 à" aria-label="Agrave: U+00C0">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">À</span></div>
+              <span class="glyph-name" title="Agrave">Agrave</span
+              ><span class="glyph-code">U+00C0</span>
+            </li>
+            <li class="glyph-card" data-search="aacute u+00c1 á" aria-label="Aacute: U+00C1">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Á</span></div>
+              <span class="glyph-name" title="Aacute">Aacute</span
+              ><span class="glyph-code">U+00C1</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="acircumflex u+00c2 â"
+              aria-label="Acircumflex: U+00C2"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Â</span></div>
+              <span class="glyph-name" title="Acircumflex">Acircumflex</span
+              ><span class="glyph-code">U+00C2</span>
+            </li>
+            <li class="glyph-card" data-search="atilde u+00c3 ã" aria-label="Atilde: U+00C3">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ã</span></div>
+              <span class="glyph-name" title="Atilde">Atilde</span
+              ><span class="glyph-code">U+00C3</span>
+            </li>
+            <li class="glyph-card" data-search="adieresis u+00c4 ä" aria-label="Adieresis: U+00C4">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ä</span></div>
+              <span class="glyph-name" title="Adieresis">Adieresis</span
+              ><span class="glyph-code">U+00C4</span>
+            </li>
+            <li class="glyph-card" data-search="aring u+00c5 å" aria-label="Aring: U+00C5">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Å</span></div>
+              <span class="glyph-name" title="Aring">Aring</span
+              ><span class="glyph-code">U+00C5</span>
+            </li>
+            <li class="glyph-card" data-search="ccedilla u+00c7 ç" aria-label="Ccedilla: U+00C7">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ç</span></div>
+              <span class="glyph-name" title="Ccedilla">Ccedilla</span
+              ><span class="glyph-code">U+00C7</span>
+            </li>
+            <li class="glyph-card" data-search="egrave u+00c8 è" aria-label="Egrave: U+00C8">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">È</span></div>
+              <span class="glyph-name" title="Egrave">Egrave</span
+              ><span class="glyph-code">U+00C8</span>
+            </li>
+            <li class="glyph-card" data-search="eacute u+00c9 é" aria-label="Eacute: U+00C9">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">É</span></div>
+              <span class="glyph-name" title="Eacute">Eacute</span
+              ><span class="glyph-code">U+00C9</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ecircumflex u+00ca ê"
+              aria-label="Ecircumflex: U+00CA"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ê</span></div>
+              <span class="glyph-name" title="Ecircumflex">Ecircumflex</span
+              ><span class="glyph-code">U+00CA</span>
+            </li>
+            <li class="glyph-card" data-search="edieresis u+00cb ë" aria-label="Edieresis: U+00CB">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ë</span></div>
+              <span class="glyph-name" title="Edieresis">Edieresis</span
+              ><span class="glyph-code">U+00CB</span>
+            </li>
+            <li class="glyph-card" data-search="igrave u+00cc ì" aria-label="Igrave: U+00CC">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ì</span></div>
+              <span class="glyph-name" title="Igrave">Igrave</span
+              ><span class="glyph-code">U+00CC</span>
+            </li>
+            <li class="glyph-card" data-search="iacute u+00cd í" aria-label="Iacute: U+00CD">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Í</span></div>
+              <span class="glyph-name" title="Iacute">Iacute</span
+              ><span class="glyph-code">U+00CD</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="icircumflex u+00ce î"
+              aria-label="Icircumflex: U+00CE"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Î</span></div>
+              <span class="glyph-name" title="Icircumflex">Icircumflex</span
+              ><span class="glyph-code">U+00CE</span>
+            </li>
+            <li class="glyph-card" data-search="idieresis u+00cf ï" aria-label="Idieresis: U+00CF">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ï</span></div>
+              <span class="glyph-name" title="Idieresis">Idieresis</span
+              ><span class="glyph-code">U+00CF</span>
+            </li>
+            <li class="glyph-card" data-search="ntilde u+00d1 ñ" aria-label="Ntilde: U+00D1">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ñ</span></div>
+              <span class="glyph-name" title="Ntilde">Ntilde</span
+              ><span class="glyph-code">U+00D1</span>
+            </li>
+            <li class="glyph-card" data-search="ograve u+00d2 ò" aria-label="Ograve: U+00D2">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ò</span></div>
+              <span class="glyph-name" title="Ograve">Ograve</span
+              ><span class="glyph-code">U+00D2</span>
+            </li>
+            <li class="glyph-card" data-search="oacute u+00d3 ó" aria-label="Oacute: U+00D3">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ó</span></div>
+              <span class="glyph-name" title="Oacute">Oacute</span
+              ><span class="glyph-code">U+00D3</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ocircumflex u+00d4 ô"
+              aria-label="Ocircumflex: U+00D4"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ô</span></div>
+              <span class="glyph-name" title="Ocircumflex">Ocircumflex</span
+              ><span class="glyph-code">U+00D4</span>
+            </li>
+            <li class="glyph-card" data-search="otilde u+00d5 õ" aria-label="Otilde: U+00D5">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Õ</span></div>
+              <span class="glyph-name" title="Otilde">Otilde</span
+              ><span class="glyph-code">U+00D5</span>
+            </li>
+            <li class="glyph-card" data-search="odieresis u+00d6 ö" aria-label="Odieresis: U+00D6">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ö</span></div>
+              <span class="glyph-name" title="Odieresis">Odieresis</span
+              ><span class="glyph-code">U+00D6</span>
+            </li>
+            <li class="glyph-card" data-search="ugrave u+00d9 ù" aria-label="Ugrave: U+00D9">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ù</span></div>
+              <span class="glyph-name" title="Ugrave">Ugrave</span
+              ><span class="glyph-code">U+00D9</span>
+            </li>
+            <li class="glyph-card" data-search="uacute u+00da ú" aria-label="Uacute: U+00DA">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ú</span></div>
+              <span class="glyph-name" title="Uacute">Uacute</span
+              ><span class="glyph-code">U+00DA</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ucircumflex u+00db û"
+              aria-label="Ucircumflex: U+00DB"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Û</span></div>
+              <span class="glyph-name" title="Ucircumflex">Ucircumflex</span
+              ><span class="glyph-code">U+00DB</span>
+            </li>
+            <li class="glyph-card" data-search="udieresis u+00dc ü" aria-label="Udieresis: U+00DC">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ü</span></div>
+              <span class="glyph-name" title="Udieresis">Udieresis</span
+              ><span class="glyph-code">U+00DC</span>
+            </li>
+            <li class="glyph-card" data-search="yacute u+00dd ý" aria-label="Yacute: U+00DD">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ý</span></div>
+              <span class="glyph-name" title="Yacute">Yacute</span
+              ><span class="glyph-code">U+00DD</span>
+            </li>
+            <li class="glyph-card" data-search="agrave u+00e0 à" aria-label="agrave: U+00E0">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">à</span></div>
+              <span class="glyph-name" title="agrave">agrave</span
+              ><span class="glyph-code">U+00E0</span>
+            </li>
+            <li class="glyph-card" data-search="aacute u+00e1 á" aria-label="aacute: U+00E1">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">á</span></div>
+              <span class="glyph-name" title="aacute">aacute</span
+              ><span class="glyph-code">U+00E1</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="acircumflex u+00e2 â"
+              aria-label="acircumflex: U+00E2"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">â</span></div>
+              <span class="glyph-name" title="acircumflex">acircumflex</span
+              ><span class="glyph-code">U+00E2</span>
+            </li>
+            <li class="glyph-card" data-search="atilde u+00e3 ã" aria-label="atilde: U+00E3">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ã</span></div>
+              <span class="glyph-name" title="atilde">atilde</span
+              ><span class="glyph-code">U+00E3</span>
+            </li>
+            <li class="glyph-card" data-search="adieresis u+00e4 ä" aria-label="adieresis: U+00E4">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ä</span></div>
+              <span class="glyph-name" title="adieresis">adieresis</span
+              ><span class="glyph-code">U+00E4</span>
+            </li>
+            <li class="glyph-card" data-search="aring u+00e5 å" aria-label="aring: U+00E5">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">å</span></div>
+              <span class="glyph-name" title="aring">aring</span
+              ><span class="glyph-code">U+00E5</span>
+            </li>
+            <li class="glyph-card" data-search="ccedilla u+00e7 ç" aria-label="ccedilla: U+00E7">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ç</span></div>
+              <span class="glyph-name" title="ccedilla">ccedilla</span
+              ><span class="glyph-code">U+00E7</span>
+            </li>
+            <li class="glyph-card" data-search="egrave u+00e8 è" aria-label="egrave: U+00E8">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">è</span></div>
+              <span class="glyph-name" title="egrave">egrave</span
+              ><span class="glyph-code">U+00E8</span>
+            </li>
+            <li class="glyph-card" data-search="eacute u+00e9 é" aria-label="eacute: U+00E9">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">é</span></div>
+              <span class="glyph-name" title="eacute">eacute</span
+              ><span class="glyph-code">U+00E9</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ecircumflex u+00ea ê"
+              aria-label="ecircumflex: U+00EA"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ê</span></div>
+              <span class="glyph-name" title="ecircumflex">ecircumflex</span
+              ><span class="glyph-code">U+00EA</span>
+            </li>
+            <li class="glyph-card" data-search="edieresis u+00eb ë" aria-label="edieresis: U+00EB">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ë</span></div>
+              <span class="glyph-name" title="edieresis">edieresis</span
+              ><span class="glyph-code">U+00EB</span>
+            </li>
+            <li class="glyph-card" data-search="igrave u+00ec ì" aria-label="igrave: U+00EC">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ì</span></div>
+              <span class="glyph-name" title="igrave">igrave</span
+              ><span class="glyph-code">U+00EC</span>
+            </li>
+            <li class="glyph-card" data-search="iacute u+00ed í" aria-label="iacute: U+00ED">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">í</span></div>
+              <span class="glyph-name" title="iacute">iacute</span
+              ><span class="glyph-code">U+00ED</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="icircumflex u+00ee î"
+              aria-label="icircumflex: U+00EE"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">î</span></div>
+              <span class="glyph-name" title="icircumflex">icircumflex</span
+              ><span class="glyph-code">U+00EE</span>
+            </li>
+            <li class="glyph-card" data-search="idieresis u+00ef ï" aria-label="idieresis: U+00EF">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ï</span></div>
+              <span class="glyph-name" title="idieresis">idieresis</span
+              ><span class="glyph-code">U+00EF</span>
+            </li>
+            <li class="glyph-card" data-search="ntilde u+00f1 ñ" aria-label="ntilde: U+00F1">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ñ</span></div>
+              <span class="glyph-name" title="ntilde">ntilde</span
+              ><span class="glyph-code">U+00F1</span>
+            </li>
+            <li class="glyph-card" data-search="ograve u+00f2 ò" aria-label="ograve: U+00F2">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ò</span></div>
+              <span class="glyph-name" title="ograve">ograve</span
+              ><span class="glyph-code">U+00F2</span>
+            </li>
+            <li class="glyph-card" data-search="oacute u+00f3 ó" aria-label="oacute: U+00F3">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ó</span></div>
+              <span class="glyph-name" title="oacute">oacute</span
+              ><span class="glyph-code">U+00F3</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ocircumflex u+00f4 ô"
+              aria-label="ocircumflex: U+00F4"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ô</span></div>
+              <span class="glyph-name" title="ocircumflex">ocircumflex</span
+              ><span class="glyph-code">U+00F4</span>
+            </li>
+            <li class="glyph-card" data-search="otilde u+00f5 õ" aria-label="otilde: U+00F5">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">õ</span></div>
+              <span class="glyph-name" title="otilde">otilde</span
+              ><span class="glyph-code">U+00F5</span>
+            </li>
+            <li class="glyph-card" data-search="odieresis u+00f6 ö" aria-label="odieresis: U+00F6">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ö</span></div>
+              <span class="glyph-name" title="odieresis">odieresis</span
+              ><span class="glyph-code">U+00F6</span>
+            </li>
+            <li class="glyph-card" data-search="ugrave u+00f9 ù" aria-label="ugrave: U+00F9">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ù</span></div>
+              <span class="glyph-name" title="ugrave">ugrave</span
+              ><span class="glyph-code">U+00F9</span>
+            </li>
+            <li class="glyph-card" data-search="uacute u+00fa ú" aria-label="uacute: U+00FA">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ú</span></div>
+              <span class="glyph-name" title="uacute">uacute</span
+              ><span class="glyph-code">U+00FA</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ucircumflex u+00fb û"
+              aria-label="ucircumflex: U+00FB"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">û</span></div>
+              <span class="glyph-name" title="ucircumflex">ucircumflex</span
+              ><span class="glyph-code">U+00FB</span>
+            </li>
+            <li class="glyph-card" data-search="udieresis u+00fc ü" aria-label="udieresis: U+00FC">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ü</span></div>
+              <span class="glyph-name" title="udieresis">udieresis</span
+              ><span class="glyph-code">U+00FC</span>
+            </li>
+            <li class="glyph-card" data-search="yacute u+00fd ý" aria-label="yacute: U+00FD">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ý</span></div>
+              <span class="glyph-name" title="yacute">yacute</span
+              ><span class="glyph-code">U+00FD</span>
+            </li>
+            <li class="glyph-card" data-search="ydieresis u+00ff ÿ" aria-label="ydieresis: U+00FF">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ÿ</span></div>
+              <span class="glyph-name" title="ydieresis">ydieresis</span
+              ><span class="glyph-code">U+00FF</span>
+            </li>
+            <li class="glyph-card" data-search="amacron u+0100 ā" aria-label="Amacron: U+0100">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ā</span></div>
+              <span class="glyph-name" title="Amacron">Amacron</span
+              ><span class="glyph-code">U+0100</span>
+            </li>
+            <li class="glyph-card" data-search="amacron u+0101 ā" aria-label="amacron: U+0101">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ā</span></div>
+              <span class="glyph-name" title="amacron">amacron</span
+              ><span class="glyph-code">U+0101</span>
+            </li>
+            <li class="glyph-card" data-search="abreve u+0102 ă" aria-label="Abreve: U+0102">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ă</span></div>
+              <span class="glyph-name" title="Abreve">Abreve</span
+              ><span class="glyph-code">U+0102</span>
+            </li>
+            <li class="glyph-card" data-search="abreve u+0103 ă" aria-label="abreve: U+0103">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ă</span></div>
+              <span class="glyph-name" title="abreve">abreve</span
+              ><span class="glyph-code">U+0103</span>
+            </li>
+            <li class="glyph-card" data-search="aogonek u+0104 ą" aria-label="Aogonek: U+0104">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ą</span></div>
+              <span class="glyph-name" title="Aogonek">Aogonek</span
+              ><span class="glyph-code">U+0104</span>
+            </li>
+            <li class="glyph-card" data-search="aogonek u+0105 ą" aria-label="aogonek: U+0105">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ą</span></div>
+              <span class="glyph-name" title="aogonek">aogonek</span
+              ><span class="glyph-code">U+0105</span>
+            </li>
+            <li class="glyph-card" data-search="cacute u+0106 ć" aria-label="Cacute: U+0106">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ć</span></div>
+              <span class="glyph-name" title="Cacute">Cacute</span
+              ><span class="glyph-code">U+0106</span>
+            </li>
+            <li class="glyph-card" data-search="cacute u+0107 ć" aria-label="cacute: U+0107">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ć</span></div>
+              <span class="glyph-name" title="cacute">cacute</span
+              ><span class="glyph-code">U+0107</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="cdotaccent u+010a ċ"
+              aria-label="Cdotaccent: U+010A"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ċ</span></div>
+              <span class="glyph-name" title="Cdotaccent">Cdotaccent</span
+              ><span class="glyph-code">U+010A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="cdotaccent u+010b ċ"
+              aria-label="cdotaccent: U+010B"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ċ</span></div>
+              <span class="glyph-name" title="cdotaccent">cdotaccent</span
+              ><span class="glyph-code">U+010B</span>
+            </li>
+            <li class="glyph-card" data-search="ccaron u+010c č" aria-label="Ccaron: U+010C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Č</span></div>
+              <span class="glyph-name" title="Ccaron">Ccaron</span
+              ><span class="glyph-code">U+010C</span>
+            </li>
+            <li class="glyph-card" data-search="ccaron u+010d č" aria-label="ccaron: U+010D">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">č</span></div>
+              <span class="glyph-name" title="ccaron">ccaron</span
+              ><span class="glyph-code">U+010D</span>
+            </li>
+            <li class="glyph-card" data-search="dcaron u+010e ď" aria-label="Dcaron: U+010E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ď</span></div>
+              <span class="glyph-name" title="Dcaron">Dcaron</span
+              ><span class="glyph-code">U+010E</span>
+            </li>
+            <li class="glyph-card" data-search="dcaron u+010f ď" aria-label="dcaron: U+010F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ď</span></div>
+              <span class="glyph-name" title="dcaron">dcaron</span
+              ><span class="glyph-code">U+010F</span>
+            </li>
+            <li class="glyph-card" data-search="emacron u+0112 ē" aria-label="Emacron: U+0112">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ē</span></div>
+              <span class="glyph-name" title="Emacron">Emacron</span
+              ><span class="glyph-code">U+0112</span>
+            </li>
+            <li class="glyph-card" data-search="emacron u+0113 ē" aria-label="emacron: U+0113">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ē</span></div>
+              <span class="glyph-name" title="emacron">emacron</span
+              ><span class="glyph-code">U+0113</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="edotaccent u+0116 ė"
+              aria-label="Edotaccent: U+0116"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ė</span></div>
+              <span class="glyph-name" title="Edotaccent">Edotaccent</span
+              ><span class="glyph-code">U+0116</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="edotaccent u+0117 ė"
+              aria-label="edotaccent: U+0117"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ė</span></div>
+              <span class="glyph-name" title="edotaccent">edotaccent</span
+              ><span class="glyph-code">U+0117</span>
+            </li>
+            <li class="glyph-card" data-search="eogonek u+0118 ę" aria-label="Eogonek: U+0118">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ę</span></div>
+              <span class="glyph-name" title="Eogonek">Eogonek</span
+              ><span class="glyph-code">U+0118</span>
+            </li>
+            <li class="glyph-card" data-search="eogonek u+0119 ę" aria-label="eogonek: U+0119">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ę</span></div>
+              <span class="glyph-name" title="eogonek">eogonek</span
+              ><span class="glyph-code">U+0119</span>
+            </li>
+            <li class="glyph-card" data-search="ecaron u+011a ě" aria-label="Ecaron: U+011A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ě</span></div>
+              <span class="glyph-name" title="Ecaron">Ecaron</span
+              ><span class="glyph-code">U+011A</span>
+            </li>
+            <li class="glyph-card" data-search="ecaron u+011b ě" aria-label="ecaron: U+011B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ě</span></div>
+              <span class="glyph-name" title="ecaron">ecaron</span
+              ><span class="glyph-code">U+011B</span>
+            </li>
+            <li class="glyph-card" data-search="gbreve u+011e ğ" aria-label="Gbreve: U+011E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ğ</span></div>
+              <span class="glyph-name" title="Gbreve">Gbreve</span
+              ><span class="glyph-code">U+011E</span>
+            </li>
+            <li class="glyph-card" data-search="gbreve u+011f ğ" aria-label="gbreve: U+011F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ğ</span></div>
+              <span class="glyph-name" title="gbreve">gbreve</span
+              ><span class="glyph-code">U+011F</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="gdotaccent u+0120 ġ"
+              aria-label="Gdotaccent: U+0120"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ġ</span></div>
+              <span class="glyph-name" title="Gdotaccent">Gdotaccent</span
+              ><span class="glyph-code">U+0120</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="gdotaccent u+0121 ġ"
+              aria-label="gdotaccent: U+0121"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ġ</span></div>
+              <span class="glyph-name" title="gdotaccent">gdotaccent</span
+              ><span class="glyph-code">U+0121</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="gcommaaccent u+0122 ģ"
+              aria-label="Gcommaaccent: U+0122"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ģ</span></div>
+              <span class="glyph-name" title="Gcommaaccent">Gcommaaccent</span
+              ><span class="glyph-code">U+0122</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="gcommaaccent u+0123 ģ"
+              aria-label="gcommaaccent: U+0123"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ģ</span></div>
+              <span class="glyph-name" title="gcommaaccent">gcommaaccent</span
+              ><span class="glyph-code">U+0123</span>
+            </li>
+            <li class="glyph-card" data-search="imacron u+012a ī" aria-label="Imacron: U+012A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ī</span></div>
+              <span class="glyph-name" title="Imacron">Imacron</span
+              ><span class="glyph-code">U+012A</span>
+            </li>
+            <li class="glyph-card" data-search="imacron u+012b ī" aria-label="imacron: U+012B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ī</span></div>
+              <span class="glyph-name" title="imacron">imacron</span
+              ><span class="glyph-code">U+012B</span>
+            </li>
+            <li class="glyph-card" data-search="iogonek u+012e į" aria-label="Iogonek: U+012E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Į</span></div>
+              <span class="glyph-name" title="Iogonek">Iogonek</span
+              ><span class="glyph-code">U+012E</span>
+            </li>
+            <li class="glyph-card" data-search="iogonek u+012f į" aria-label="iogonek: U+012F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">į</span></div>
+              <span class="glyph-name" title="iogonek">iogonek</span
+              ><span class="glyph-code">U+012F</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="idotaccent u+0130 i̇"
+              aria-label="Idotaccent: U+0130"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">İ</span></div>
+              <span class="glyph-name" title="Idotaccent">Idotaccent</span
+              ><span class="glyph-code">U+0130</span>
+            </li>
+            <li class="glyph-card" data-search="dotlessi u+0131 ı" aria-label="dotlessi: U+0131">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ı</span></div>
+              <span class="glyph-name" title="dotlessi">dotlessi</span
+              ><span class="glyph-code">U+0131</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="kcommaaccent u+0136 ķ"
+              aria-label="Kcommaaccent: U+0136"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ķ</span></div>
+              <span class="glyph-name" title="Kcommaaccent">Kcommaaccent</span
+              ><span class="glyph-code">U+0136</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="kcommaaccent u+0137 ķ"
+              aria-label="kcommaaccent: U+0137"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ķ</span></div>
+              <span class="glyph-name" title="kcommaaccent">kcommaaccent</span
+              ><span class="glyph-code">U+0137</span>
+            </li>
+            <li class="glyph-card" data-search="lacute u+0139 ĺ" aria-label="Lacute: U+0139">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ĺ</span></div>
+              <span class="glyph-name" title="Lacute">Lacute</span
+              ><span class="glyph-code">U+0139</span>
+            </li>
+            <li class="glyph-card" data-search="lacute u+013a ĺ" aria-label="lacute: U+013A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ĺ</span></div>
+              <span class="glyph-name" title="lacute">lacute</span
+              ><span class="glyph-code">U+013A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="lcommaaccent u+013b ļ"
+              aria-label="Lcommaaccent: U+013B"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ļ</span></div>
+              <span class="glyph-name" title="Lcommaaccent">Lcommaaccent</span
+              ><span class="glyph-code">U+013B</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="lcommaaccent u+013c ļ"
+              aria-label="lcommaaccent: U+013C"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ļ</span></div>
+              <span class="glyph-name" title="lcommaaccent">lcommaaccent</span
+              ><span class="glyph-code">U+013C</span>
+            </li>
+            <li class="glyph-card" data-search="lcaron u+013d ľ" aria-label="Lcaron: U+013D">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ľ</span></div>
+              <span class="glyph-name" title="Lcaron">Lcaron</span
+              ><span class="glyph-code">U+013D</span>
+            </li>
+            <li class="glyph-card" data-search="lcaron u+013e ľ" aria-label="lcaron: U+013E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ľ</span></div>
+              <span class="glyph-name" title="lcaron">lcaron</span
+              ><span class="glyph-code">U+013E</span>
+            </li>
+            <li class="glyph-card" data-search="lslash u+0141 ł" aria-label="Lslash: U+0141">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ł</span></div>
+              <span class="glyph-name" title="Lslash">Lslash</span
+              ><span class="glyph-code">U+0141</span>
+            </li>
+            <li class="glyph-card" data-search="lslash u+0142 ł" aria-label="lslash: U+0142">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ł</span></div>
+              <span class="glyph-name" title="lslash">lslash</span
+              ><span class="glyph-code">U+0142</span>
+            </li>
+            <li class="glyph-card" data-search="nacute u+0143 ń" aria-label="Nacute: U+0143">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ń</span></div>
+              <span class="glyph-name" title="Nacute">Nacute</span
+              ><span class="glyph-code">U+0143</span>
+            </li>
+            <li class="glyph-card" data-search="nacute u+0144 ń" aria-label="nacute: U+0144">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ń</span></div>
+              <span class="glyph-name" title="nacute">nacute</span
+              ><span class="glyph-code">U+0144</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ncommaaccent u+0145 ņ"
+              aria-label="Ncommaaccent: U+0145"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ņ</span></div>
+              <span class="glyph-name" title="Ncommaaccent">Ncommaaccent</span
+              ><span class="glyph-code">U+0145</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ncommaaccent u+0146 ņ"
+              aria-label="ncommaaccent: U+0146"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ņ</span></div>
+              <span class="glyph-name" title="ncommaaccent">ncommaaccent</span
+              ><span class="glyph-code">U+0146</span>
+            </li>
+            <li class="glyph-card" data-search="ncaron u+0147 ň" aria-label="Ncaron: U+0147">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ň</span></div>
+              <span class="glyph-name" title="Ncaron">Ncaron</span
+              ><span class="glyph-code">U+0147</span>
+            </li>
+            <li class="glyph-card" data-search="ncaron u+0148 ň" aria-label="ncaron: U+0148">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ň</span></div>
+              <span class="glyph-name" title="ncaron">ncaron</span
+              ><span class="glyph-code">U+0148</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ohungarumlaut u+0150 ő"
+              aria-label="Ohungarumlaut: U+0150"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ő</span></div>
+              <span class="glyph-name" title="Ohungarumlaut">Ohungarumlaut</span
+              ><span class="glyph-code">U+0150</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ohungarumlaut u+0151 ő"
+              aria-label="ohungarumlaut: U+0151"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ő</span></div>
+              <span class="glyph-name" title="ohungarumlaut">ohungarumlaut</span
+              ><span class="glyph-code">U+0151</span>
+            </li>
+            <li class="glyph-card" data-search="oe u+0152 œ" aria-label="OE: U+0152">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Œ</span></div>
+              <span class="glyph-name" title="OE">OE</span><span class="glyph-code">U+0152</span>
+            </li>
+            <li class="glyph-card" data-search="oe u+0153 œ" aria-label="oe: U+0153">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">œ</span></div>
+              <span class="glyph-name" title="oe">oe</span><span class="glyph-code">U+0153</span>
+            </li>
+            <li class="glyph-card" data-search="racute u+0154 ŕ" aria-label="Racute: U+0154">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ŕ</span></div>
+              <span class="glyph-name" title="Racute">Racute</span
+              ><span class="glyph-code">U+0154</span>
+            </li>
+            <li class="glyph-card" data-search="racute u+0155 ŕ" aria-label="racute: U+0155">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ŕ</span></div>
+              <span class="glyph-name" title="racute">racute</span
+              ><span class="glyph-code">U+0155</span>
+            </li>
+            <li class="glyph-card" data-search="rcaron u+0158 ř" aria-label="Rcaron: U+0158">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ř</span></div>
+              <span class="glyph-name" title="Rcaron">Rcaron</span
+              ><span class="glyph-code">U+0158</span>
+            </li>
+            <li class="glyph-card" data-search="rcaron u+0159 ř" aria-label="rcaron: U+0159">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ř</span></div>
+              <span class="glyph-name" title="rcaron">rcaron</span
+              ><span class="glyph-code">U+0159</span>
+            </li>
+            <li class="glyph-card" data-search="sacute u+015a ś" aria-label="Sacute: U+015A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ś</span></div>
+              <span class="glyph-name" title="Sacute">Sacute</span
+              ><span class="glyph-code">U+015A</span>
+            </li>
+            <li class="glyph-card" data-search="sacute u+015b ś" aria-label="sacute: U+015B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ś</span></div>
+              <span class="glyph-name" title="sacute">sacute</span
+              ><span class="glyph-code">U+015B</span>
+            </li>
+            <li class="glyph-card" data-search="scedilla u+015e ş" aria-label="Scedilla: U+015E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ş</span></div>
+              <span class="glyph-name" title="Scedilla">Scedilla</span
+              ><span class="glyph-code">U+015E</span>
+            </li>
+            <li class="glyph-card" data-search="scedilla u+015f ş" aria-label="scedilla: U+015F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ş</span></div>
+              <span class="glyph-name" title="scedilla">scedilla</span
+              ><span class="glyph-code">U+015F</span>
+            </li>
+            <li class="glyph-card" data-search="scaron u+0160 š" aria-label="Scaron: U+0160">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Š</span></div>
+              <span class="glyph-name" title="Scaron">Scaron</span
+              ><span class="glyph-code">U+0160</span>
+            </li>
+            <li class="glyph-card" data-search="scaron u+0161 š" aria-label="scaron: U+0161">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">š</span></div>
+              <span class="glyph-name" title="scaron">scaron</span
+              ><span class="glyph-code">U+0161</span>
+            </li>
+            <li class="glyph-card" data-search="tcaron u+0164 ť" aria-label="Tcaron: U+0164">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ť</span></div>
+              <span class="glyph-name" title="Tcaron">Tcaron</span
+              ><span class="glyph-code">U+0164</span>
+            </li>
+            <li class="glyph-card" data-search="tcaron u+0165 ť" aria-label="tcaron: U+0165">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ť</span></div>
+              <span class="glyph-name" title="tcaron">tcaron</span
+              ><span class="glyph-code">U+0165</span>
+            </li>
+            <li class="glyph-card" data-search="umacron u+016a ū" aria-label="Umacron: U+016A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ū</span></div>
+              <span class="glyph-name" title="Umacron">Umacron</span
+              ><span class="glyph-code">U+016A</span>
+            </li>
+            <li class="glyph-card" data-search="umacron u+016b ū" aria-label="umacron: U+016B">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ū</span></div>
+              <span class="glyph-name" title="umacron">umacron</span
+              ><span class="glyph-code">U+016B</span>
+            </li>
+            <li class="glyph-card" data-search="uring u+016e ů" aria-label="Uring: U+016E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ů</span></div>
+              <span class="glyph-name" title="Uring">Uring</span
+              ><span class="glyph-code">U+016E</span>
+            </li>
+            <li class="glyph-card" data-search="uring u+016f ů" aria-label="uring: U+016F">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ů</span></div>
+              <span class="glyph-name" title="uring">uring</span
+              ><span class="glyph-code">U+016F</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="uhungarumlaut u+0170 ű"
+              aria-label="Uhungarumlaut: U+0170"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ű</span></div>
+              <span class="glyph-name" title="Uhungarumlaut">Uhungarumlaut</span
+              ><span class="glyph-code">U+0170</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="uhungarumlaut u+0171 ű"
+              aria-label="uhungarumlaut: U+0171"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ű</span></div>
+              <span class="glyph-name" title="uhungarumlaut">uhungarumlaut</span
+              ><span class="glyph-code">U+0171</span>
+            </li>
+            <li class="glyph-card" data-search="uogonek u+0172 ų" aria-label="Uogonek: U+0172">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ų</span></div>
+              <span class="glyph-name" title="Uogonek">Uogonek</span
+              ><span class="glyph-code">U+0172</span>
+            </li>
+            <li class="glyph-card" data-search="uogonek u+0173 ų" aria-label="uogonek: U+0173">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ų</span></div>
+              <span class="glyph-name" title="uogonek">uogonek</span
+              ><span class="glyph-code">U+0173</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="wcircumflex u+0174 ŵ"
+              aria-label="Wcircumflex: U+0174"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ŵ</span></div>
+              <span class="glyph-name" title="Wcircumflex">Wcircumflex</span
+              ><span class="glyph-code">U+0174</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="wcircumflex u+0175 ŵ"
+              aria-label="wcircumflex: U+0175"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ŵ</span></div>
+              <span class="glyph-name" title="wcircumflex">wcircumflex</span
+              ><span class="glyph-code">U+0175</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ycircumflex u+0176 ŷ"
+              aria-label="Ycircumflex: U+0176"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ŷ</span></div>
+              <span class="glyph-name" title="Ycircumflex">Ycircumflex</span
+              ><span class="glyph-code">U+0176</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ycircumflex u+0177 ŷ"
+              aria-label="ycircumflex: U+0177"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ŷ</span></div>
+              <span class="glyph-name" title="ycircumflex">ycircumflex</span
+              ><span class="glyph-code">U+0177</span>
+            </li>
+            <li class="glyph-card" data-search="ydieresis u+0178 ÿ" aria-label="Ydieresis: U+0178">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ÿ</span></div>
+              <span class="glyph-name" title="Ydieresis">Ydieresis</span
+              ><span class="glyph-code">U+0178</span>
+            </li>
+            <li class="glyph-card" data-search="zacute u+0179 ź" aria-label="Zacute: U+0179">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ź</span></div>
+              <span class="glyph-name" title="Zacute">Zacute</span
+              ><span class="glyph-code">U+0179</span>
+            </li>
+            <li class="glyph-card" data-search="zacute u+017a ź" aria-label="zacute: U+017A">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ź</span></div>
+              <span class="glyph-name" title="zacute">zacute</span
+              ><span class="glyph-code">U+017A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="zdotaccent u+017b ż"
+              aria-label="Zdotaccent: U+017B"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ż</span></div>
+              <span class="glyph-name" title="Zdotaccent">Zdotaccent</span
+              ><span class="glyph-code">U+017B</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="zdotaccent u+017c ż"
+              aria-label="zdotaccent: U+017C"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ż</span></div>
+              <span class="glyph-name" title="zdotaccent">zdotaccent</span
+              ><span class="glyph-code">U+017C</span>
+            </li>
+            <li class="glyph-card" data-search="zcaron u+017d ž" aria-label="Zcaron: U+017D">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ž</span></div>
+              <span class="glyph-name" title="Zcaron">Zcaron</span
+              ><span class="glyph-code">U+017D</span>
+            </li>
+            <li class="glyph-card" data-search="zcaron u+017e ž" aria-label="zcaron: U+017E">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ž</span></div>
+              <span class="glyph-name" title="zcaron">zcaron</span
+              ><span class="glyph-code">U+017E</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="scommaaccent u+0218 ș"
+              aria-label="Scommaaccent: U+0218"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ș</span></div>
+              <span class="glyph-name" title="Scommaaccent">Scommaaccent</span
+              ><span class="glyph-code">U+0218</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="scommaaccent u+0219 ș"
+              aria-label="scommaaccent: U+0219"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ș</span></div>
+              <span class="glyph-name" title="scommaaccent">scommaaccent</span
+              ><span class="glyph-code">U+0219</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="tcommaaccent u+021a ț"
+              aria-label="Tcommaaccent: U+021A"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ț</span></div>
+              <span class="glyph-name" title="Tcommaaccent">Tcommaaccent</span
+              ><span class="glyph-code">U+021A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="tcommaaccent u+021b ț"
+              aria-label="tcommaaccent: U+021B"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ț</span></div>
+              <span class="glyph-name" title="tcommaaccent">tcommaaccent</span
+              ><span class="glyph-code">U+021B</span>
+            </li>
+            <li class="glyph-card" data-search="dotlessj u+0237 ȷ" aria-label="dotlessj: U+0237">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ȷ</span></div>
+              <span class="glyph-name" title="dotlessj">dotlessj</span
+              ><span class="glyph-code">U+0237</span>
+            </li>
+            <li class="glyph-card" data-search="wgrave u+1e80 ẁ" aria-label="Wgrave: U+1E80">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ẁ</span></div>
+              <span class="glyph-name" title="Wgrave">Wgrave</span
+              ><span class="glyph-code">U+1E80</span>
+            </li>
+            <li class="glyph-card" data-search="wgrave u+1e81 ẁ" aria-label="wgrave: U+1E81">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ẁ</span></div>
+              <span class="glyph-name" title="wgrave">wgrave</span
+              ><span class="glyph-code">U+1E81</span>
+            </li>
+            <li class="glyph-card" data-search="wacute u+1e82 ẃ" aria-label="Wacute: U+1E82">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ẃ</span></div>
+              <span class="glyph-name" title="Wacute">Wacute</span
+              ><span class="glyph-code">U+1E82</span>
+            </li>
+            <li class="glyph-card" data-search="wacute u+1e83 ẃ" aria-label="wacute: U+1E83">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ẃ</span></div>
+              <span class="glyph-name" title="wacute">wacute</span
+              ><span class="glyph-code">U+1E83</span>
+            </li>
+            <li class="glyph-card" data-search="wdieresis u+1e84 ẅ" aria-label="Wdieresis: U+1E84">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ẅ</span></div>
+              <span class="glyph-name" title="Wdieresis">Wdieresis</span
+              ><span class="glyph-code">U+1E84</span>
+            </li>
+            <li class="glyph-card" data-search="wdieresis u+1e85 ẅ" aria-label="wdieresis: U+1E85">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ẅ</span></div>
+              <span class="glyph-name" title="wdieresis">wdieresis</span
+              ><span class="glyph-code">U+1E85</span>
+            </li>
+            <li class="glyph-card" data-search="ygrave u+1ef2 ỳ" aria-label="Ygrave: U+1EF2">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ỳ</span></div>
+              <span class="glyph-name" title="Ygrave">Ygrave</span
+              ><span class="glyph-code">U+1EF2</span>
+            </li>
+            <li class="glyph-card" data-search="ygrave u+1ef3 ỳ" aria-label="ygrave: U+1EF3">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ỳ</span></div>
+              <span class="glyph-name" title="ygrave">ygrave</span
+              ><span class="glyph-code">U+1EF3</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="germandbls u+00df ß"
+              aria-label="germandbls: U+00DF"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ß</span></div>
+              <span class="glyph-name" title="germandbls">germandbls</span
+              ><span class="glyph-code">U+00DF</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="germandbls u+1e9e ß"
+              aria-label="Germandbls: U+1E9E"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ẞ</span></div>
+              <span class="glyph-name" title="Germandbls">Germandbls</span
+              ><span class="glyph-code">U+1E9E</span>
+            </li>
+            <li class="glyph-card" data-search="ae u+00c6 æ" aria-label="AE: U+00C6">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Æ</span></div>
+              <span class="glyph-name" title="AE">AE</span><span class="glyph-code">U+00C6</span>
+            </li>
+            <li class="glyph-card" data-search="ae u+00e6 æ" aria-label="ae: U+00E6">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">æ</span></div>
+              <span class="glyph-name" title="ae">ae</span><span class="glyph-code">U+00E6</span>
+            </li>
+            <li class="glyph-card" data-search="oslash u+00d8 ø" aria-label="Oslash: U+00D8">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ø</span></div>
+              <span class="glyph-name" title="Oslash">Oslash</span
+              ><span class="glyph-code">U+00D8</span>
+            </li>
+            <li class="glyph-card" data-search="oslash u+00f8 ø" aria-label="oslash: U+00F8">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ø</span></div>
+              <span class="glyph-name" title="oslash">oslash</span
+              ><span class="glyph-code">U+00F8</span>
+            </li>
+            <li class="glyph-card" data-search="thorn u+00de þ" aria-label="Thorn: U+00DE">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Þ</span></div>
+              <span class="glyph-name" title="Thorn">Thorn</span
+              ><span class="glyph-code">U+00DE</span>
+            </li>
+            <li class="glyph-card" data-search="thorn u+00fe þ" aria-label="thorn: U+00FE">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">þ</span></div>
+              <span class="glyph-name" title="thorn">thorn</span
+              ><span class="glyph-code">U+00FE</span>
+            </li>
+            <li class="glyph-card" data-search="eth u+00d0 ð" aria-label="Eth: U+00D0">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ð</span></div>
+              <span class="glyph-name" title="Eth">Eth</span><span class="glyph-code">U+00D0</span>
+            </li>
+            <li class="glyph-card" data-search="eth u+00f0 ð" aria-label="eth: U+00F0">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ð</span></div>
+              <span class="glyph-name" title="eth">eth</span><span class="glyph-code">U+00F0</span>
+            </li>
+            <li class="glyph-card" data-search="dcroat u+0110 đ" aria-label="Dcroat: U+0110">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Đ</span></div>
+              <span class="glyph-name" title="Dcroat">Dcroat</span
+              ><span class="glyph-code">U+0110</span>
+            </li>
+            <li class="glyph-card" data-search="dcroat u+0111 đ" aria-label="dcroat: U+0111">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">đ</span></div>
+              <span class="glyph-name" title="dcroat">dcroat</span
+              ><span class="glyph-code">U+0111</span>
+            </li>
+            <li class="glyph-card" data-search="hbar u+0126 ħ" aria-label="Hbar: U+0126">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">Ħ</span></div>
+              <span class="glyph-name" title="Hbar">Hbar</span
+              ><span class="glyph-code">U+0126</span>
+            </li>
+            <li class="glyph-card" data-search="hbar u+0127 ħ" aria-label="hbar: U+0127">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ħ</span></div>
+              <span class="glyph-name" title="hbar">hbar</span
+              ><span class="glyph-code">U+0127</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="exclamdown u+00a1 ¡"
+              aria-label="exclamdown: U+00A1"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¡</span></div>
+              <span class="glyph-name" title="exclamdown">exclamdown</span
+              ><span class="glyph-code">U+00A1</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="questiondown u+00bf ¿"
+              aria-label="questiondown: U+00BF"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¿</span></div>
+              <span class="glyph-name" title="questiondown">questiondown</span
+              ><span class="glyph-code">U+00BF</span>
+            </li>
+            <li class="glyph-card" data-search="cent u+00a2 ¢" aria-label="cent: U+00A2">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¢</span></div>
+              <span class="glyph-name" title="cent">cent</span
+              ><span class="glyph-code">U+00A2</span>
+            </li>
+            <li class="glyph-card" data-search="sterling u+00a3 £" aria-label="sterling: U+00A3">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">£</span></div>
+              <span class="glyph-name" title="sterling">sterling</span
+              ><span class="glyph-code">U+00A3</span>
+            </li>
+            <li class="glyph-card" data-search="yen u+00a5 ¥" aria-label="yen: U+00A5">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¥</span></div>
+              <span class="glyph-name" title="yen">yen</span><span class="glyph-code">U+00A5</span>
+            </li>
+            <li class="glyph-card" data-search="euro u+20ac €" aria-label="Euro: U+20AC">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">€</span></div>
+              <span class="glyph-name" title="Euro">Euro</span
+              ><span class="glyph-code">U+20AC</span>
+            </li>
+            <li class="glyph-card" data-search="section u+00a7 §" aria-label="section: U+00A7">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">§</span></div>
+              <span class="glyph-name" title="section">section</span
+              ><span class="glyph-code">U+00A7</span>
+            </li>
+            <li class="glyph-card" data-search="paragraph u+00b6 ¶" aria-label="paragraph: U+00B6">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¶</span></div>
+              <span class="glyph-name" title="paragraph">paragraph</span
+              ><span class="glyph-code">U+00B6</span>
+            </li>
+            <li class="glyph-card" data-search="copyright u+00a9 ©" aria-label="copyright: U+00A9">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">©</span></div>
+              <span class="glyph-name" title="copyright">copyright</span
+              ><span class="glyph-code">U+00A9</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="registered u+00ae ®"
+              aria-label="registered: U+00AE"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">®</span></div>
+              <span class="glyph-name" title="registered">registered</span
+              ><span class="glyph-code">U+00AE</span>
+            </li>
+            <li class="glyph-card" data-search="trademark u+2122 ™" aria-label="trademark: U+2122">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">™</span></div>
+              <span class="glyph-name" title="trademark">trademark</span
+              ><span class="glyph-code">U+2122</span>
+            </li>
+            <li class="glyph-card" data-search="degree u+00b0 °" aria-label="degree: U+00B0">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">°</span></div>
+              <span class="glyph-name" title="degree">degree</span
+              ><span class="glyph-code">U+00B0</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="periodcentered u+00b7 ·"
+              aria-label="periodcentered: U+00B7"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">·</span></div>
+              <span class="glyph-name" title="periodcentered">periodcentered</span
+              ><span class="glyph-code">U+00B7</span>
+            </li>
+            <li class="glyph-card" data-search="bullet u+2022 •" aria-label="bullet: U+2022">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">•</span></div>
+              <span class="glyph-name" title="bullet">bullet</span
+              ><span class="glyph-code">U+2022</span>
+            </li>
+            <li class="glyph-card" data-search="ellipsis u+2026 …" aria-label="ellipsis: U+2026">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">…</span></div>
+              <span class="glyph-name" title="ellipsis">ellipsis</span
+              ><span class="glyph-code">U+2026</span>
+            </li>
+            <li class="glyph-card" data-search="endash u+2013 –" aria-label="endash: U+2013">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">–</span></div>
+              <span class="glyph-name" title="endash">endash</span
+              ><span class="glyph-code">U+2013</span>
+            </li>
+            <li class="glyph-card" data-search="emdash u+2014 —" aria-label="emdash: U+2014">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">—</span></div>
+              <span class="glyph-name" title="emdash">emdash</span
+              ><span class="glyph-code">U+2014</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="quotesinglbase u+201a ‚"
+              aria-label="quotesinglbase: U+201A"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">‚</span></div>
+              <span class="glyph-name" title="quotesinglbase">quotesinglbase</span
+              ><span class="glyph-code">U+201A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="quotedblbase u+201e „"
+              aria-label="quotedblbase: U+201E"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">„</span></div>
+              <span class="glyph-name" title="quotedblbase">quotedblbase</span
+              ><span class="glyph-code">U+201E</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="guilsinglleft u+2039 ‹"
+              aria-label="guilsinglleft: U+2039"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">‹</span></div>
+              <span class="glyph-name" title="guilsinglleft">guilsinglleft</span
+              ><span class="glyph-code">U+2039</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="guilsinglright u+203a ›"
+              aria-label="guilsinglright: U+203A"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">›</span></div>
+              <span class="glyph-name" title="guilsinglright">guilsinglright</span
+              ><span class="glyph-code">U+203A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="guillemotleft u+00ab «"
+              aria-label="guillemotleft: U+00AB"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">«</span></div>
+              <span class="glyph-name" title="guillemotleft">guillemotleft</span
+              ><span class="glyph-code">U+00AB</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="guillemotright u+00bb »"
+              aria-label="guillemotright: U+00BB"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">»</span></div>
+              <span class="glyph-name" title="guillemotright">guillemotright</span
+              ><span class="glyph-code">U+00BB</span>
+            </li>
+            <li class="glyph-card" data-search="multiply u+00d7 ×" aria-label="multiply: U+00D7">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">×</span></div>
+              <span class="glyph-name" title="multiply">multiply</span
+              ><span class="glyph-code">U+00D7</span>
+            </li>
+            <li class="glyph-card" data-search="divide u+00f7 ÷" aria-label="divide: U+00F7">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">÷</span></div>
+              <span class="glyph-name" title="divide">divide</span
+              ><span class="glyph-code">U+00F7</span>
+            </li>
+            <li class="glyph-card" data-search="minus u+2212 −" aria-label="minus: U+2212">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">−</span></div>
+              <span class="glyph-name" title="minus">minus</span
+              ><span class="glyph-code">U+2212</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ordfeminine u+00aa ª"
+              aria-label="ordfeminine: U+00AA"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ª</span></div>
+              <span class="glyph-name" title="ordfeminine">ordfeminine</span
+              ><span class="glyph-code">U+00AA</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ordmasculine u+00ba º"
+              aria-label="ordmasculine: U+00BA"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">º</span></div>
+              <span class="glyph-name" title="ordmasculine">ordmasculine</span
+              ><span class="glyph-code">U+00BA</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="asciicircum u+005e ^"
+              aria-label="asciicircum: U+005E"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">^</span></div>
+              <span class="glyph-name" title="asciicircum">asciicircum</span
+              ><span class="glyph-code">U+005E</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="asciitilde u+007e ~"
+              aria-label="asciitilde: U+007E"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">~</span></div>
+              <span class="glyph-name" title="asciitilde">asciitilde</span
+              ><span class="glyph-code">U+007E</span>
+            </li>
+            <li class="glyph-card" data-search="bar u+007c |" aria-label="bar: U+007C">
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">|</span></div>
+              <span class="glyph-name" title="bar">bar</span><span class="glyph-code">U+007C</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="grave.spacing u+0060 `"
+              aria-label="grave.spacing: U+0060"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">`</span></div>
+              <span class="glyph-name" title="grave.spacing">grave.spacing</span
+              ><span class="glyph-code">U+0060</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="macron.spacing u+00af ¯"
+              aria-label="macron.spacing: U+00AF"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¯</span></div>
+              <span class="glyph-name" title="macron.spacing">macron.spacing</span
+              ><span class="glyph-code">U+00AF</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="acute.spacing u+00b4 ´"
+              aria-label="acute.spacing: U+00B4"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">´</span></div>
+              <span class="glyph-name" title="acute.spacing">acute.spacing</span
+              ><span class="glyph-code">U+00B4</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="dieresis.spacing u+00a8 ¨"
+              aria-label="dieresis.spacing: U+00A8"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¨</span></div>
+              <span class="glyph-name" title="dieresis.spacing">dieresis.spacing</span
+              ><span class="glyph-code">U+00A8</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="cedilla.spacing u+00b8 ¸"
+              aria-label="cedilla.spacing: U+00B8"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">¸</span></div>
+              <span class="glyph-name" title="cedilla.spacing">cedilla.spacing</span
+              ><span class="glyph-code">U+00B8</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="circumflex.spacing u+02c6 ˆ"
+              aria-label="circumflex.spacing: U+02C6"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ˆ</span></div>
+              <span class="glyph-name" title="circumflex.spacing">circumflex.spacing</span
+              ><span class="glyph-code">U+02C6</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="caron.spacing u+02c7 ˇ"
+              aria-label="caron.spacing: U+02C7"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">ˇ</span></div>
+              <span class="glyph-name" title="caron.spacing">caron.spacing</span
+              ><span class="glyph-code">U+02C7</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="breve.spacing u+02d8 ˘"
+              aria-label="breve.spacing: U+02D8"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">˘</span></div>
+              <span class="glyph-name" title="breve.spacing">breve.spacing</span
+              ><span class="glyph-code">U+02D8</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="dotaccent.spacing u+02d9 ˙"
+              aria-label="dotaccent.spacing: U+02D9"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">˙</span></div>
+              <span class="glyph-name" title="dotaccent.spacing">dotaccent.spacing</span
+              ><span class="glyph-code">U+02D9</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ring.spacing u+02da ˚"
+              aria-label="ring.spacing: U+02DA"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">˚</span></div>
+              <span class="glyph-name" title="ring.spacing">ring.spacing</span
+              ><span class="glyph-code">U+02DA</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="ogonek.spacing u+02db ˛"
+              aria-label="ogonek.spacing: U+02DB"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">˛</span></div>
+              <span class="glyph-name" title="ogonek.spacing">ogonek.spacing</span
+              ><span class="glyph-code">U+02DB</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="tilde.spacing u+02dc ˜"
+              aria-label="tilde.spacing: U+02DC"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">˜</span></div>
+              <span class="glyph-name" title="tilde.spacing">tilde.spacing</span
+              ><span class="glyph-code">U+02DC</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="hungarumlaut.spacing u+02dd ˝"
+              aria-label="hungarumlaut.spacing: U+02DD"
+            >
+              <div class="glyph-drawing" aria-hidden="true"><span class="marker">˝</span></div>
+              <span class="glyph-name" title="hungarumlaut.spacing">hungarumlaut.spacing</span
+              ><span class="glyph-code">U+02DD</span>
+            </li>
+            <li class="glyph-card" data-search="gravecomb u+0300 ̀" aria-label="gravecomb: U+0300">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-378 -1038.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M187 422 172 421H167L157 424L152 426L144 433L133 446L123 460L107 487L72 537L55 562L52 567L42 582L37 593L32 603L30 614L29 619V624L30 628L32 633L34 637L37 641L46 648L50 650L55 653L60 654L75 656L85 653L90 651L94 649L98 645L102 642L110 633L123 613L139 587L150 572L164 552L185 522L198 502L206 486L211 476L213 470L215 460V455V450L214 446L211 441L209 437L205 434L197 427Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="gravecomb">gravecomb</span
+              ><span class="glyph-code">U+0300</span>
+            </li>
+            <li class="glyph-card" data-search="acutecomb u+0301 ́" aria-label="acutecomb: U+0301">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-378 -1039 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M54 424 50 427 45 430 41 433 38 437 35 441 32 446 31 450 30 455V460L31 465L32 470L34 476L36 481L48 501L68 532L85 557L129 623L139 638L143 642L147 647L151 650L155 653L164 658L173 659L183 656L188 654L197 649L201 646L205 642L208 638L212 628L213 623L214 618V613L213 608L210 598L208 593L203 582L190 562L179 547L148 502L131 476L115 450L109 440L105 436L101 432L97 428L93 425L84 421L79 420L74 419L69 420L59 422Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="acutecomb">acutecomb</span
+              ><span class="glyph-code">U+0301</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="circumflexcomb u+0302 ̂"
+              aria-label="circumflexcomb: U+0302"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-324.5 -1018 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M201 546 198 548 194 545 191 541 187 536 184 531 160 503 148 490 132 470 125 460 114 445 111 440 104 431 100 427 87 417 78 414H63L53 417L44 422L40 425L37 429L34 433L32 438L30 442V447V452L33 462L35 467L38 472L51 492L58 502L65 511L73 521L85 534L105 558L113 568L135 597L139 601L143 605L156 616L165 621L175 623H179L189 620L198 615L203 611L207 608L211 604L218 595L233 575L236 570L248 555L264 536L280 518L291 504L299 495L312 475L317 465L320 455L321 450L320 445L319 440L318 436L315 431L312 427L304 420L300 418L290 414L280 413H275L266 416L261 419L253 426L245 434L234 449L227 459L219 469L204 488L199 492L183 511L176 520L165 534H164V535H165L172 533H180L187 535L199 540L202 543Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="circumflexcomb">circumflexcomb</span
+              ><span class="glyph-code">U+0302</span>
+            </li>
+            <li class="glyph-card" data-search="tildecomb u+0303 ̃" aria-label="tildecomb: U+0303">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-310.5 -1000.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M130 501 123 496 119 491 116 486 112 482 108 479 99 472 95 469 84 465 74 463 63 464 58 465 49 468 46 471 42 475 40 479 37 484 36 489 34 499V503L36 507L41 517L52 532L63 545L67 549L75 557L85 564L100 571L111 574L122 576H133L139 575L150 573L166 568L176 562L180 559L189 552L193 548L201 539L217 520L226 511L231 507L237 502L244 500L253 502L258 507L262 512L265 516L269 520L277 527L292 534L302 537L313 538L323 535L331 531L335 528L340 519L342 514L344 504L345 500L344 495L342 491L339 486L332 476L318 458L310 449L301 442L287 433L276 429L265 426L248 425H243L226 428L221 430L216 432L210 434L201 440L192 447L183 455L175 464L167 473L159 483L150 492L145 496L138 500Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="tildecomb">tildecomb</span
+              ><span class="glyph-code">U+0303</span>
+            </li>
+            <li class="glyph-card" data-search="macroncomb u+0304 ̄" aria-label="macroncomb: U+0304">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-304 -997.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M347 507 346 497 343 487 340 482 337 478 334 474 325 468 320 466 309 463 297 461H224L120 456H90L79 457L68 461L64 463L59 466L55 469L50 478L48 483L45 494V499L46 503L48 507L51 512L54 516L58 520L63 523L67 526L78 530L89 532L101 534H112H198L229 535L272 539H290H295H301L307 538L318 536L323 534L332 528L336 525L343 516L345 511Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="macroncomb">macroncomb</span
+              ><span class="glyph-code">U+0304</span>
+            </li>
+            <li class="glyph-card" data-search="brevecomb u+0306 ̆" aria-label="brevecomb: U+0306">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-331 -1021.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M272 586 276 584 280 581 284 578 288 574 291 570 294 566 296 561 297 556V551V546L296 541L294 536L290 526L287 521L281 511L277 507L273 502L261 490L252 483L237 474L221 466L205 461L182 457H158L141 460L135 461L113 468L103 473L93 478L79 489L70 496L66 501L55 514L49 524L47 529L43 539L42 544L41 549V554L42 559L43 564L46 568L52 576L56 580L60 583L65 585L69 586H73L77 585L86 580L100 570L118 554L133 542L144 534L157 529L164 527H171L179 528L185 530L197 536L208 544L213 548L222 556L241 572L245 576L250 579L259 584L264 586H268Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="brevecomb">brevecomb</span
+              ><span class="glyph-code">U+0306</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="dotaccentcomb u+0307 ̇"
+              aria-label="dotaccentcomb: U+0307"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-397.5 -1014.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M155 518 156 512V501V496L154 492L152 487L149 483L141 476L137 472L127 467L122 465L111 462H106L95 461L84 463L79 464L74 466L70 469L66 472L62 476L59 480L56 485L54 490L52 495L51 500L49 511V517V522L50 528L53 538L57 548L61 552L68 559L77 564L82 566L88 567L104 568L110 567L126 563L131 561L140 556L144 553L148 549L151 545L153 540L154 535L155 530Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="dotaccentcomb">dotaccentcomb</span
+              ><span class="glyph-code">U+0307</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="dieresiscomb u+0308 ̈"
+              aria-label="dieresiscomb: U+0308"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-303.5 -1014 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M56 490 53 495 50 500 48 505 47 510V515L48 520L49 524L51 529L54 534L57 538L60 543L68 550L83 559L98 563L103 564L108 563L113 562L123 558L127 555L135 548L141 539L144 534L146 529L148 524L151 513V508V502L150 497L148 492L146 488L143 483L140 479L136 476L132 473L122 467L106 462L95 461L90 462H85L75 465L67 471L63 475L61 479L58 484ZM312 561 318 559 328 556 336 550 339 546 341 541 343 537 346 526V521V515V510L345 504L343 499L342 493L340 488L334 479L331 475L322 469L318 467L308 464H297L291 465L275 469L266 474L257 481L251 489L246 499L245 504V509V514L246 519L247 525L249 530L254 540L260 549L264 553L268 557L276 563L286 566L291 567H296L306 563Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="dieresiscomb">dieresiscomb</span
+              ><span class="glyph-code">U+0308</span>
+            </li>
+            <li class="glyph-card" data-search="ringcomb u+030a ̊" aria-label="ringcomb: U+030A">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-384.5 -1031 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M45 536 46 547 48 552 49 557 52 562 54 567 61 575 69 583 73 587 83 593 103 600 114 602H120L125 601L135 598L145 594L155 588L167 577L174 568L179 558L181 553L185 537L186 532V526L185 521L182 511L180 506L178 501L175 496L168 487L164 483L156 476L152 472L142 467L132 463L126 462L121 461L116 460H110L100 462L89 466L84 468L80 471L71 478L66 481L63 485L59 490L53 499L48 509L47 514L45 524V530ZM104 565 93 560 87 557 82 553 78 547 76 541 75 535 76 528 78 522 81 517 86 512 90 507 95 503 101 500 107 498 113 496H120L126 497L132 500L137 504L141 509L145 514L148 520L150 526L151 533V539V545L149 552L146 558L142 562L136 566L130 568H123H117Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="ringcomb">ringcomb</span
+              ><span class="glyph-code">U+030A</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="hungarumlautcomb u+030b ̋"
+              aria-label="hungarumlautcomb: U+030B"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-328.5 -1037.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M53 430 48 433 41 441 38 445 36 449 35 454 34 459V464L35 469L36 474L40 485L43 490L54 512L64 534L87 591L97 612L103 623L112 637L120 644L124 647L128 649L138 650L147 648L157 644L161 641L168 634L171 630L173 625L174 620L175 616V611L174 605L171 595L162 573L153 557L146 540L125 489L118 473L107 451L104 447L101 442L94 434L90 430L86 428L81 426L77 425H72H67L62 426ZM195 427 186 431 182 434 178 438 172 445 171 450 170 454V459V465L173 475L179 492L211 564L219 581L233 614L239 625L244 635L248 639L251 643L255 646L259 648L263 649L273 650L288 646L297 640L300 637L303 633L306 629L309 619V614V609L307 599L305 593L303 588L298 577L296 571L280 538L278 532L266 504L259 487L247 460L241 449L239 444L232 436L228 432L224 430L220 427L215 426L205 425L200 426Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="hungarumlautcomb">hungarumlautcomb</span
+              ><span class="glyph-code">U+030B</span>
+            </li>
+            <li class="glyph-card" data-search="caroncomb u+030c ̌" aria-label="caroncomb: U+030C">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-325 -1018 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M178 414 169 415 159 419 154 422 150 425 141 432 133 440 130 445 122 454 107 474 99 484 96 488 76 512 72 517 68 521 64 526 46 550 39 560 33 570 31 575 30 580 29 585V589L30 594L32 599L34 603L37 607L41 611L45 614L49 617L59 621L64 622H74L84 619L88 617L93 614L101 606L112 593L131 569L146 549L150 544L166 526L182 507L186 502L193 493L196 489H199L201 493L199 496L194 498L188 500L174 504L166 503L154 497L148 495L144 492V488L148 485L152 486L156 490L163 500L175 514L199 542L207 551L218 566L240 596L248 604L256 612L260 615L265 618L270 620L275 621H285H290L300 618L304 615L308 612L316 605L318 600L320 596L321 591V587V582L319 577L315 567L312 561L299 542L295 537L292 532L272 509L252 485L237 466L229 456L218 442L210 434L202 426L197 423L183 415Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="caroncomb">caroncomb</span
+              ><span class="glyph-code">U+030C</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="commaaccentcomb u+0326 ̦"
+              aria-label="commaaccentcomb: U+0326"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-411 -373.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M78 -125 74 -118 70 -114 66 -110 63 -106 61 -101 59 -96 58 -91 57 -86 58 -76 60 -71 65 -61 72 -54 77 -51 81 -49 92 -47H97L102 -48L112 -51L116 -53L120 -57L124 -61L127 -65L132 -74L135 -85V-91L136 -96L135 -102V-107L131 -124L129 -130L125 -141L120 -151L111 -167L101 -180L93 -189L84 -196L69 -204L64 -206H55L50 -205L47 -203L44 -201L42 -197V-193L43 -189L48 -181L51 -176L64 -163L68 -157L71 -152L75 -146L77 -140L79 -133Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="commaaccentcomb">commaaccentcomb</span
+              ><span class="glyph-code">U+0326</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="cedillacomb u+0327 ̧"
+              aria-label="cedillacomb: U+0327"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-395.5 -410 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M71 -96 67 -94 63 -90 61 -85 59 -80 58 -69V-63L59 -51L62 -39L65 -28L67 -22L72 -12L78 -2L82 2L86 5L91 8L96 9H101L106 8L111 6L116 3L120 -1L124 -5L127 -10L129 -15L131 -25L130 -31L129 -36L127 -42L125 -47L122 -51L118 -56L115 -60L113 -62L112 -60L109 -56L105 -51L101 -47L97 -45L96 -47L99 -48L110 -49L121 -52L126 -54L141 -63L155 -75L162 -84L165 -89L169 -99L171 -105L172 -111V-116V-122L171 -128L168 -139L166 -144L160 -155L157 -159L149 -168L140 -176L135 -179L130 -182L125 -184L114 -187L102 -189H90L85 -188L79 -187L67 -185L56 -181L46 -176L42 -173L40 -169L39 -163L37 -152V-147L39 -142L41 -138L45 -135L50 -133L56 -132L86 -131L98 -130L105 -129L111 -125L115 -120L116 -114L112 -108L106 -105L94 -101L76 -98Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="cedillacomb">cedillacomb</span
+              ><span class="glyph-code">U+0327</span>
+            </li>
+            <li class="glyph-card" data-search="ogonekcomb u+0328 ̨" aria-label="ogonekcomb: U+0328">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-381 -425.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M85 -169 76 -165 72 -162 69 -158 67 -154 63 -143 59 -132 57 -126 50 -108 46 -97 42 -81V-76V-70L43 -65L44 -60L46 -55L51 -45L61 -31L69 -22L86 -5L99 8L104 12L108 15L112 19L116 21L120 22H125L129 21L134 19L139 17L143 14L147 11L150 8L152 4L154 -1V-5V-10L151 -20L147 -30L144 -34L140 -39L136 -43L123 -55L109 -68L105 -73L101 -78L102 -83L108 -86L113 -83L115 -77L116 -71L113 -67L107 -68L105 -72L106 -77L108 -83L115 -107L117 -112L120 -116L124 -114L125 -111L123 -108L118 -103L112 -99L105 -97L99 -98L95 -105L99 -108H105L124 -104L136 -100L147 -97L163 -96L174 -98L184 -101L188 -104L191 -107L193 -111L195 -115L196 -120V-125V-130L195 -135L193 -140L191 -144L188 -148L180 -154L176 -156L160 -160L135 -163L117 -168L95 -171Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="ogonekcomb">ogonekcomb</span
+              ><span class="glyph-code">U+0328</span>
+            </li>
+            <li class="glyph-card" data-search="jacute alternate " aria-label="jacute: alternate">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-324 -729.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M137 -98 144 -95 150 -90 154 -84 158 -79 164 -68 170 -56 174 -44 177 -32 180 -19 183 -1 184 12 187 36 192 91 198 171 200 214 202 245 203 306 204 330 205 348 207 360 210 371 212 376 217 384 221 389 225 391 234 396 244 399 249 400 254 399 259 398 269 395 274 393 278 390 282 386 286 383 288 378 291 374 294 363 295 358V352L296 346L297 322V273V261V255V249L296 242V236V230V224V218L294 163L292 132L289 83L288 71L283 10L279 -20L276 -44L271 -68L269 -79L263 -96L261 -102L254 -118L249 -129L243 -139L236 -148L232 -153L225 -162L221 -166L216 -170L207 -177L198 -184L188 -189L177 -194L172 -196L155 -199L150 -200H138H132L109 -196L98 -193L88 -188L82 -186L72 -180L63 -173L54 -166L42 -153L39 -149L32 -139L27 -129L21 -113L18 -102L16 -90L15 -85V-79L16 -75L17 -70L19 -66L22 -62L26 -58L30 -55L39 -49L49 -46L60 -44L65 -45L74 -48L78 -50L82 -54L90 -62L94 -66L106 -81L115 -90L121 -94L128 -98ZM177 424 173 427 168 431 164 433 161 438 158 441 154 450 153 455V460L154 465L155 470L159 481L168 496L177 511L191 532L245 613L262 638L266 643L270 647L274 650L278 653L282 656L287 658L296 659L301 658L306 656L311 654L320 649L324 646L328 642L331 639L335 628L336 623L337 618V613L336 608L335 603L333 598L331 593L326 583L320 572L316 567L313 562L295 537L292 532L271 502L268 496L238 450L228 436L220 428L212 423L207 421L202 420L197 419L192 420L182 422Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="jacute">jacute</span
+              ><span class="glyph-code">alternate</span>
+            </li>
+            <li class="glyph-card" data-search="jacute alternate " aria-label="Jacute: alternate">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-279.5 -945.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M165 108 178 107 185 108 192 109 198 111 211 117 216 121 226 129 235 139 243 150 246 156 249 161 254 173 261 191 265 203 269 221 272 233 274 246 276 258 279 288 281 313 287 380 293 466 295 509 296 576 297 594 298 613 302 649 305 666 307 671 311 681 317 689 321 692 330 697 335 698 346 700H357L368 698L373 697L383 694L388 691L392 688L395 684L398 680L403 671L405 660L406 654L407 648V643L408 612V606V600V594V588L407 582V576L403 509L402 435V429L401 405L399 380L394 326L391 302L386 259L382 229L379 211L376 199L374 188L369 170L363 153L352 125L350 120L341 104L335 94L325 79L321 75L310 61L293 45L279 34L264 24L249 16L238 11L221 5L204 1H198L187 -1H163L146 1L123 7L112 11L97 19L87 25L82 28L68 40L56 52L46 66L37 81L34 86L32 92L29 97L26 108L23 119L19 137V143L18 148V160V166L19 171L20 177L21 182L23 187L26 192L32 200L35 204L44 210L49 213L65 218L70 219H80L90 216L94 213L102 207L109 198L112 194L116 184L117 178L119 173L121 155L124 142L126 136L129 129L133 123L138 118L145 114L151 111ZM306 720 302 723 298 726 295 730 292 733 290 738 289 742V747L292 756L294 761L303 777L361 863L364 869L371 878L375 882L378 886L382 889L391 892H395L404 889L413 884L416 881L419 877L421 873L423 868V863V858L420 849L415 839L399 813L375 778L355 747L351 741L345 732L341 728L338 724L334 721L329 719L325 717H320H316L311 718Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="Jacute">Jacute</span
+              ><span class="glyph-code">alternate</span>
+            </li>
+            <li class="glyph-card" data-search="i.ss01 alternate " aria-label="I.ss01: alternate">
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-337 -858.5 1000 1000" aria-hidden="true">
+                  <path
+                    transform="scale(1,-1)"
+                    d="M140 609 133 613 127 615 117 619 113 622 108 625 104 629 101 633 98 637 95 641 93 651V661L94 666L96 671L98 676L101 680L108 688L112 691L122 696L133 699L150 703L168 705L198 709L228 711L246 712H252H258L275 709L286 707L291 705L295 702L299 699L303 695L305 691L308 687L309 681L312 671V666V662L310 658L307 654L304 650L295 643L285 637L280 633L269 627L259 618L254 613L250 608L247 601L244 594L243 588L242 574V544V526L240 508L236 484L234 459L231 428L230 410L223 343L222 324L219 306L212 245L210 227L208 202L204 172V159L203 153V147L204 140L206 132L212 126L219 123L238 121H243L254 118L264 114L269 111L277 104L280 100L283 96L286 91L289 81L290 71L289 66L288 61L286 56L284 51L281 46L274 38L270 35L266 31L256 26L246 22L235 20L144 9L107 6L65 5L54 7L44 10L34 15L30 18L22 26L19 30L17 34L15 44L14 49V61V66L16 71L20 79L24 83L32 90L48 97L65 105L71 108L76 111L82 116L87 121L91 128L94 134L95 141L96 155L95 185L96 203L97 215L102 245L104 257L110 312L125 434L133 482L138 519L142 549L143 555L145 568L146 581V587V594L144 601Z"
+                  />
+                </svg>
+              </div>
+              <span class="glyph-name" title="I.ss01">I.ss01</span
+              ><span class="glyph-code">alternate</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search=".notdef missing glyph "
+              aria-label=".notdef: missing glyph"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <svg viewBox="-250 -850 1000 1000" aria-hidden="true">
+                  <path transform="scale(1,-1)" d="M80 0V700H420V0Z" />
+                </svg>
+              </div>
+              <span class="glyph-name" title=".notdef">.notdef</span
+              ><span class="glyph-code">missing glyph</span>
+            </li>
+            <li
+              class="glyph-card"
+              data-search="space u+0020, u+00a0  "
+              aria-label="space: U+0020, U+00A0"
+            >
+              <div class="glyph-drawing" aria-hidden="true">
+                <span class="empty-glyph">space</span>
+              </div>
+              <span class="glyph-name" title="space">space</span
+              ><span class="glyph-code">U+0020, U+00A0</span>
+            </li>
+            <!-- GLYPH CARDS END -->
+          </ul>
+          <p class="hint">
+            <a href="glyph-atlas/glyphs.json">Glyph names and Unicode values</a> · Combining marks
+            and alternates are shown individually. Use arrow keys to browse the grid.
+          </p>
+        </section>
+        <section class="install" id="install" aria-labelledby="install-title">
+          <h2 class="marker" id="install-title">ADD A LITTLE SUNNY.</h2>
+          <p>
+            Run the install command inside your app’s folder, then import the stylesheet. A global
+            npm install does not connect the font to your project.
+          </p>
+          <pre class="install-import"><code>import "@sunnyai/sunny-marker/css";</code></pre>
+          <details>
+            <summary>Using Next.js?</summary>
+            <pre><code>import { SunnyMarker } from "@sunnyai/sunny-marker/next";</code></pre>
+            <p>
+              Use <code>SunnyMarker.className</code> on your note, or
+              <code>SunnyMarker.variable</code> for a CSS variable.
+            </p>
+          </details>
+          <p>
+            <a class="text-link" href="INSTALL.md">Setup and variable controls ↗</a> ·
+            <a class="text-link" href="downloads/SunnyMarker-1.310.zip" download
+              >Variable desktop (.ttf) ↓</a
+            >
+            ·
+            <a class="text-link" href="downloads/SunnyMarker-Static-OTF-1.310.zip" download
+              >Static desktop (.otf) ↓</a
+            >
+          </p>
+        </section>
+      </main>
+      <footer>
+        <span>Sunny Marker · Designed by Sam Dunn · Free for personal &amp; commercial use</span>
+        <div>
+          <a href="OFL.txt">Open Font License</a><a href="README.md">Web setup</a
+          ><a href="https://sunnysdk.com">Made for Sunny ↗</a>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const defaults = {
+        width: 100,
+        weight: 400,
+        slant: 0,
+        size: 24,
+        optical: 14,
+        autoOptical: true,
+      };
+      const state = { ...defaults, letterCase: "upper", preset: "note" };
+      const presets = {
+        note: { width: 100, weight: 400, slant: 0, size: 24 },
+        label: { width: 85, weight: 500, slant: 0, size: 18 },
+        headline: { width: 100, weight: 700, slant: 3, size: 82 },
+        poster: { width: 125, weight: 500, slant: 9, size: 92 },
+      };
+      const preview = document.getElementById("preview");
+      const settings = document.getElementById("settings");
+      const controls = Object.fromEntries(
+        ["width", "weight", "slant", "size", "optical"].map((id) => [
+          id,
+          document.getElementById(id),
+        ]),
+      );
+      const automatic = document.getElementById("auto-optical");
+      function render() {
+        for (const [id, el] of Object.entries(controls)) {
+          el.value = state[id];
+          document.getElementById(id + "-value").value =
+            id === "optical" && state.autoOptical
+              ? "Auto"
+              : state[id] + ({ width: "%", slant: "°", size: " px" }[id] || "");
+        }
+        automatic.checked = state.autoOptical;
+        controls.optical.disabled = state.autoOptical;
+        const style = state.slant === 0 ? "normal" : `oblique ${state.slant}deg`;
+        const css = `font-family: "Sunny Marker", sans-serif;\nfont-size: ${state.size}px;\nfont-weight: ${state.weight};\nfont-stretch: ${state.width}%;\nfont-style: ${style};\nfont-optical-sizing: ${state.autoOptical ? "auto" : "none"};\nfont-variation-settings: "slnt" ${-state.slant}${state.autoOptical ? "" : ', "opsz" ' + state.optical};\nfont-synthesis: none;\ntext-transform: ${state.letterCase === "upper" ? "uppercase" : "none"};`;
+        preview.style.cssText = css;
+        settings.textContent = css;
+        for (const button of document.querySelectorAll(".preset"))
+          button.setAttribute("aria-pressed", String(button.dataset.preset === state.preset));
+        for (const button of document.querySelectorAll(".case-option"))
+          button.setAttribute("aria-pressed", String(button.dataset.case === state.letterCase));
+        document.getElementById("copy-status").textContent = "";
+      }
+      for (const [id, control] of Object.entries(controls))
+        control.addEventListener("input", () => {
+          state[id] = Number(control.value);
+          state.preset = null;
+          render();
+        });
+      for (const button of document.querySelectorAll(".case-option"))
+        button.addEventListener("click", () => {
+          state.letterCase = button.dataset.case;
+          render();
+        });
+      automatic.addEventListener("change", () => {
+        state.autoOptical = automatic.checked;
+        render();
+      });
+      for (const button of document.querySelectorAll(".preset"))
+        button.addEventListener("click", () => {
+          const name = button.dataset.preset;
+          Object.assign(state, defaults, presets[name], { preset: name });
+          if ((name === "headline" || name === "poster") && matchMedia("(max-width:650px)").matches)
+            state.size = Math.round(state.size * 0.65);
+          render();
+        });
+      const samples = {
+        margins: {
+          text: "Could we try this over here?\nA little more room to breathe.",
+          width: 100,
+          weight: 400,
+          slant: 4,
+          size: 18,
+        },
+        labels: {
+          text: "Fresh perspective.\nGood ideas, in small spaces.",
+          width: 80,
+          weight: 500,
+          slant: 0,
+          size: 18,
+        },
+        wide: { text: "Make some room.", width: 125, weight: 650, slant: 0, size: 66 },
+      };
+      for (const button of document.querySelectorAll(".specimen-use"))
+        button.addEventListener("click", () => {
+          const { text, ...style } = samples[button.dataset.sample];
+          Object.assign(state, defaults, style, { letterCase: "upper", preset: null });
+          if (button.dataset.sample === "wide" && matchMedia("(max-width:650px)").matches)
+            state.size = 42;
+          preview.value = text;
+          render();
+          preview.focus({ preventScroll: true });
+          document.getElementById("tester").scrollIntoView({
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+            block: "start",
+          });
+        });
+      document.getElementById("copy").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(settings.textContent);
+          document.getElementById("copy-status").textContent = "Copied!";
+        } catch {
+          document.getElementById("copy-status").textContent = "Select the CSS above to copy it.";
+        }
+      });
+      document.getElementById("copy-install").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(
+            document.getElementById("install-command").textContent,
+          );
+          document.getElementById("install-status").textContent = "Copied!";
+        } catch {
+          document.getElementById("install-status").textContent =
+            "Select the command above to copy it.";
+        }
+      });
+      const glyphCards = [...document.querySelectorAll(".glyph-card")];
+      const glyphDetail = document.getElementById("glyph-detail");
+      let selectedGlyph = null;
+      const glyphButtons = glyphCards.map((card, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "glyph-button";
+        button.tabIndex = index === 0 ? 0 : -1;
+        button.setAttribute("aria-label", card.getAttribute("aria-label"));
+        button.setAttribute("aria-pressed", "false");
+        card.removeAttribute("aria-label");
+        button.append(card.querySelector(".glyph-drawing"));
+        card.prepend(button);
+        const select = () => {
+          if (selectedGlyph) selectedGlyph.setAttribute("aria-pressed", "false");
+          selectedGlyph = button;
+          button.setAttribute("aria-pressed", "true");
+          glyphDetail.textContent = button.getAttribute("aria-label");
+          for (const item of glyphButtons) item.tabIndex = item === button ? 0 : -1;
+        };
+        button.addEventListener("click", select);
+        button.addEventListener("focus", select);
+        button.addEventListener("keydown", (event) => {
+          const visible = glyphButtons.filter((item) => !item.parentElement.hidden);
+          const current = visible.indexOf(button);
+          const columns = getComputedStyle(
+            document.querySelector(".glyph-grid"),
+          ).gridTemplateColumns.split(" ").length;
+          const moves = {
+            ArrowLeft: current - 1,
+            ArrowRight: current + 1,
+            ArrowUp: current - columns,
+            ArrowDown: current + columns,
+            Home: 0,
+            End: visible.length - 1,
+          };
+          if (!(event.key in moves)) return;
+          event.preventDefault();
+          visible[Math.max(0, Math.min(visible.length - 1, moves[event.key]))].focus();
+        });
+        return button;
+      });
+      document.getElementById("glyph-search").addEventListener("input", (event) => {
+        const query = event.target.value.trim().toLowerCase();
+        let count = 0;
+        for (const card of glyphCards) {
+          card.hidden = !card.dataset.search.includes(query);
+          if (!card.hidden) count++;
+        }
+        if (selectedGlyph?.parentElement.hidden) {
+          selectedGlyph.setAttribute("aria-pressed", "false");
+          selectedGlyph = null;
+        }
+        const entry = selectedGlyph || glyphButtons.find((button) => !button.parentElement.hidden);
+        for (const button of glyphButtons) button.tabIndex = button === entry ? 0 : -1;
+        glyphDetail.textContent = selectedGlyph
+          ? selectedGlyph.getAttribute("aria-label")
+          : count
+            ? "Select a character for details."
+            : "No matching glyphs. Try another search.";
+        document.getElementById("glyph-count").textContent =
+          count === 1 ? "1 glyph" : count + " glyphs";
+      });
+      render();
+      document.fonts
+        .load('400 24px "Sunny Marker"')
+        .then((faces) => {
+          if (!faces.length) throw Error("Font unavailable");
+        })
+        .catch(() => {
+          const status = document.getElementById("font-status");
+          status.hidden = false;
+          status.textContent = "The font could not load. Reload the page to try again.";
+        });
+    </script>
+  </body>
+</html>

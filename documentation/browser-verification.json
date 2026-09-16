@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-15",
+  "page": "web/index.html",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 1558,
+      "height": 1181
+    },
+    {
+      "width": 390,
+      "height": 680
+    },
+    {
+      "width": 320,
+      "height": 568
+    }
+  ],
+  "checks": [
+    "No horizontal page overflow at either viewport",
+    "336 glyph cards on the same page",
+    "Copyright search returns one matching glyph",
+    "Text survives preset and axis changes",
+    "Combined 125% width, weight 500 and 8.9-degree slant update the specimen",
+    "Manual optical-size control enables and updates CSS",
+    "Copy CSS puts the displayed settings on the clipboard",
+    "No visible font-load failure",
+    "Static local asset references resolve",
+    "Color-swatch card removed",
+    "Note defaults to 24px and Label to 18px at desktop and mobile sizes",
+    "All caps / Normal changes presentation without overwriting typed capitalization",
+    "Letter-case preference survives preset changes",
+    "Sunny header reuses the marketing Bright artwork and 700-weight wordmark; fits at 320px",
+    "npm installation is visible in the hero, with CSS and Next.js setup on the same page",
+    "Hero copy button copies npm install @sunnyai/sunny-marker exactly"
+  ],
+  "note": "The tester passes slant directly to the OpenType axis to preserve fractional angles in browsers that round the high-level oblique property."
+}

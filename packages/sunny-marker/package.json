@@ -1,0 +1,23 @@
+{
+  "name": "@sunnyai/sunny-marker",
+  "version": "1.310.0",
+  "description": "Sunny Marker: a handwritten variable font with weight, width, slant and optical size.",
+  "license": "OFL-1.1",
+  "homepage": "https://sunnysdk.com/fonts/sunny-marker/",
+  "type": "module",
+  "style": "./index.css",
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": "./index.css",
+    "./css": "./index.css",
+    "./index.css": "./index.css",
+    "./next": { "types": "./next.d.ts", "default": "./next.js" },
+    "./files/*": "./files/*",
+    "./package.json": "./package.json"
+  },
+  "files": ["index.css", "next.js", "next.d.ts", "files/*.woff2", "OFL.txt", "README.md"],
+  "keywords": ["font", "variable-font", "handwriting", "marker", "sunny", "nextjs"],
+  "peerDependencies": { "next": ">=15.0.0" },
+  "peerDependenciesMeta": { "next": { "optional": true } },
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }
+}

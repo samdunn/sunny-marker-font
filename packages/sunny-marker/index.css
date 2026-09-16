@@ -1,0 +1,22 @@
+/* Sunny Marker 1.310 — SIL Open Font License 1.1. */
+@font-face {
+  font-family: "Sunny Marker";
+  src: url("./files/SunnyMarker-Variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sunny Marker";
+  src: url("./files/SunnyMarker-Variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 9deg;
+  font-display: swap;
+}
+.sunny-marker {
+  font-family: "Sunny Marker", cursive;
+  font-optical-sizing: auto;
+  font-synthesis: none;
+}

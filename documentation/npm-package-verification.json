@@ -1,0 +1,17 @@
+{
+  "package": "@sunnyai/sunny-marker",
+  "version": "1.310.0",
+  "font_version": "1.310",
+  "checks": [
+    "Seven-file allowlisted npm archive with OFL",
+    "Exact released WOFF2 SHA-256 matches fonts/manifest.json",
+    "Clean CSS-only install does not install Next.js",
+    "No dependencies or install lifecycle scripts",
+    "Next.js 16.3.4 production builds pass with webpack and Turbopack, without custom configuration",
+    "Vite 6.4.2 production CSS build passes",
+    "Both generated sites bundle the exact release font once and preserve width/slant descriptors",
+    "Browser rendering verified for Next.js className, CSS variable, and Vite CSS import",
+    "Scoped organization package clean install and Next.js/Turbopack plus Vite builds pass"
+  ],
+  "font_sha256": "51dacf96370bc737c4b8bc81ad2b3e5302c7f7afb51a9970728d2c7cae7f5cac"
+}

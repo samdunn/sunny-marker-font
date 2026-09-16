@@ -1,0 +1,637 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<designspace format="5.0">
+  <axes>
+    <axis tag="wght" name="Weight" minimum="300" maximum="700" default="400"/>
+    <axis tag="wdth" name="Width" minimum="75" maximum="125" default="100"/>
+    <axis tag="opsz" name="Optical size" minimum="10" maximum="36" default="36"/>
+    <axis tag="slnt" name="Slant" minimum="-9" maximum="0" default="0"/>
+  </axes>
+  <sources>
+    <source filename="master-Roman-Light-w75-o36.ufo" familyname="Sunny Marker" stylename="Roman Light w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Light-w75-o10.ufo" familyname="Sunny Marker" stylename="Roman Light w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Regular-w75-o36.ufo" familyname="Sunny Marker" stylename="Roman Regular w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Regular-w75-o10.ufo" familyname="Sunny Marker" stylename="Roman Regular w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Medium-w75-o36.ufo" familyname="Sunny Marker" stylename="Roman Medium w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Medium-w75-o10.ufo" familyname="Sunny Marker" stylename="Roman Medium w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Bold-w75-o36.ufo" familyname="Sunny Marker" stylename="Roman Bold w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Bold-w75-o10.ufo" familyname="Sunny Marker" stylename="Roman Bold w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Light-w100-o36.ufo" familyname="Sunny Marker" stylename="Roman Light w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Light-w100-o10.ufo" familyname="Sunny Marker" stylename="Roman Light w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Regular-w100-o36.ufo" familyname="Sunny Marker" stylename="Roman Regular w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Regular-w100-o10.ufo" familyname="Sunny Marker" stylename="Roman Regular w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Medium-w100-o36.ufo" familyname="Sunny Marker" stylename="Roman Medium w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Medium-w100-o10.ufo" familyname="Sunny Marker" stylename="Roman Medium w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Bold-w100-o36.ufo" familyname="Sunny Marker" stylename="Roman Bold w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Bold-w100-o10.ufo" familyname="Sunny Marker" stylename="Roman Bold w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Light-w125-o36.ufo" familyname="Sunny Marker" stylename="Roman Light w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Light-w125-o10.ufo" familyname="Sunny Marker" stylename="Roman Light w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Regular-w125-o36.ufo" familyname="Sunny Marker" stylename="Roman Regular w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Regular-w125-o10.ufo" familyname="Sunny Marker" stylename="Roman Regular w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Medium-w125-o36.ufo" familyname="Sunny Marker" stylename="Roman Medium w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Medium-w125-o10.ufo" familyname="Sunny Marker" stylename="Roman Medium w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Bold-w125-o36.ufo" familyname="Sunny Marker" stylename="Roman Bold w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Roman-Bold-w125-o10.ufo" familyname="Sunny Marker" stylename="Roman Bold w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Light-w75-o36.ufo" familyname="Sunny Marker" stylename="Italic Light w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Light-w75-o10.ufo" familyname="Sunny Marker" stylename="Italic Light w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Regular-w75-o36.ufo" familyname="Sunny Marker" stylename="Italic Regular w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Regular-w75-o10.ufo" familyname="Sunny Marker" stylename="Italic Regular w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Medium-w75-o36.ufo" familyname="Sunny Marker" stylename="Italic Medium w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Medium-w75-o10.ufo" familyname="Sunny Marker" stylename="Italic Medium w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Bold-w75-o36.ufo" familyname="Sunny Marker" stylename="Italic Bold w75 o36">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Bold-w75-o10.ufo" familyname="Sunny Marker" stylename="Italic Bold w75 o10">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Light-w100-o36.ufo" familyname="Sunny Marker" stylename="Italic Light w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Light-w100-o10.ufo" familyname="Sunny Marker" stylename="Italic Light w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Regular-w100-o36.ufo" familyname="Sunny Marker" stylename="Italic Regular w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Regular-w100-o10.ufo" familyname="Sunny Marker" stylename="Italic Regular w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Medium-w100-o36.ufo" familyname="Sunny Marker" stylename="Italic Medium w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Medium-w100-o10.ufo" familyname="Sunny Marker" stylename="Italic Medium w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Bold-w100-o36.ufo" familyname="Sunny Marker" stylename="Italic Bold w100 o36">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Bold-w100-o10.ufo" familyname="Sunny Marker" stylename="Italic Bold w100 o10">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Light-w125-o36.ufo" familyname="Sunny Marker" stylename="Italic Light w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Light-w125-o10.ufo" familyname="Sunny Marker" stylename="Italic Light w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Regular-w125-o36.ufo" familyname="Sunny Marker" stylename="Italic Regular w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Regular-w125-o10.ufo" familyname="Sunny Marker" stylename="Italic Regular w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Medium-w125-o36.ufo" familyname="Sunny Marker" stylename="Italic Medium w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Medium-w125-o10.ufo" familyname="Sunny Marker" stylename="Italic Medium w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Bold-w125-o36.ufo" familyname="Sunny Marker" stylename="Italic Bold w125 o36">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+    <source filename="master-Italic-Bold-w125-o10.ufo" familyname="Sunny Marker" stylename="Italic Bold w125 o10">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="10"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </source>
+  </sources>
+  <instances>
+    <instance familyname="Sunny Marker" stylename="Condensed Light">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Regular">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Medium">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed SemiBold">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Bold">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Light">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Regular">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Medium">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="SemiBold">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Bold">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Light">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Regular">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Medium">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended SemiBold">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Bold">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Light Italic">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Italic">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Medium Italic">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed SemiBold Italic">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Condensed Bold Italic">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="75"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Light Italic">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Italic">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Medium Italic">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="SemiBold Italic">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Bold Italic">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="100"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Light Italic">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Italic">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Medium Italic">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended SemiBold Italic">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+    <instance familyname="Sunny Marker" stylename="Extended Bold Italic">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+        <dimension name="Width" xvalue="125"/>
+        <dimension name="Optical size" xvalue="36"/>
+        <dimension name="Slant" xvalue="-9"/>
+      </location>
+    </instance>
+  </instances>
+</designspace>

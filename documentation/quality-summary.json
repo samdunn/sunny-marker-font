@@ -1,0 +1,39 @@
+{
+  "googlefonts": {
+    "result": {
+      "INFO": 8,
+      "PASS": 125,
+      "SKIP": 94,
+      "WARN": 9
+    },
+    "warnings": [
+      "alt_caron",
+      "file_size",
+      "googlefonts/article/images",
+      "googlefonts/glyphsets/shape_languages",
+      "googlefonts/metadata/unreachable_subsetting",
+      "googlefonts/vendor_id",
+      "math_signs_width",
+      "overlapping_path_segments",
+      "soft_dotted"
+    ]
+  },
+  "static": {
+    "result": {
+      "INFO": 18,
+      "PASS": 413,
+      "SKIP": 247,
+      "WARN": 24
+    },
+    "warnings": [
+      "alt_caron",
+      "contour_count",
+      "math_signs_width",
+      "overlapping_path_segments"
+    ]
+  },
+  "version": "1.310",
+  "profile": "Unmodified FontBakery 1.1.0; network enabled; no check exclusions",
+  "interpolation": "PASS",
+  "limitations": "Public repository URL checks belong to the submission package and remain unavailable until a clean snapshot is published."
+}
