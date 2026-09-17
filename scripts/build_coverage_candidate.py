@@ -23,7 +23,7 @@ FILENAME = "SunnyMarker[opsz,slnt,wdth,wght].ttf"
 
 
 def compress_variations(font):
-    """Apply standard IUP delta compression without changing outlines."""
+    """Apply FontTools' standard IUP delta compression and rounding tolerance."""
     for name in font.getGlyphOrder():
         coordinates, controls = font["glyf"]._getCoordinatesAndControls(
             name, font["hmtx"].metrics

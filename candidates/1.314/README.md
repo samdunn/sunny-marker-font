@@ -104,8 +104,9 @@ python scripts/verify_coverage_candidate.py 'build/coverage-candidate-1.314/Sunn
 
 The archived binaries are the exact files covered by the recorded reports.
 A fresh full build reproduced the four-axis TTF and WOFF2 byte for byte; all
-44,928 glyph/location outline comparisons matched too. The Google-style
-exports can differ in equivalent name-table or variation-table packing.
+44,928 glyph/location outline comparisons matched too. Rebuilt Google-style
+exports use fresh style instancing and can differ slightly in rounded variation
+coordinates from the archived incremental exports. Their layout tables match.
 Use checksums to distinguish the archived, tested binaries from any rebuild.
 
 Font files and source drawings are covered by [OFL.txt](OFL.txt). Specimen and

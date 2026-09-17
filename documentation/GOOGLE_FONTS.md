@@ -1,5 +1,10 @@
 # Google Fonts resubmission candidate — 1.313
 
+**Historical 1.313 results.** The newer [1.314 candidate](../candidates/1.314/)
+resolves these checker failures through font-side repertoire changes and has
+zero recorded failures/errors. It does not depend on an upstream patch. Its
+report covers the separate browser-delivery limitation and remaining warnings.
+
 The initial [Sunny Marker proposal](https://github.com/google/fonts/issues/10972)
 was closed for outline quality: symbols, accents and excessive points. The
 [1.313 outline review](OUTLINE_REVIEW.md) documents revised drawings, construction,
