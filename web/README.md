@@ -1,4 +1,4 @@
-# Sunny Marker for the web — 1.310
+# Sunny Marker for the web — 1.313
 
 This folder is a standalone marketing page and type tester. Copy it to a static
 host or a directory on Sunny's website, such as `/fonts/sunny-marker/`. All assets
@@ -38,9 +38,9 @@ conversion. The default Note preset starts at 24 pixels with an all-caps display
 ## Included pages and downloads
 
 - `index.html`: one scrolling page with the type tester, presets, copyable CSS,
-  download, and a searchable gallery of all 336 glyphs on the same page.
+  download, and a searchable gallery of all 391 glyphs on the same page.
 - `glyph-atlas/`: PNG sheets and the accessible, machine-readable glyph inventory.
-- `downloads/SunnyMarker-1.310.zip`: variable TTF, WOFF2 and OFL license.
+- `downloads/SunnyMarker-1.313.zip`: variable TTF, WOFF2 and OFL license.
 - `sunny-marker-static.css`: optional 30-style fallback family, `Sunny Marker Static`.
 
 Static faces use optical size 36 and select the nearest available width/weight.

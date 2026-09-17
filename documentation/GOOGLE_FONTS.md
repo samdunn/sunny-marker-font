@@ -6,8 +6,8 @@ was closed for outline quality: symbols, accents and excessive points. The
 shaping and visual proofs. This package is prepared locally for renewed design review;
 it is **not an accepted Google Fonts release or a fully passing onboarding
 package**. Remaining Google subset-routing failures need an upstream routing
-change or an approved onboarding approach. No contact or submission has been made
-for this revision. Published website, npm and desktop assets remain 1.310.
+change or an approved onboarding approach. No contact with Google or submission has been made
+for this revision. The same outlines are packaged for the general 1.313 release.
 
 ## Package
 
@@ -119,6 +119,6 @@ The historical [1.311 archive](../release/sunny-marker-googlefonts-1.311.zip) an
 [report](fontspector-1.311.md) remain available for comparison, not current results.
 
 [Designer website](https://samdunn.org) ·
-[Published 1.310 specimen](https://sunnysdk.com/fonts/sunny-marker/) ·
+[Sunny Marker specimen](https://sunnysdk.com/fonts/sunny-marker/) ·
 [Google Fonts designer profile guidance](https://googlefonts.github.io/gf-guide/profile.html) ·
 [Variable-family guidance](https://googlefonts.github.io/gf-guide/variable.html)

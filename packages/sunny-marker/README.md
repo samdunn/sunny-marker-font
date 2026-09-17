@@ -1,8 +1,8 @@
 # Sunny Marker
 
 A handwritten variable font for little notes, labels, headings and playful interfaces.
-One self-hosted WOFF2 contains all four axes and 336 glyphs. Font version 1.310;
-package version 1.310.0. Free for personal and commercial use under the SIL OFL 1.1.
+One self-hosted WOFF2 contains all four axes and 391 glyphs. Font version 1.313;
+package version 1.313.0. Free for personal and commercial use under the SIL OFL 1.1.
 
 ## Install
 
@@ -12,7 +12,7 @@ npm install @sunnyai/sunny-marker
 
 Also works with `pnpm add @sunnyai/sunny-marker`, `yarn add @sunnyai/sunny-marker` and
 `bun add @sunnyai/sunny-marker`. The same package is available as a versioned tarball
-from the [Sunny website](https://sunnysdk.com/fonts/sunny-marker/downloads/sunnyai-sunny-marker-1.310.0.tgz).
+from the [Sunny website](https://sunnysdk.com/fonts/sunny-marker/downloads/sunnyai-sunny-marker-1.313.0.tgz).
 
 ## Any CSS bundler (Vite, React, Vue, Svelte, Astro)
 

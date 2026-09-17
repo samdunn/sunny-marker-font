@@ -1,11 +1,11 @@
 # Outline quality review — 1.313
 
-**Local review candidate. Nothing submitted, pushed, published or deployed.**
+**Quality record for the 1.313 release. Google Fonts resubmission remains on hold.**
 This continues the work prompted by the [Google Fonts review](https://github.com/google/fonts/issues/10972#issuecomment-5714431859).
 The outline checks now have **zero warnings or failures at 84 evaluated locations**.
 The full Google Fonts profile still has nine subset-routing failures, explained in
 [the onboarding report](GOOGLE_FONTS.md). This is not a claim of Google acceptance.
-Published website, npm and desktop downloads remain **1.310**.
+The same checked outlines are packaged for the 1.313 web and desktop release.
 
 ## Improvements in this pass
 

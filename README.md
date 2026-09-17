@@ -6,7 +6,7 @@ irregular character across compact labels and large display type.
 
 ![Sunny Marker — handwritten, variable, made for little notes](web/specimens/github-header.png)
 
-[Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse all 336 glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
+[Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse all 391 glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
 
 ## Use the fonts
 
@@ -23,13 +23,13 @@ Install inside your project. For Next.js, use the optional
 
 ### Downloads and formats
 
-Version **1.310** includes a four-axis OpenType variable font and 30 matching static styles.
+Version **1.313** includes a four-axis OpenType variable font and 30 matching static styles.
 
 | Download | What it contains |
 | --- | --- |
-| [Variable desktop (.ttf)](web/downloads/SunnyMarker-1.310.zip) | One OpenType font with TrueType outlines; adjustable weight, width, slant, and optical size. The ZIP also includes its WOFF2 and license. |
-| [Static desktop (.otf)](web/downloads/SunnyMarker-Static-OTF-1.310.zip) | 30 fixed OpenType styles with CFF outlines, plus the license. |
-| [Web package](release/sunny-marker-web-1.310.zip) | WOFF2 files, CSS, and a standalone type tester. |
+| [Variable desktop (.ttf)](web/downloads/SunnyMarker-1.313.zip) | One OpenType font with TrueType outlines; adjustable weight, width, slant, and optical size. The ZIP also includes its WOFF2 and license. |
+| [Static desktop (.otf)](web/downloads/SunnyMarker-Static-OTF-1.313.zip) | 30 fixed OpenType styles with CFF outlines, plus the license. |
+| [Web package](release/sunny-marker-web-1.313.zip) | WOFF2 files, CSS, and a standalone type tester. |
 
 **TTF is OpenType too.** The file extension describes the outline format; it does
 not determine whether a font is variable or supports OpenType features. Our
@@ -65,7 +65,7 @@ The variable font has ten named instances: five weights at upright and slanted e
 adjustable. Static styles use display optical size 36. At smaller optical sizes,
 lowercase letters grow taller and spacing opens. Slant moves continuously from upright to a 9° right lean in the same file.
 
-The family contains **336 glyphs**, including Latin accents, punctuation,
+The family contains **391 glyphs**, including Latin accents, punctuation,
 currencies, eight directional arrows, a sun, star, sparkle, heart, check and cross.
 Capital Y has an upright lower stem. Capital I has a bare stem by default;
 `ss01` or `salt` selects its barred alternate. Dutch j-acute uses `ccmp`.
@@ -98,8 +98,8 @@ make audit
 
 `make build` compiles committed UFO/designspace sources with fontmake, then
 packages matching desktop/web fonts, metadata, checksums and a deterministic ZIP.
-The current source builds are version **1.313**. The committed release files,
-live website and npm package remain **1.310** until a new release is published.
+The current source and packaged release files are version **1.313**.
+The npm package uses version **1.313.0**.
 Use `make review` to build, verify and proof the 1.313 candidate without replacing
 those release assets.
 `make check` runs the unmodified Google Fonts FontBakery profile, including its

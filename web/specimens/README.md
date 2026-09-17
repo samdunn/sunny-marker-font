@@ -1,6 +1,6 @@
 # Sunny Marker specimens
 
-Three reusable PNGs, each 1600 × 1200 pixels, rendered from Sunny Marker 1.310:
+Three reusable PNGs, each 1600 × 1200 pixels, rendered from Sunny Marker 1.313:
 
 - `margin-notes.png`: three small, slightly rotated uppercase notes on an open background.
 - `small-labels.png`: condensed lettering, numerals, and punctuation.

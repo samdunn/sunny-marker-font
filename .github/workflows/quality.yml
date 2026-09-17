@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '24'
       - run: python3 scripts/package_npm.py
-      - run: npm install --prefix build/npm-smoke ./web/downloads/sunnyai-sunny-marker-1.310.0.tgz --ignore-scripts --no-audit --no-fund
+      - run: npm install --prefix build/npm-smoke ./web/downloads/sunnyai-sunny-marker-1.313.0.tgz --ignore-scripts --no-audit --no-fund
       - run: node scripts/verify_npm.mjs build/npm-smoke
   quality:
     runs-on: ubuntu-latest

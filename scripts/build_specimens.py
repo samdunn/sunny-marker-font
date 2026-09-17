@@ -5,11 +5,12 @@ from zipfile import ZipFile
 
 from PIL import Image, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
+from package_gf import VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / "web/specimens"
 DEST.mkdir(exist_ok=True)
-with ZipFile(ROOT / "web/downloads/SunnyMarker-1.310.zip") as archive:
+with ZipFile(ROOT / f"web/downloads/SunnyMarker-{VERSION}.zip") as archive:
     MARKER = archive.read("SunnyMarker[opsz,slnt,wdth,wght].ttf")
 INK = "#242424"
 PAPER = "#fbfaf7"

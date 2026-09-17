@@ -204,10 +204,17 @@ def package_web():
     if index.exists():
         index.write_text(re.sub(r'SunnyMarker-(Static-OTF-)?\d+\.\d+\.zip',
             lambda m: 'SunnyMarker-' + (m.group(1) or '') + VERSION + '.zip', index.read_text()))
+        source = re.sub(r'href="sunny-marker(?:-\d+\.\d+)?\.css"',
+                        f'href="sunny-marker-{VERSION}.css"', index.read_text())
+        source = re.sub(r'(src="specimens/[^"?]+\.png)(?:\?v=[^\"]+)?"',
+                        lambda m: m.group(1) + f'?v={VERSION}"', source)
+        source = re.sub(r'href="glyph-atlas/glyphs\.json(?:\?v=[^\"]+)?"',
+                        f'href="glyph-atlas/glyphs.json?v={VERSION}"', source)
+        index.write_text(source)
     css = [f'''/* Sunny Marker {VERSION} — SIL OFL 1.1. Keep beside webfonts/. */
 @font-face {{
   font-family: "Sunny Marker";
-  src: url("./webfonts/SunnyMarker-Variable.woff2") format("woff2");
+  src: url("./webfonts/SunnyMarker-Variable-{VERSION}.woff2") format("woff2");
   font-weight: 300 700;
   font-stretch: 75% 125%;
   font-style: oblique 0deg 9deg;
@@ -229,11 +236,14 @@ def package_web():
   font-display: swap;
 }}''')
     (web / 'sunny-marker.css').write_text('\n\n'.join(css) + '\n')
+    (web / f'sunny-marker-{VERSION}.css').write_text('\n\n'.join(css) + '\n')
     (web / 'sunny-marker-static.css').write_text('\n\n'.join(static_css) + '\n')
     # The web folder is a standalone, copyable deployment unit.
     for stale in (web / 'webfonts').glob('SunnyMarker*.woff2'):
         stale.unlink()
     shutil.copytree(FDIR / 'webfonts', web / 'webfonts', dirs_exist_ok=True)
+    shutil.copy2(FDIR / 'webfonts/SunnyMarker-Variable.woff2',
+                 web / 'webfonts' / f'SunnyMarker-Variable-{VERSION}.woff2')
     shutil.copy2(ROOT / 'OFL.txt', web / 'OFL.txt')
     downloads = web / 'downloads'
     downloads.mkdir(exist_ok=True)
