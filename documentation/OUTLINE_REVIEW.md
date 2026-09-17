@@ -67,8 +67,8 @@ Full glyph plates: [1](outline-review/glyphs-01.png),
 
 - Compiled outline points: **63,565 → 34,350**, a 46% reduction.
 - 336 glyphs and the same character coverage and four axis ranges.
-- 375 shaping locations passed; 19 complete-glyph bounds locations had no
-  clipping. Continuous slant and capital-Y regression checks passed, with three
+- 375 shaping locations passed; 51 complete-glyph bounds locations (all 48
+  source-master positions plus three intermediate positions) had no clipping. Continuous slant and capital-Y regression checks passed, with three
   representative static faces checked for the Y regression.
 - Five source-geometry regression tests passed.
 - 1,005 independently sampled glyph/master comparisons found a maximum edge

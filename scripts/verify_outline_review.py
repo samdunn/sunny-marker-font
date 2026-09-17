@@ -28,7 +28,7 @@ def main():
         (a.axisTag, a.minValue, a.maxValue) for a in before["fvar"].axes]
     points = lambda f: sum(len(f["glyf"][n].coordinates) for n in order
                            if f["glyf"][n].numberOfContours > 0)
-    locations = list(itertools.product((300, 700), (75, 125), (10, 36), (0, -9)))
+    locations = list(itertools.product((300, 400, 500, 700), (75, 100, 125), (10, 36), (0, -9)))
     locations += [(400, 100, 14, -4.5), (550, 87.5, 23, -2.25), (600, 112.5, 18, -6.75)]
     overflow = []
     for location in locations:
