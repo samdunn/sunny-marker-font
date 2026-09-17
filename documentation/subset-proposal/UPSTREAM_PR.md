@@ -1,5 +1,9 @@
 DRAFT ONLY — not submitted; maintainer requested no external contact.
 
+**Archived proposal.** The [1.314 candidate](../../candidates/1.314/) instead
+changes the font's repertoire. This draft is not part of that build or a request
+to contact upstream maintainers.
+
 # Keep macron below and E with tilde reachable in Latin subsets
 
 Latin-script fonts can contain all required glyphs and still fail `googlefonts/tofu` after `latin` / `latin-ext` routing. In Sunny Marker's current review, nine failures refer to U+0331 COMBINING MACRON BELOW or U+1EBC / U+1EBD (Ẽ / ẽ), for Amarakaeri, Chickasaw, Guarani, Yanomamö, Mezquital Otomi, Secoya, Siona and Ticuna samples.

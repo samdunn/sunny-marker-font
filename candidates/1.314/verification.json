@@ -1,0 +1,90 @@
+{
+  "glyphs": 416,
+  "codepoints": 401,
+  "added_codepoints": [
+    "U+0305",
+    "U+10330",
+    "U+10331",
+    "U+10332",
+    "U+10333",
+    "U+10334",
+    "U+10335",
+    "U+10336",
+    "U+10337",
+    "U+10338",
+    "U+10339",
+    "U+1033A",
+    "U+1033B",
+    "U+1033C",
+    "U+1033D",
+    "U+1033E",
+    "U+1033F",
+    "U+10340",
+    "U+10341",
+    "U+10342",
+    "U+10343",
+    "U+10344",
+    "U+10345",
+    "U+10346",
+    "U+10347",
+    "U+10348",
+    "U+10349",
+    "U+1034A"
+  ],
+  "removed_codepoints": [
+    "U+1EBC",
+    "U+1EBD"
+  ],
+  "retained_latin_shaping_checks": 40284,
+  "mark_checks": 11988,
+  "axis_locations": 108,
+  "routed_language_samples": 48,
+  "sha256": "c3b4c51119b52c7af9b310c1bd1916c72b572f046ce0f01164ce00696bdfbf0f",
+  "official_googlefonts_profile": {
+    "SKIP": 70,
+    "PASS": 272,
+    "INFO": 17,
+    "WARN": 12
+  },
+  "outline_checks_84_locations": {
+    "SKIP": 48,
+    "PASS": 540
+  },
+  "browser_verification": {
+    "engine": "Codex in-app browser",
+    "full_font_vs_single_request": "pixel-identical in all four samples",
+    "single_request_pixel_differences": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "default_split_pixel_differences": [
+      11585,
+      1354,
+      0,
+      6174
+    ],
+    "google_api_reference": "https://developers.google.com/fonts/docs/css2#optimizing_your_font_requests",
+    "google_api_live_reference_family": "Noto Sans Gothic",
+    "sunny_marker_google_hosted_delivery_tested": false
+  },
+  "files": {
+    "googlefonts/ofl/sunnymarker/SunnyMarker-Italic[opsz,wdth,wght].ttf": {
+      "bytes": 990572,
+      "sha256": "bec54f29da8c6b458aefe6082845f9c89b9df4666d562b131acb47fa5ccd8b89"
+    },
+    "googlefonts/ofl/sunnymarker/SunnyMarker[opsz,wdth,wght].ttf": {
+      "bytes": 970020,
+      "sha256": "526285142c6545f0a541d632f8760ddbfed4bd0de2617748156b4412792f8eff"
+    },
+    "SunnyMarker[opsz,slnt,wdth,wght].ttf": {
+      "bytes": 1812920,
+      "sha256": "c3b4c51119b52c7af9b310c1bd1916c72b572f046ce0f01164ce00696bdfbf0f"
+    },
+    "SunnyMarker-Variable.woff2": {
+      "bytes": 658880,
+      "sha256": "ab6450bf183d6f50527c3beb702ef7d1086b51bb00cefcea3a51c2971409c9cc"
+    }
+  }
+}

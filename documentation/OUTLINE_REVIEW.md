@@ -1,5 +1,8 @@
 # Outline quality review — 1.313
 
+For the latest font-side coverage changes and passing checker results, see the
+[1.314 candidate](../candidates/1.314/). The results below describe 1.313.
+
 **Quality record for the 1.313 release. Google Fonts resubmission remains on hold.**
 This continues the work prompted by the [Google Fonts review](https://github.com/google/fonts/issues/10972#issuecomment-5714431859).
 The outline checks now have **zero warnings or failures at 84 evaluated locations**.

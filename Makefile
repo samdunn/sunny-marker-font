@@ -45,6 +45,13 @@ submission:
 review:
 	$(PYTHON) scripts/build_review.py
 
+.PHONY: coverage-review coverage-verify
+coverage-review:
+	$(PYTHON) scripts/build_coverage_candidate.py
+
+coverage-verify:
+	$(PYTHON) scripts/verify_coverage_candidate.py
+
 .PHONY: npm
 npm:
 	$(PYTHON) scripts/package_npm.py

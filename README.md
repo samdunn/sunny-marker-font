@@ -8,6 +8,13 @@ irregular character across compact labels and large display type.
 
 [Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse all 391 glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
 
+**Latest development:** the [1.314 coverage review candidate](candidates/1.314/)
+adds Gothic coverage and fixes the remaining Google Fonts checker failures.
+It includes editable sources, downloadable fonts, a visual proof, and full
+results: **0 failures/errors, 12 advisory warnings**. The report also documents
+the remaining limitation with Google's default split web delivery.
+The website, npm package and stable downloads below remain **1.313**.
+
 ## Use the fonts
 
 ```sh
@@ -115,17 +122,23 @@ private configuration and raw audit logs are ignored by Git.
 
 ## Google Fonts review
 
+The newest candidate is [1.314](candidates/1.314/), with font-side coverage
+changes and a passing unmodified Fontspector profile. Run `make coverage-review`
+to rebuild its separate source snapshot. It does not require any upstream
+subset-definition change. See its report for the web-delivery limitation and
+remaining advisories; acceptance is still subject to Google's review.
+
 The initial proposal in [google/fonts#10972](https://github.com/google/fonts/issues/10972)
 was closed for outline-quality improvements. Follow the
 [outline review](documentation/OUTLINE_REVIEW.md) for the next candidate;
 Sunny Marker has not been accepted into Google Fonts.
 
-The [1.313 review package](release/sunny-marker-googlefonts-1.313.zip) contains
+The previous [1.313 review package](release/sunny-marker-googlefonts-1.313.zip) contains
 the rebuilt outlines, shared accents and mark positioning, separate upright
 and italic variable fonts for Google's style controls, specimens, and the
 prepared Sam Dunn designer profile. The general font retains continuous slant.
 
-Run `make review` from the pinned environment to reproduce it. The full,
+Run `make review` from the pinned environment to reproduce 1.313. Its full,
 unmodified Fontspector results and outstanding Google subset-routing findings
 are documented in [the candidate report](documentation/GOOGLE_FONTS.md).
 This is a resubmission candidate, not an accepted Google Fonts release.
@@ -138,6 +151,7 @@ This is a resubmission candidate, not an accepted Google Fonts release.
 - `web/`: standalone marketing page, type tester, glyph gallery and downloads.
 - `references/` and `glyphs/manifest.json`: original drawing inputs.
 - `documentation/`: quality results, glyph atlas and release guidance.
+- `candidates/1.314/`: latest review fonts, source snapshot, proof and QA results.
 
 ## License and credits
 
