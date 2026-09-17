@@ -48,13 +48,15 @@ def segment_curves(contour):
     return np.array(curves), kinds
 
 
-def fillet_contours(curves, distance=10):
+def fillet_contours(curves, distance=10, angle_limit=145):
     """curves: (masters, segments, four control points, xy)."""
     incoming = np.roll(curves[:, :, 3] - curves[:, :, 2], 1, axis=1)
     outgoing = curves[:, :, 1] - curves[:, :, 0]
     length = np.linalg.norm(incoming, axis=2) * np.linalg.norm(outgoing, axis=2)
     cosine = (incoming * outgoing).sum(axis=2) / np.maximum(length, 1e-12)
-    targets = np.any((cosine < np.cos(np.radians(145))) & (length > 1e-8), axis=0)
+    targets = np.any(
+        (cosine < np.cos(np.radians(angle_limit))) & (length > 1e-8), axis=0
+    )
     if not targets.any():
         return None, targets
     results = []

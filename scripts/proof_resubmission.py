@@ -8,6 +8,7 @@ from fontTools.fontBuilder import FontBuilder
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw
+from outline_geometry import assert_w_structure
 
 from glyph_atlas import label_font
 from proof_outline_review import face, BG, INK, MUTED
@@ -24,10 +25,15 @@ def main():
     out = args.output / "instances"
     out.mkdir(exist_ok=True)
     order = f.getGlyphOrder()
-    for w, d, o, s in itertools.product(
-        (300, 400, 500, 700), (75, 100, 125), (10, 36), (0, -9)
-    ):
+    locations = list(
+        itertools.product((300, 400, 500, 700), (75, 100, 125), (10, 36), (0, -9))
+    )
+    locations += list(
+        itertools.product((350, 550, 600), (87.5, 112.5), (14, 23), (0, -4.5, -9))
+    )
+    for w, d, o, s in locations:
         gs = f.getGlyphSet(location=dict(wght=w, wdth=d, opsz=o, slnt=s))
+        assert_w_structure(gs)
         glyphs = {}
         metrics = {}
         for name in order:
@@ -46,7 +52,7 @@ def main():
         fb.setupHorizontalHeader(ascent=960, descent=-340)
         fb.setupOS2(
             usWeightClass=w,
-            usWidthClass={75: 3, 100: 5, 125: 7}[d],
+            usWidthClass={75: 3, 87.5: 4, 100: 5, 112.5: 6, 125: 7}[d],
             fsSelection=1 if s else 64,
             sTypoAscender=960,
             sTypoDescender=-340,

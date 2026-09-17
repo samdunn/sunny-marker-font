@@ -2,16 +2,13 @@
 <glyph name="ogonek.spacing" format="2">
   <advance width="230.0"/>
   <unicode hex="02DB"/>
-  <anchor x="133.134" y="45.96" name="top"/>
+  <anchor x="122.275" y="45.96" name="top"/>
   <anchor x="118.744" y="-186.462" name="bottom"/>
   <anchor x="118.744" y="-144.462" name="cedilla"/>
   <anchor x="170.936" y="-140.462" name="ogonek"/>
   <anchor x="218.973" y="11.96" name="side"/>
   <outline>
     <contour>
-      <point x="191.44037" y="-112.24056" type="line"/>
-      <point x="191.7942" y="-107.5693"/>
-      <point x="189.2144" y="-102.5082"/>
       <point x="187.3881" y="-98.3952" type="curve"/>
       <point x="183.9576" y="-90.6692"/>
       <point x="181.5196" y="-88.8601"/>
@@ -43,6 +40,8 @@
       <point x="145.9774" y="-157.1025"/>
       <point x="177.9663" y="-142.9591"/>
       <point x="189.3471" y="-119.5244" type="curve"/>
+      <point x="191.71360629626056" y="-111.28979422962416"/>
+      <point x="190.95563049773008" y="-106.42961545045378"/>
     </contour>
   </outline>
 </glyph>

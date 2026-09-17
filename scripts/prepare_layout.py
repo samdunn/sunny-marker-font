@@ -102,6 +102,18 @@ def anchors(glyph):
     return {a.name: (a.x, a.y) for a in glyph.anchors}
 
 
+def top_center(points, shear):
+    """Center the upper ink span without weighting it by point density.
+
+    A median can jump between separated strokes as a master changes weight
+    (notably w and z). The upper span's midpoint follows their geometry.
+    """
+    low, high = points[:, 1].min(), points[:, 1].max()
+    band = points[points[:, 1] >= high - (high - low) * 0.20]
+    x = band[:, 0] - shear * band[:, 1]
+    return float((x.min() + x.max()) / 2)
+
+
 def draw_ring(font, name, shear, width_factor, bottom):
     """An open ring at every weight, with nested counters and four clean arcs.
 
@@ -373,8 +385,7 @@ def main():
             pen = FlattenPen(font)
             glyph.draw(pen)
             points = np.concatenate(pen.contours)
-            band = points[points[:, 1] >= b[3] - (b[3] - b[1]) * 0.20]
-            center = np.median(band[:, 0] - shear * band[:, 1])
+            center = top_center(points, shear)
             cap = glyph.name[0].isupper()
             y = b[3] + (26 if cap else 34)
             anchor(glyph, "top", center + shear * y, y)

@@ -29,6 +29,7 @@ sources:
 	$(PYTHON) scripts/fit_sources.py
 	$(PYTHON) scripts/round_source_joins.py
 	$(PYTHON) scripts/prepare_layout.py
+	$(PYTHON) scripts/polish_sources.py
 
 audit:
 	$(PYTHON) -m pip check

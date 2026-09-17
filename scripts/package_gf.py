@@ -22,7 +22,7 @@ from fontTools.varLib.instancer import instantiateVariableFont
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / 'build'
 FDIR = ROOT / 'fonts'
-VERSION = '1.312'
+VERSION = '1.313'
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1788998400')
 COPYRIGHT = ('Copyright 2026 The Sunny Marker Project Authors '
              '(https://github.com/buildinternet/sunny-marker-font)')

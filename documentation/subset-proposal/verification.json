@@ -1,0 +1,39 @@
+{
+  "font_sha256": "ebc9bea1373e32b77232c0447dacb5e4fbdaa63b63ab35821c6a4919a6302d46",
+  "upstream_base": "1d38a7d77ce11452ccbfe8fa9a0cb728ee6d7cd3",
+  "official_fontspector_modified": false,
+  "subsets": {
+    "latin": {
+      "added": [
+        "U+0331"
+      ],
+      "removed": [],
+      "bytes": 1372268,
+      "samples": [
+        "A̱",
+        "a̱",
+        "é̱",
+        "i̱"
+      ],
+      "canonical_shaping_passed": true
+    },
+    "latin-ext": {
+      "added": [
+        "U+0331",
+        "U+1EBC",
+        "U+1EBD"
+      ],
+      "removed": [],
+      "bytes": 1568588,
+      "samples": [
+        "Ŋ̱",
+        "Ẽ",
+        "ẽ",
+        "Ẽẽ"
+      ],
+      "canonical_shaping_passed": true
+    }
+  },
+  "vietnamese_unchanged": true,
+  "passed": true
+}

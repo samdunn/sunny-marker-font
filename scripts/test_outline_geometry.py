@@ -11,6 +11,165 @@ from regularize_sources import redistribute
 
 
 class GeometryTests(unittest.TestCase):
+    def test_intermediate_letter_joins_do_not_reverse_direction(self):
+        import itertools
+        from pathlib import Path
+        from fontTools.designspaceLib import DesignSpaceDocument
+        from fontTools.varLib.models import VariationModel, normalizeLocation
+        from ufoLib2 import Font
+        from round_source_joins import segment_curves
+
+        doc = DesignSpaceDocument.fromfile(
+            Path(__file__).resolve().parents[1] / "sources/SunnyMarker.designspace"
+        )
+        axes = {a.name: (a.minimum, a.default, a.maximum) for a in doc.axes}
+        model = VariationModel(
+            [normalizeLocation(source.location, axes) for source in doc.sources]
+        )
+        fonts = [Font.open(source.path) for source in doc.sources]
+        for name in ("u", "w", "k"):
+            masters = [segment_curves(font[name].contours[0])[0] for font in fonts]
+            for values in itertools.product(
+                (350, 550, 600), (87.5, 112.5), (14, 23), (0, -4.5, -9)
+            ):
+                curves = model.interpolateFromMasters(
+                    normalizeLocation(dict(zip(axes, values)), axes), masters
+                )
+                incoming = np.roll(curves[:, 3] - curves[:, 2], 1, axis=0)
+                outgoing = curves[:, 1] - curves[:, 0]
+                cosine = (incoming * outgoing).sum(axis=1) / (
+                    np.linalg.norm(incoming, axis=1) * np.linalg.norm(outgoing, axis=1)
+                )
+                angle = np.degrees(np.arccos(np.clip(cosine, -1, 1)))
+                self.assertLess(float(angle.max()), 90, (name, values))
+
+    def test_w_has_no_unintended_holes_across_source_masters(self):
+        from outline_geometry import assert_w_structure
+        from pathlib import Path
+        from ufoLib2 import Font
+
+        masters = sorted(
+            (Path(__file__).resolve().parents[1] / "sources").glob("master-*.ufo")
+        )
+        self.assertEqual(len(masters), 48)
+        for master in masters:
+            font = Font.open(master)
+            assert_w_structure(font)
+
+    def test_mark_center_does_not_jump_with_stroke_sampling_density(self):
+        from prepare_layout import top_center
+
+        left = np.column_stack([np.linspace(0, 20, 100), np.full(100, 500)])
+        right = np.column_stack([np.linspace(300, 320, 100), np.full(100, 500)])
+        bottom = np.array([[0.0, 0], [320, 0]])
+        self.assertEqual(
+            top_center(np.concatenate([left, right[::10], right[-1:], bottom]), 0), 160
+        )
+        self.assertEqual(
+            top_center(np.concatenate([left[::10], left[-1:], right, bottom]), 0), 160
+        )
+
+    def test_recentered_components_serialize_as_valid_ufo_numbers(self):
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from ufoLib2 import Font
+        from ufoLib2.objects import Anchor, Component
+        from polish_sources import stabilize_top_anchors
+
+        font = Font()
+        base = font.newGlyph("w")
+        pen = base.getPen()
+        pen.moveTo((0, 0))
+        pen.lineTo((300.0006, 0))
+        pen.lineTo((300.0006, 500))
+        pen.lineTo((0, 500))
+        pen.closePath()
+        base.anchors.append(Anchor(280, 534, name="top"))
+        mark = font.newGlyph("acutecomb")
+        mark.anchors.append(Anchor(0, 0, name="_top"))
+        accented = font.newGlyph("wacute")
+        accented.components.extend(
+            [Component("w"), Component("acutecomb", (1, 0, 0, 1, 280, 534))]
+        )
+        accented.anchors.append(Anchor(280, 700, name="top"))
+        stabilize_top_anchors(font, np.float64(0))
+        self.assertEqual(accented.components[1].transformation.dx, 150)
+        self.assertTrue(
+            all(value == 0 for value in stabilize_top_anchors(font, 0).values())
+        )
+        self.assertEqual(accented.components[1].transformation.dx, 150)
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "test.ufo"
+            font.save(path)
+            reopened = Font.open(path)
+            self.assertEqual(reopened["wacute"].components[1].transformation.dx, 150)
+
+    def test_short_span_merge_preserves_curve_and_rejects_corner(self):
+        from polish_sources import merge, evalcurve
+        from round_source_joins import split
+        from scipy.spatial import cKDTree
+
+        curve = np.array([[0.0, 0], [20, 80], [80, 80], [100, 0]])
+        a, b = split(curve, 0.025)
+        merged, error = merge(a[None], b[None], tolerance=2)
+        self.assertIsNotNone(merged)
+        samples = np.linspace(0, 1, 2001)[None]
+        original = evalcurve(curve[None], samples)[0]
+        result = evalcurve(merged, samples)[0]
+        self.assertLess(
+            max(
+                cKDTree(original).query(result)[0].max(),
+                cKDTree(result).query(original)[0].max(),
+            ),
+            2.1,
+        )
+        np.testing.assert_allclose(merged[0, [0, 3]], curve[[0, 3]])
+        a = np.array([[0.0, 0], [30, 0], [60, 0], [90, 0]])
+        b = np.array([[90.0, 0], [90, 30], [90, 60], [90, 90]])
+        self.assertIsNone(merge(a[None], b[None], tolerance=2)[0])
+
+    def test_line_alignment_keeps_connected_runs_and_italic_shear(self):
+        from polish_sources import snap_lines
+
+        vertices = np.array([[0.0, 0], [1, 50], [2, 100], [80, 100], [80, 0]])
+        curves = np.array(
+            [
+                a + np.linspace(0, 1, 4)[:, None] * (b - a)
+                for a, b in zip(vertices, np.roll(vertices, -1, axis=0))
+            ]
+        )
+        masters = np.stack([curves, curves.copy()])
+        shear = np.tan(np.radians(9))
+        masters[1, :, :, 0] += shear * masters[1, :, :, 1]
+        result, count = snap_lines(masters, ["line"] * 5, np.array([0, shear]))
+        self.assertGreater(count, 0)
+        np.testing.assert_allclose(
+            result[:, :, 3], np.roll(result[:, :, 0], -1, axis=1)
+        )
+        unsheared = result[1].copy()
+        unsheared[:, :, 0] -= shear * unsheared[:, :, 1]
+        np.testing.assert_allclose(unsheared, result[0], atol=1e-10)
+        np.testing.assert_allclose(result[0, :2, [0, 3], 0], 1)
+        self.assertLessEqual(np.linalg.norm(result - masters, axis=-1).max(), 1.1)
+
+    def test_counter_opening_repairs_reversed_flanks_without_open_seam(self):
+        from polish_sources import open_caps
+
+        arc = np.array([[10.0, 20], [10, 5], [-10, 5], [-10, 20]])
+        return_arc = np.array([[-10.0, 20], [-10, 45], [10, 45], [10, 20]])
+        master = np.stack([arc, return_arc])
+        collapsed = master.copy()
+        collapsed[:, :, 0] *= -0.1
+        result, count = open_caps(
+            np.stack([master, collapsed]), ["curve"] * 2, np.zeros(2), 0
+        )
+        self.assertGreater(count, 0)
+        self.assertGreaterEqual(result[1, 0, 0, 0] - result[1, 0, 3, 0], 6)
+        np.testing.assert_allclose(
+            result[:, :, 3], np.roll(result[:, :, 0], -1, axis=1)
+        )
+        np.testing.assert_allclose(result[0], master)
+
     def test_final_fillet_preserves_compatible_segments(self):
         from round_source_joins import fillet_contours
 

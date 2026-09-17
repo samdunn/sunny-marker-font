@@ -27,10 +27,10 @@ def main():
     font["OS/2"].fsSelection = 0xC0
     font["head"].macStyle = 0
     font["post"].italicAngle = 0
-    package_gf.VERSION = "1.312"
+    package_gf.VERSION = "1.313"
     package_gf.apply_metadata(font)
     package_gf.build_stat(font)
-    package_gf.set_name(font, "Version 1.312; development outline review", 5)
+    package_gf.set_name(font, "Version 1.313; development outline review", 5)
     font.save(OUT / "SunnyMarker[opsz,slnt,wdth,wght].ttf")
     package_gf.save_woff2(font, OUT / "SunnyMarker-Variable.woff2")
     print(OUT)

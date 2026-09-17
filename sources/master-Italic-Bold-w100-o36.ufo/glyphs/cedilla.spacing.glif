@@ -2,26 +2,27 @@
 <glyph name="cedilla.spacing" format="2">
   <advance width="217.0"/>
   <unicode hex="00B8"/>
-  <anchor x="127.943" y="65.226" name="top"/>
+  <anchor x="124.172" y="65.226" name="top"/>
   <anchor x="82.026" y="-204.504" name="bottom"/>
   <anchor x="88.678" y="-162.504" name="cedilla"/>
   <anchor x="143.966" y="-158.504" name="ogonek"/>
   <anchor x="201.007" y="31.226" name="side"/>
   <outline>
     <contour>
-      <point x="113.53278" y="-99.20865" type="line"/>
+      <point x="113.53278" y="-99.20865" type="curve"/>
       <point x="115.549" y="-110.1625"/>
       <point x="93.9501" y="-111.686"/>
       <point x="87.5227" y="-110.6028" type="curve"/>
-      <point x="79.8" y="-109.0436" type="line"/>
-      <point x="64.1394" y="-107.9819" type="line"/>
+      <point x="79.74403038935327" y="-109.03229983076898"/>
+      <point x="72.06390878452282" y="-108.51913682212225"/>
+      <point x="64.1394" y="-107.9819" type="curve"/>
       <point x="46.5685" y="-109.2039"/>
-      <point x="31.1979" y="-121.3105"/>
+      <point x="31.197899999999997" y="-121.3105"/>
       <point x="29.0126" y="-139.3097" type="curve"/>
       <point x="25.558" y="-167.7635"/>
       <point x="60.5809" y="-174.6352"/>
       <point x="81.2477" y="-174.5026" type="curve"/>
-      <point x="126.7103" y="-174.2109"/>
+      <point x="126.71030000000002" y="-174.2109"/>
       <point x="171.1051" y="-143.7162"/>
       <point x="178.2418" y="-97.1023" type="curve"/>
       <point x="183.0275" y="-65.8442"/>
@@ -38,13 +39,12 @@
       <point x="87.9918" y="9.874" type="curve"/>
       <point x="75.0016" y="-7.4068"/>
       <point x="65.5879" y="-34.1475"/>
-      <point x="62.1485" y="-55.7146" type="curve"/>
+      <point x="62.148500000000006" y="-55.7146" type="curve"/>
       <point x="61.199" y="-61.6687"/>
-      <point x="61.1851" y="-68.7425"/>
+      <point x="61.185100000000006" y="-68.7425"/>
       <point x="64.4457" y="-74.0963" type="curve"/>
-      <point x="75.0319" y="-91.4785"/>
-      <point x="96.3743" y="-86.3785"/>
-      <point x="110.29" y="-95.951" type="curve"/>
+      <point x="75.71678558375822" y="-92.60306010598727"/>
+      <point x="99.5169522007933" y="-85.128551618338"/>
     </contour>
   </outline>
 </glyph>

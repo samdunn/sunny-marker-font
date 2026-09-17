@@ -98,9 +98,9 @@ make audit
 
 `make build` compiles committed UFO/designspace sources with fontmake, then
 packages matching desktop/web fonts, metadata, checksums and a deterministic ZIP.
-The current source builds are version **1.312**. The committed release files,
+The current source builds are version **1.313**. The committed release files,
 live website and npm package remain **1.310** until a new release is published.
-Use `make review` to build, verify and proof the 1.312 candidate without replacing
+Use `make review` to build, verify and proof the 1.313 candidate without replacing
 those release assets.
 `make check` runs the unmodified Google Fonts FontBakery profile, including its
 network and interpolation checks. Timeouts are errors, not passing results.
@@ -120,7 +120,7 @@ was closed for outline-quality improvements. Follow the
 [outline review](documentation/OUTLINE_REVIEW.md) for the next candidate;
 Sunny Marker has not been accepted into Google Fonts.
 
-The [1.312 review package](release/sunny-marker-googlefonts-1.312.zip) contains
+The [1.313 review package](release/sunny-marker-googlefonts-1.313.zip) contains
 the rebuilt outlines, shared accents and mark positioning, separate upright
 and italic variable fonts for Google's style controls, specimens, and the
 prepared Sam Dunn designer profile. The general font retains continuous slant.

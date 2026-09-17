@@ -1,33 +1,33 @@
 {
   "glyphs": 391,
   "points_before": 63565,
-  "points_after": 15789,
+  "points_after": 15235,
   "glyph_bound_locations": 51,
   "shaping_locations": 375,
   "overflows": [],
   "passed": true,
   "expanded_points_before": 63565,
-  "expanded_points_after": 36653,
+  "expanded_points_after": 35501,
   "sha256": {
     "before": "54f0a06f3d29bcd042752d882a69809206856845ecf099ce929c6829fe55d51d",
-    "after": "b50998fe46d94123240e69e912a58163c4abc0305ff341c9af743ede05b0b502"
+    "after": "ebc9bea1373e32b77232c0447dacb5e4fbdaa63b63ab35821c6a4919a6302d46"
   },
   "compiled_edge_comparisons": 1164,
   "largest_compiled_edge_deviations": [
-    {
-      "master": "Roman-Regular-w100-o36",
-      "glyph": "sacute",
-      "error": 1.6341624600868923
-    },
     {
       "master": "Roman-Regular-w100-o36",
       "glyph": "Scedilla",
       "error": 1.5474425109503367
     },
     {
+      "master": "Italic-Bold-w125-o36",
+      "glyph": "Amacron",
+      "error": 1.546615139679435
+    },
+    {
       "master": "Roman-Regular-w100-o36",
-      "glyph": "wdieresis",
-      "error": 1.5124828125710266
+      "glyph": "idieresis",
+      "error": 1.5127270320801383
     },
     {
       "master": "Roman-Light-w75-o10",
@@ -52,7 +52,7 @@
     {
       "master": "Roman-Regular-w100-o36",
       "glyph": "jacute",
-      "error": 1.4954414217805478
+      "error": 1.4964188680770754
     }
   ]
 }

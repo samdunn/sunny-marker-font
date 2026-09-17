@@ -2,16 +2,13 @@
 <glyph name="grave.spacing" format="2">
   <advance width="227.0"/>
   <unicode hex="0060"/>
-  <anchor x="92.947" y="802.41" name="top"/>
+  <anchor x="99.642" y="802.41" name="top"/>
   <anchor x="128.279" y="513.183" name="bottom"/>
   <anchor x="134.932" y="555.183" name="cedilla"/>
   <anchor x="167.827" y="559.183" name="ogonek"/>
   <anchor x="187.885" y="768.41" name="side"/>
   <outline>
     <contour>
-      <point x="138.32936" y="543.36656" type="line"/>
-      <point x="151.1866" y="545.8495"/>
-      <point x="167.1037" y="554.9585"/>
       <point x="170.3199" y="568.5564" type="curve"/>
       <point x="177.8432" y="600.3647"/>
       <point x="143.3657" y="668.7441"/>
@@ -22,12 +19,14 @@
       <point x="70.025" y="766.1569"/>
       <point x="54.2217" y="756.5215"/>
       <point x="50.7876" y="740.8704" type="curve"/>
-      <point x="44.3299" y="711.4387"/>
+      <point x="44.329899999999995" y="711.4387"/>
       <point x="78.2954" y="642.3263"/>
       <point x="86.9419" y="616.9672" type="curve"/>
       <point x="95.6677" y="591.3758"/>
       <point x="98.1406" y="545.8639"/>
       <point x="134.0235" y="543.183" type="curve"/>
+      <point x="148.70344745006028" y="543.8088102107207"/>
+      <point x="166.7112690539862" y="553.299325582737"/>
     </contour>
   </outline>
 </glyph>

@@ -1,0 +1,982 @@
+{
+  "passed": true,
+  "artifacts_checked": 92,
+  "sampled_variable_locations": 375,
+  "width_measurements": [
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 10,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        12486,
+        14210,
+        15902,
+        17404,
+        18868
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 10,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        12614,
+        14322,
+        16031,
+        17511,
+        18994
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 10,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        12739,
+        14450,
+        16155,
+        17639,
+        19117
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 10,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        12855,
+        14564,
+        16274,
+        17751,
+        19235
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 10,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        12967,
+        14695,
+        16385,
+        17885,
+        19346
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 23,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        11599,
+        13167,
+        14710,
+        16045,
+        17377
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 23,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        11700,
+        13255,
+        14806,
+        16137,
+        17463
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 23,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        11783,
+        13341,
+        14896,
+        16222,
+        17554
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 23,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        11880,
+        13432,
+        14991,
+        16317,
+        17645
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 23,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        11957,
+        13518,
+        15073,
+        16402,
+        17736
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 36,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        10743,
+        12142,
+        13516,
+        14698,
+        15863
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 36,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        10810,
+        12194,
+        13580,
+        14757,
+        15929
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 36,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        10872,
+        12250,
+        13648,
+        14814,
+        15993
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 36,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        10927,
+        12314,
+        13706,
+        14874,
+        16051
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 300,
+      "opsz": 36,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        10978,
+        12376,
+        13756,
+        14940,
+        16102
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 10,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        12604,
+        14297,
+        16003,
+        17475,
+        18952
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 10,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        12713,
+        14414,
+        16110,
+        17588,
+        19057
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 10,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        12838,
+        14539,
+        16235,
+        17711,
+        19179
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 10,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        12954,
+        14653,
+        16352,
+        17823,
+        19292
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 10,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        13081,
+        14781,
+        16483,
+        17951,
+        19420
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 23,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        11719,
+        13274,
+        14812,
+        16132,
+        17451
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 23,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        11811,
+        13358,
+        14899,
+        16227,
+        17539
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 23,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        11897,
+        13448,
+        14989,
+        16307,
+        17632
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 23,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        11985,
+        13537,
+        15079,
+        16397,
+        17718
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 23,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        12070,
+        13627,
+        15174,
+        16482,
+        17805
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 36,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        10876,
+        12248,
+        13630,
+        14792,
+        15968
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 36,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        10923,
+        12300,
+        13680,
+        14849,
+        16015
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 36,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        10990,
+        12359,
+        13747,
+        14902,
+        16076
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 36,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        11043,
+        12416,
+        13800,
+        14961,
+        16131
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 350,
+      "opsz": 36,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        11107,
+        12479,
+        13874,
+        15031,
+        16203
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 10,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        12693,
+        14398,
+        16078,
+        17561,
+        19010
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 10,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        12817,
+        14508,
+        16198,
+        17671,
+        19128
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 10,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        12940,
+        14638,
+        16332,
+        17791,
+        19257
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 10,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        13059,
+        14748,
+        16443,
+        17904,
+        19359
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 10,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        13168,
+        14877,
+        16557,
+        18032,
+        19470
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 23,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        11819,
+        13370,
+        14900,
+        16212,
+        17538
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 23,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        11920,
+        13461,
+        14988,
+        16305,
+        17621
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 23,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        12001,
+        13549,
+        15089,
+        16394,
+        17699
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 23,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        12092,
+        13640,
+        15174,
+        16480,
+        17797
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 23,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        12168,
+        13726,
+        15259,
+        16568,
+        17881
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 36,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        10981,
+        12370,
+        13723,
+        14899,
+        16045
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 36,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        11043,
+        12415,
+        13783,
+        14948,
+        16104
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 36,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        11107,
+        12473,
+        13857,
+        15009,
+        16179
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 36,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        11160,
+        12529,
+        13911,
+        15066,
+        16224
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 400,
+      "opsz": 36,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        11210,
+        12600,
+        13962,
+        15132,
+        16277
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 10,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        12908,
+        14588,
+        16261,
+        17701,
+        19141
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 10,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        13020,
+        14703,
+        16381,
+        17816,
+        19253
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 10,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        13133,
+        14816,
+        16492,
+        17935,
+        19373
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 10,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        13246,
+        14934,
+        16612,
+        18051,
+        19483
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 10,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        13371,
+        15049,
+        16728,
+        18165,
+        19602
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 23,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        12057,
+        13579,
+        15098,
+        16394,
+        17676
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 23,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        12146,
+        13663,
+        15190,
+        16481,
+        17762
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 23,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        12228,
+        13750,
+        15276,
+        16565,
+        17850
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 23,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        12320,
+        13839,
+        15360,
+        16652,
+        17939
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 23,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        12397,
+        13925,
+        15447,
+        16736,
+        18022
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 36,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        11235,
+        12588,
+        13941,
+        15078,
+        16221
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 36,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        11286,
+        12640,
+        13997,
+        15136,
+        16272
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 36,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        11340,
+        12699,
+        14056,
+        15192,
+        16334
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 36,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        11393,
+        12752,
+        14114,
+        15247,
+        16388
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 550,
+      "opsz": 36,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        11461,
+        12814,
+        14175,
+        15312,
+        16451
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 10,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        13086,
+        14767,
+        16414,
+        17846,
+        19244
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 10,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        13202,
+        14871,
+        16532,
+        17945,
+        19366
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 10,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        13329,
+        14980,
+        16654,
+        18065,
+        19481
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 10,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        13425,
+        15093,
+        16757,
+        18172,
+        19593
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 10,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        13535,
+        15218,
+        16866,
+        18298,
+        19696
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 23,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        12251,
+        13769,
+        15274,
+        16540,
+        17809
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 23,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        12349,
+        13856,
+        15358,
+        16624,
+        17891
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 23,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        12432,
+        13941,
+        15447,
+        16709,
+        17974
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 23,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        12514,
+        14019,
+        15522,
+        16799,
+        18055
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 23,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        12583,
+        14101,
+        15610,
+        16871,
+        18149
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 36,
+      "slnt": 0,
+      "advances_75_87_100_112_125": [
+        11450,
+        12803,
+        14129,
+        15258,
+        16360
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 36,
+      "slnt": -2.25,
+      "advances_75_87_100_112_125": [
+        11505,
+        12848,
+        14187,
+        15301,
+        16428
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 36,
+      "slnt": -4.5,
+      "advances_75_87_100_112_125": [
+        11579,
+        12911,
+        14255,
+        15365,
+        16484
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 36,
+      "slnt": -6.75,
+      "advances_75_87_100_112_125": [
+        11618,
+        12962,
+        14299,
+        15420,
+        16540
+      ]
+    },
+    {
+      "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+      "weight": 700,
+      "opsz": 36,
+      "slnt": -9,
+      "advances_75_87_100_112_125": [
+        11670,
+        13023,
+        14352,
+        15484,
+        16586
+      ]
+    }
+  ]
+}

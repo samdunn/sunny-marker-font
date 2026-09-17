@@ -2,7 +2,7 @@
 <glyph name="Euro" format="2">
   <advance width="613.0"/>
   <unicode hex="20AC"/>
-  <anchor x="400.187" y="731.179" name="top"/>
+  <anchor x="385.277" y="731.179" name="top"/>
   <anchor x="343.711" y="-26.363" name="bottom"/>
   <anchor x="343.711" y="15.637" name="cedilla"/>
   <anchor x="511.008" y="19.637" name="ogonek"/>
@@ -81,10 +81,10 @@
       <point x="555.4626" y="209.0214"/>
     </contour>
     <contour>
-      <point x="85.29652" y="338.96285" type="curve"/>
-      <point x="126.8898" y="336.1816" type="line"/>
-      <point x="147.403" y="337.6875" type="line"/>
-      <point x="188.1057" y="343.4941" type="line"/>
+      <point x="85.29652" y="337.572225" type="curve"/>
+      <point x="126.8898" y="337.572225" type="line"/>
+      <point x="147.403" y="340.5908" type="line"/>
+      <point x="188.1057" y="340.5908" type="line"/>
       <point x="220.9523" y="341.3177" type="line"/>
       <point x="245.6213" y="341.86" type="line"/>
       <point x="274.1029" y="344.4546"/>
@@ -124,11 +124,10 @@
       <point x="45.5001" y="395.1253"/>
       <point x="45.0" y="382.7029" type="curve"/>
       <point x="44.0343" y="358.717"/>
-      <point x="63.2346" y="342.3165"/>
+      <point x="63.2346" y="340.925875"/>
     </contour>
     <contour>
-      <point x="91.71134" y="217.12002" type="line"/>
-      <point x="136.2333" y="223.194" type="line"/>
+      <point x="136.2333" y="223.194" type="curve"/>
       <point x="172.9271" y="221.1912" type="line"/>
       <point x="197.4327" y="221.062" type="line"/>
       <point x="232.516" y="223.4016"/>
@@ -170,6 +169,8 @@
       <point x="44.0457" y="237.5876"/>
       <point x="63.0182" y="219.677"/>
       <point x="85.3114" y="217.1244" type="curve"/>
+      <point x="102.29350238069492" y="217.11277776472468"/>
+      <point x="119.43085125190342" y="220.90169890528261"/>
     </contour>
   </outline>
 </glyph>

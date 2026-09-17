@@ -2,16 +2,13 @@
 <glyph name="ogonek.spacing" format="2">
   <advance width="229.0"/>
   <unicode hex="02DB"/>
-  <anchor x="153.113" y="46.036" name="top"/>
+  <anchor x="143.632" y="46.036" name="top"/>
   <anchor x="106.03" y="-186.459" name="bottom"/>
   <anchor x="112.682" y="-144.459" name="cedilla"/>
   <anchor x="164.108" y="-140.459" name="ogonek"/>
   <anchor x="215.448" y="12.036" name="side"/>
   <outline>
     <contour>
-      <point x="187.62826" y="-112.24056" type="line"/>
-      <point x="188.6791" y="-107.6353"/>
-      <point x="186.9108" y="-102.3726"/>
       <point x="185.6556" y="-98.0147" type="curve"/>
       <point x="183.1939" y="-89.4678"/>
       <point x="180.1567" y="-89.0328"/>
@@ -22,9 +19,9 @@
       <point x="107.1865" y="-101.4286"/>
       <point x="98.2463" y="-98.5762"/>
       <point x="87.272" y="-93.5866" type="curve"/>
-      <point x="86.6417" y="-83.7502"/>
+      <point x="86.64170000000001" y="-83.7502"/>
       <point x="88.8328" y="-81.8926"/>
-      <point x="96.5048" y="-74.9564" type="curve"/>
+      <point x="96.50480000000002" y="-74.9564" type="curve"/>
       <point x="116.1057" y="-57.2354"/>
       <point x="145.5509" y="-48.0135"/>
       <point x="161.869" y="-26.6604" type="curve"/>
@@ -35,14 +32,16 @@
       <point x="126.0999" y="-1.2013"/>
       <point x="118.7416" y="-6.206" type="curve"/>
       <point x="88.8188" y="-26.5577"/>
-      <point x="55.3463" y="-57.277"/>
+      <point x="55.34629999999999" y="-57.277"/>
       <point x="46.1176" y="-93.743" type="curve"/>
       <point x="36.679" y="-131.0383"/>
       <point x="78.4546" y="-155.6828"/>
-      <point x="110.3429" y="-156.4396" type="curve"/>
-      <point x="136.6876" y="-157.0648"/>
+      <point x="110.34289999999999" y="-156.4396" type="curve"/>
+      <point x="136.68759999999997" y="-157.0648"/>
       <point x="169.758" y="-142.3055"/>
       <point x="184.3509" y="-119.5713" type="curve"/>
+      <point x="187.91092991369715" y="-111.6082890126394"/>
+      <point x="188.14261111758202" y="-106.6492966772711"/>
     </contour>
   </outline>
 </glyph>

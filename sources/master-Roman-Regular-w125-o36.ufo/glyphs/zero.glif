@@ -2,7 +2,7 @@
 <glyph name="zero" format="2">
   <advance width="576.0"/>
   <unicode hex="0030"/>
-  <anchor x="307.675" y="662.126" name="top"/>
+  <anchor x="310.298" y="662.126" name="top"/>
   <anchor x="264.094" y="-30.274" name="bottom"/>
   <anchor x="264.094" y="11.726" name="cedilla"/>
   <anchor x="404.275" y="15.726" name="ogonek"/>
@@ -35,7 +35,7 @@
       <point x="38.1623" y="169.6213"/>
     </contour>
     <contour>
-      <point x="228.46031" y="108.43807" type="line"/>
+      <point x="228.46031" y="108.43807" type="curve"/>
       <point x="160.7187" y="122.1454"/>
       <point x="143.8509" y="206.5764"/>
       <point x="144.5068" y="263.8408" type="curve"/>
@@ -52,9 +52,8 @@
       <point x="429.73" y="334.9145"/>
       <point x="425.3776" y="301.4309"/>
       <point x="416.3997" y="269.8466" type="curve"/>
-      <point x="394.8479" y="194.0278"/>
-      <point x="338.6865" y="103.0541"/>
-      <point x="248.8293" y="106.3296" type="curve"/>
+      <point x="390.24046829919314" y="177.81894771679703"/>
+      <point x="332.3926191151264" y="97.67964968559221"/>
     </contour>
   </outline>
 </glyph>

@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw
 from shaped_proof import draw_shaped
 
 # Review exports from the current source build; published web/npm stays separate.
-VERSION = "1.312"
+VERSION = "1.313"
 
 
 def prepare_submission_font(source, destination, italic=False):
@@ -181,7 +181,7 @@ family.designer = "Sam Dunn"
 family.category[:] = ["HANDWRITING"]
 family.date_added = "2026-09-17"
 family.source.repository_url = "https://github.com/buildinternet/sunny-marker-font"
-family.source.branch = "codex/outline-quality"
+family.source.branch = "codex/resubmission-polish"
 metadata.write_text(text_format.MessageToString(family))
 description = """<p>Sunny Marker is a flexible handwritten marker typeface for labels,
 notes, headings, and playful interfaces. Its rounded strokes retain the uneven

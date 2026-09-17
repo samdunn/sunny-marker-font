@@ -87,7 +87,7 @@ def main():
     assert 200 < len((designer / "bio.html").read_text()) < 1000
     assert "https://samdunn.org" in (designer / "bio.html").read_text()
     with zipfile.ZipFile(
-        ROOT / "release/sunny-marker-googlefonts-1.312.zip"
+        ROOT / "release/sunny-marker-googlefonts-1.313.zip"
     ) as archive:
         assert archive.testzip() is None
         expected = {str(p.relative_to(root)): p for p in root.rglob("*") if p.is_file()}

@@ -1,23 +1,24 @@
-# Google Fonts resubmission candidate — 1.312
+# Google Fonts resubmission candidate — 1.313
 
 The initial [Sunny Marker proposal](https://github.com/google/fonts/issues/10972)
 was closed for outline quality: symbols, accents and excessive points. The
-[1.312 outline review](OUTLINE_REVIEW.md) documents revised drawings, construction,
-shaping and visual proofs. This package is prepared for renewed design review;
+[1.313 outline review](OUTLINE_REVIEW.md) documents revised drawings, construction,
+shaping and visual proofs. This package is prepared locally for renewed design review;
 it is **not an accepted Google Fonts release or a fully passing onboarding
-package**. Remaining Google subset-routing failures need resolution with the
-onboarding team. Published website, npm and desktop assets remain 1.310.
+package**. Remaining Google subset-routing failures need an upstream routing
+change or an approved onboarding approach. No contact or submission has been made
+for this revision. Published website, npm and desktop assets remain 1.310.
 
 ## Package
 
-[Download the complete 1.312 candidate](../release/sunny-marker-googlefonts-1.312.zip).
+[Download the complete 1.313 candidate](../release/sunny-marker-googlefonts-1.313.zip).
 
 - **391 glyphs**, including all 319 GF Latin Core codepoints.
 - Separate upright and italic variable TTFs under `ofl/sunnymarker/`, with
   `wght` 300–700, `wdth` 75–125 and `opsz` 10–36 (default 14).
   The self-hosted font keeps its continuous fourth `slnt` axis, −9–0°.
   Google recommends separate styles for applications with an italic button.
-- Upright **943,568 bytes**; italic **960,108 bytes**.
+- Upright **920,248 bytes**; italic **938,472 bytes**.
 - OFL, METADATA.pb, article, a new specimen rendered from this candidate, and
   the specimen's CC BY-SA 4.0 image license.
 - Sam Dunn's designer profile under `catalog/designers/samdunn/`, including the
@@ -36,7 +37,7 @@ access and no exclusions or severity overrides:
 
 | PASS | WARN | FAIL | SKIP | INFO | ERROR / FATAL |
 | --- | --- | --- | --- | --- | --- |
-| 297 | 17 | **9** | 93 | 18 | 0 / 0 |
+| 281 | 12 | **9** | 69 | 16 | 0 / 0 |
 
 [Full report](outline-review/googlefonts.md) ·
 [Machine-readable results](outline-review/googlefonts.json)
@@ -50,10 +51,9 @@ fontspector -p googlefonts --timeout 20 \
   release/googlefonts/ofl/sunnymarker/article/*
 ```
 
-Independent geometry, layout, package and 92-format checks pass; all 48 outline
-locations have **zero FAIL/ERROR**, with 40 disclosed warnings. FontBakery 1.1.0
-also reports zero FAIL/ERROR for the general variable and static exports. Those
-results do not replace the current full Fontspector profile.
+Independent geometry, layout, package and 92-format checks pass. All **84**
+evaluated outline locations have **zero warnings, failures or errors**. These
+outline results do not replace the full Google Fonts profile above.
 
 ## Remaining Google Fonts failures
 
@@ -74,7 +74,12 @@ have now been added and proofed.
 Related upstream discussions already cover [missing combining marks](https://github.com/googlefonts/nam-files/issues/6),
 [combining-mark distribution](https://github.com/googlefonts/nam-files/issues/23),
 and [deriving subsets from language support](https://github.com/googlefonts/nam-files/pull/29).
-The onboarding team needs to advise on subset generation or an approved exception.
+A [minimal three-character routing patch](subset-proposal/README.md) is prepared
+and tested **locally only**. It adds U+0331 to Latin and Latin Extended, retains
+Ẽ/ẽ in Latin Extended, and leaves Vietnamese unchanged. Actual subset binaries
+pass HarfBuzz mark-shaping and canonical-equivalence tests. This does not alter
+Fontspector or Google's service; the official nine failures remain. The maintainer
+requested no contact, so the draft has not been submitted.
 The candidate does not declare unrelated script subsets, delete working characters,
 or suppress these failures to obtain a passing report.
 
@@ -82,15 +87,23 @@ or suppress these failures to obtain a passing report.
 
 - Subset coverage and routing: `latin-ext` is sparse, and some combining marks,
   arrows and doodles are outside the current declared web subsets.
-- Optional language additions (such as Ŧ/ŧ, Ĳ/ĳ and Ʒ/ʒ), and a rupee inferred
-  from Romanized Indic coverage. These are not missing Latin Core characters.
+- Optional language additions (Ŧ/ŧ, Ǿ/ǿ, Ĳ/ĳ, ſ, Ŀ/ŀ, Ǥ/ǥ, Ʒ/ʒ, Ǯ/ǯ).
+  These auxiliary characters are not missing Latin Core requirements. They remain
+  a possible future coverage expansion, not newly claimed support.
+- Missing ₹: the [official rupee check](https://github.com/fonttools/fontspector/blob/main/profile-universal/src/checks/rupee.rs)
+  warns for any non-Indic font without it. This is not evidence of broken existing
+  characters. Adding it would be a separate drawing and proofing task.
 - Vendor ID `NONE` is not registered; no fabricated vendor identifier is used.
-- A few sidebearings change non-monotonically between variable masters.
+- Only `space` retains the statistical sidebearing warning. Its advance changes
+  deliberately with the width axis. The earlier accented-letter warnings were
+  resolved by stable accent centering.
 - Sam Dunn's designer profile is prepared but not yet in Google's catalog.
 
 Earlier file-size, mark-class, soft-dot, naming, mathematical-width,
-unreachable-glyph and contour-direction findings have been addressed. Exact
-warnings and affected glyphs remain in the complete reports.
+unreachable-glyph, contour-direction and local outline findings have been addressed.
+The remaining warnings are disclosed, not suppressed. [Google's QA guidance](https://googlefonts.github.io/gf-guide/qa.html) treats
+warnings as review items; neither an automated pass nor this report guarantees
+design acceptance. Exact warnings and affected glyphs remain in the complete reports.
 
 ## Authorship and onboarding
 
