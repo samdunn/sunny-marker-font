@@ -55,30 +55,12 @@ def stroke_contour(skel, w, seed=0, wobble=2.5):
         ph = rng.uniform(0, 2 * np.pi)
         n0 = _normals_open(p)
         p = p + n0 * (wobble * np.sin(2 * np.pi * arclen / wl + ph))[:, None]
-    n = _normals_open(p)
-    r = w / 2.0
-    right = p + n * r
-    left = p - n * r
-
-    def cap(center, a0, a1, steps=10):
-        aa = np.linspace(a0, a1, steps)
-        return np.stack([center[0] + r * np.cos(aa),
-                         center[1] + r * np.sin(aa)], axis=1)
-
-    def ang(v):
-        return np.arctan2(v[1], v[0])
-
-    end_n = n[-1]
-    start_n = n[0]
-    poly = np.vstack([
-        right,
-        cap(p[-1], ang(end_n), ang(end_n) + np.pi),
-        left[::-1],
-        cap(p[0], ang(-start_n), ang(-start_n) + np.pi),
-    ])
-    segs = [("move", tuple(poly[0]))]
-    segs += [("line", tuple(q)) for q in poly[1:]]
-    return segs
+    # A stroked path computes real joins and removes self-intersections.
+    # Averaging per-vertex normals left tiny loops and pinholes at tight bends.
+    contours = joined_stroke(p, w)
+    if len(contours) != 1:
+        raise ValueError("Stroke closes a counter; draw it explicitly as multiple contours")
+    return contours[0]
 
 
 def circle_contour(cx, cy, r, steps=48, ccw=False):
@@ -89,6 +71,59 @@ def circle_contour(cx, cy, r, steps=48, ccw=False):
     segs = [("move", tuple(pts[0]))]
     segs += [("line", tuple(q)) for q in pts[1:]]
     return segs
+
+
+def joined_stroke(skeleton, width):
+    """A clean round join, without the inner-edge loops of sampled normals."""
+    import pathops
+    path = pathops.Path()
+    path.moveTo(*skeleton[0])
+    for point in skeleton[1:]:
+        path.lineTo(*point)
+    return _stroked_path(path, width)
+
+
+def _stroked_path(path, width):
+    import pathops
+    path.stroke(width, pathops.LineCap.ROUND_CAP, pathops.LineJoin.ROUND_JOIN, 4)
+    path.convertConicsToQuads(0.1)
+    path = pathops.simplify(path)
+    contours = []
+    contour = []
+    current = None
+    for verb, points in path:
+        if verb == pathops.PathVerb.MOVE:
+            current = np.array(points[0])
+            contour = [("move", tuple(current))]
+        elif verb == pathops.PathVerb.LINE:
+            current = np.array(points[0])
+            contour.append(("line", tuple(current)))
+        elif verb == pathops.PathVerb.QUAD:
+            control, end = map(np.array, points)
+            contour.append(("curve", tuple((current+2*control)/3),
+                            tuple((end+2*control)/3), tuple(end)))
+            current = end
+        elif verb == pathops.PathVerb.CUBIC:
+            contour.append(("curve", *points))
+            current = np.array(points[-1])
+        elif verb == pathops.PathVerb.CLOSE:
+            contours.append(contour)
+        else:
+            raise ValueError(f"Unsupported stroke verb: {verb}")
+    return contours
+
+
+def curved_stroke(segments, width):
+    import pathops
+    path = pathops.Path()
+    for segment in segments:
+        if segment[0] == "move":
+            path.moveTo(*segment[1])
+        elif segment[0] == "line":
+            path.lineTo(*segment[1])
+        else:
+            path.cubicTo(*(v for point in segment[1:] for v in point))
+    return _stroked_path(path, width)
 
 
 def bare_stem(polys, ref_polys, simplify, flatten, seed=41, wobble=2.0):
@@ -244,9 +279,19 @@ def upright_y_stem(contours, cap_top):
 
 
 def _bbox(contours):
-    xs = [p[0] for c in contours for s in c for p in s[1:]]
-    ys = [p[1] for c in contours for s in c for p in s[1:]]
-    return min(xs), min(ys), max(xs), max(ys)
+    # Handles can extend far beyond the ink. Anchoring to their bounding box
+    # made accent gaps and symbol centering depend on the curve construction.
+    from fontTools.pens.boundsPen import BoundsPen
+    pen = BoundsPen(None)
+    for contour in contours:
+        pen.moveTo(contour[0][1])
+        for segment in contour[1:]:
+            if segment[0] == "line":
+                pen.lineTo(segment[1])
+            else:
+                pen.curveTo(*segment[1:])
+        pen.closePath()
+    return pen.bounds
 
 
 def _tr(contours, dx, dy):
@@ -285,10 +330,21 @@ def _match_winding(overlay, reference):
     if ov_sign == ref_sign:
         return list(overlay)
     out = []
+    from fontTools.pens.recordingPen import RecordingPen
+    from fontTools.pens.reverseContourPen import ReverseContourPen
     for c in overlay:
-        pts = [c[0][1]] + [p for s in c[1:] for p in s[1:]]
-        pts = pts[::-1]
-        out.append([("move", pts[0])] + [("line", p) for p in pts[1:]])
+        recording = RecordingPen()
+        pen = ReverseContourPen(recording)
+        pen.moveTo(c[0][1])
+        for segment in c[1:]:
+            if segment[0] == "line":
+                pen.lineTo(segment[1])
+            else:
+                pen.curveTo(*segment[1:])
+        pen.closePath()
+        ops = {"moveTo": "move", "lineTo": "line", "curveTo": "curve"}
+        out.append([(ops[op], *points) for op, points in recording.value
+                    if op in ops])
     return out
 
 
@@ -303,10 +359,8 @@ def build_marks(stroke_w, seed_base=7):
                                  wobble=1.0)]
     M["acute"] = [stroke_contour([(52, 160), (-48, 10)], s, seed=seed_base + 2,
                                  wobble=1.0)]
-    M["circumflex"] = [stroke_contour([(-105, 0), (0, 130), (105, 0)], s * 0.94,
-                                      seed=seed_base + 3, wobble=1.0)]
-    M["caron"] = [stroke_contour([(-105, 130), (0, 0), (105, 130)], s * 0.94,
-                                 seed=seed_base + 4, wobble=1.0)]
+    M["circumflex"] = joined_stroke([(-105, 0), (0, 130), (105, 0)], s * 0.94)
+    M["caron"] = joined_stroke([(-105, 130), (0, 0), (105, 130)], s * 0.94)
     tx = np.linspace(-118, 118, 40)
     ty = 40 * np.sin(np.linspace(0, 2 * np.pi, 40))
     M["tilde"] = [stroke_contour(np.stack([tx, ty + 48], axis=1), s * 0.88,
@@ -339,8 +393,12 @@ def build_marks(stroke_w, seed_base=7):
                       cubic((-10, -65), (90, -66), (58, -177), (-30, -148))])
     M["cedilla"] = [stroke_contour(hook, s * 0.60,
                                    seed=seed_base + 10, wobble=0)]
-    M["ogonek"] = [stroke_contour([(8, -2), (-44, -58), (-22, -130), (50, -116)],
-                                  s * 0.78, seed=seed_base + 11, wobble=0)]
+    ogonek = np.vstack([
+        cubic((18, 0), (-4, -26), (-52, -58), (-42, -94))[:-1],
+        cubic((-42, -94), (-35, -124), (16, -127), (44, -106)),
+    ])
+    M["ogonek"] = [stroke_contour(ogonek, s * 0.66,
+                                  seed=seed_base + 11, wobble=0)]
     return M
 
 
@@ -438,7 +496,7 @@ COMMA_ACCENT = {
 }
 
 # caron-as-apostrophe forms
-CARON_ALT = {"dcaron": "d", "lcaron": "l", "tcaron": "t"}
+CARON_ALT = {"Lcaron": "L", "dcaron": "d", "lcaron": "l", "tcaron": "t"}
 
 EXT_CMAP = {
     # accented Latin-1 + Extended (unicodes resolved by AGL-style table)
@@ -561,7 +619,13 @@ def add_extensions(gc, gw, offset, s_comp, xheight, simplify):
     offset/s_comp: weight parameters. simplify: build_font.simplify_contours."""
     stroke_w = (124.0 + 2 * offset) * s_comp
     marks = build_marks(stroke_w)
-    marks = {k: simplify(v) for k, v in marks.items()}
+    marks = {k: v if k in {"circumflex", "caron"} else simplify(v)
+             for k, v in marks.items()}
+    # All top marks start at the same ink edge. Previously acute/caron caps
+    # extended below the nominal origin and could touch their base letter.
+    for name, contours in marks.items():
+        if name not in {"cedilla", "ogonek"}:
+            marks[name] = _tr(contours, 0, -_bbox(contours)[1])
     capу = CAPU
 
     def add(name, contours, width=None):
@@ -730,14 +794,22 @@ def add_extensions(gc, gw, offset, s_comp, xheight, simplify):
     x0m, _, x1m, _ = _bbox(merged)
     gc["eth"] = _tr(merged, -x0m, 0)
     gw["eth"] = x1m - x0m
-    # germandbls: stem + double bump
-    sk = [(0, 0), (0, 480), (30, 620), (150, 660), (255, 580), (235, 470),
-          (150, 420), (255, 350), (275, 200), (185, 105), (95, 130)]
-    gc_b = [stroke_contour(sk, sw * 0.94, seed=42, wobble=1.4)]
-    add("germandbls", simplify(gc_b))
-    skC = [(0, 0), (0, 500), (35, 655), (170, 700), (290, 610), (268, 480),
-           (175, 425), (285, 345), (305, 175), (200, 70), (100, 95)]
-    add("Germandbls", simplify([stroke_contour(skC, sw, seed=43, wobble=1.4)]))
+    # Draw continuous shoulders and bowls, with open lower terminals. The old
+    # polygonal double-bump skeleton closed against the stem and left pinholes.
+    add("germandbls", curved_stroke([
+        ("move", (0, 0)), ("line", (0, 440)),
+        ("curve", (0, 570), (45, 625), (155, 625)),
+        ("curve", (280, 625), (300, 490), (180, 415)),
+        ("curve", (330, 345), (350, 210), (250, 145)),
+        ("curve", (220, 125), (180, 125), (150, 140)),
+    ], sw * 0.94))
+    add("Germandbls", curved_stroke([
+        ("move", (0, 0)), ("line", (0, 500)),
+        ("curve", (0, 635), (100, 670), (220, 655)),
+        ("line", (310, 595)), ("line", (210, 430)),
+        ("curve", (350, 375), (380, 255), (305, 150)),
+        ("curve", (270, 100), (220, 95), (170, 110)),
+    ], sw))
 
     # ---------------- symbols ----------------
     # ¡ ¿: rotate, top at x-height, descends below baseline

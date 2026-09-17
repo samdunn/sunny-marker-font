@@ -13,6 +13,8 @@ from package_gf import VERSION
 from fontTools.varLib.instancer import instantiateVariableFont
 from PIL import Image, ImageDraw, ImageFont
 from scipy import ndimage
+from scipy.spatial import cKDTree
+from outline_geometry import boundary, contours
 import numpy as np
 import uharfbuzz as hb
 
@@ -134,9 +136,18 @@ def verify_slant():
             slanted = points(name, dict(location, slnt=-9))
             assert upright.shape == slanted.shape
             assert np.ptp((slanted-upright)[:, 0]) > 30, (name, location)
-            # Small-size counter relief follows each master's slanted normals;
-            # it can move a point vertically by up to two units (0.2% em).
-            assert np.max(np.abs((slanted-upright)[:, 1])) <= 2, (name, location)
+            # Compare the ink after removing the nine-degree shear. Curve
+            # handles may move more than the ink, unlike the old polyline nodes.
+            # Allow 2u fitting per endpoint master + 2u optical relief + 1u
+            # integer rounding. This stays below 0.14 pixels at 18px text size.
+            upright_ink = boundary(font.getGlyphSet(location=dict(location, slnt=0)), name)
+            slanted_ink = boundary(font.getGlyphSet(location=dict(location, slnt=-9)), name)
+            slanted_ink[:, 0] -= np.tan(np.radians(9))*slanted_ink[:, 1]
+            upright_ink[:, 0] -= upright_ink[:, 0].min()
+            slanted_ink[:, 0] -= slanted_ink[:, 0].min()
+            deviation = max(cKDTree(upright_ink).query(slanted_ink)[0].max(),
+                            cKDTree(slanted_ink).query(upright_ink)[0].max())
+            assert deviation <= 7, (name, location, deviation)
             for fraction in (.25, .5, .75):
                 middle = points(name, dict(location, slnt=-9*fraction))
                 expected = upright*(1-fraction) + slanted*fraction
@@ -146,23 +157,19 @@ def verify_slant():
 
 def verify_y_stems():
     """Measure shipped capital stems, independently of the source correction."""
-    for path in sorted((ROOT / 'fonts/ttf').glob('*.ttf')):
+    paths = sorted((ROOT / 'fonts/ttf').glob('*.ttf'))
+    for path in paths:
         with TTFont(path) as f:
             for name in ('Y', 'Yacute', 'Ycircumflex', 'Ydieresis', 'Ygrave'):
-                glyph = f['glyf'][name]
-                coords, ends, _ = glyph.getCoordinates(f['glyf'])
                 centers = []
                 for y in (120, 260):
                     xs = []
-                    start = 0
-                    for end in ends:
-                        poly = np.array(coords[start:end + 1], float)
+                    for poly in contours(f.getGlyphSet(), name):
                         a, b = poly, np.roll(poly, -1, axis=0)
                         hit = (a[:, 1] > y) != (b[:, 1] > y)
                         aa, bb = a[hit], b[hit]
                         xs.extend(aa[:, 0] + (y-aa[:, 1]) *
                                   (bb[:, 0]-aa[:, 0]) / (bb[:, 1]-aa[:, 1]))
-                        start = end + 1
                     assert len(xs) == 2, (path, name, y, xs)
                     centers.append(float(np.mean(xs)))
                 lean = (centers[1] - centers[0]) / 140
@@ -170,7 +177,7 @@ def verify_y_stems():
                 lean += np.tan(np.radians(f['post'].italicAngle))
                 width = {3: 0.75, 5: 1, 7: 1.25}[f['OS/2'].usWidthClass]
                 assert abs(lean / width) < 0.25, (path, name, lean / width)
-    print('PASS: upright capital Y stems and accents in all 30 static faces.')
+    print(f'PASS: upright capital Y stems and accents in {len(paths)} static faces.')
 
 
 def proof():

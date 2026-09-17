@@ -115,7 +115,7 @@ feature kern {
     pos \C \F -26;
     pos \C \G -32;
     pos \C \H -24;
-    pos \C \I -25;
+    pos \C \I -26;
     pos \C \I.ss01 -63;
     pos \C \J -65;
     pos \C \K -22;
@@ -251,7 +251,7 @@ feature kern {
     pos \E \F -29;
     pos \E \G -73;
     pos \E \H -30;
-    pos \E \I -28;
+    pos \E \I -29;
     pos \E \I.ss01 -24;
     pos \E \J -88;
     pos \E \K -28;
@@ -466,7 +466,7 @@ feature kern {
     pos \H \E 13;
     pos \H \F 21;
     pos \H \H 11;
-    pos \H \I 20;
+    pos \H \I 19;
     pos \H \I.ss01 -27;
     pos \H \J -119;
     pos \H \K 21;
@@ -524,20 +524,22 @@ feature kern {
     pos \I \D 24;
     pos \I \E 12;
     pos \I \F 20;
-    pos \I \I 19;
+    pos \I \H 11;
+    pos \I \I 18;
     pos \I \I.ss01 -31;
     pos \I \J -126;
     pos \I \K 20;
     pos \I \L 15;
+    pos \I \M 10;
+    pos \I \N 11;
     pos \I \P 19;
     pos \I \R 15;
     pos \I \S -60;
     pos \I \U 18;
     pos \I \W 28;
-    pos \I \X -19;
     pos \I \Z -61;
     pos \I \a -64;
-    pos \I \b -36;
+    pos \I \b -37;
     pos \I \c -64;
     pos \I \colon -14;
     pos \I \comma -62;
@@ -545,7 +547,7 @@ feature kern {
     pos \I \e -63;
     pos \I \eight 10;
     pos \I \exclam 25;
-    pos \I \f -67;
+    pos \I \f -68;
     pos \I \five -34;
     pos \I \four -62;
     pos \I \g -81;
@@ -557,14 +559,14 @@ feature kern {
     pos \I \l -46;
     pos \I \m -44;
     pos \I \n -44;
-    pos \I \nine -38;
+    pos \I \nine -39;
     pos \I \o -63;
     pos \I \one -28;
     pos \I \p -51;
     pos \I \period -51;
-    pos \I \q -79;
+    pos \I \q -80;
     pos \I \r -42;
-    pos \I \s -82;
+    pos \I \s -83;
     pos \I \semicolon -28;
     pos \I \slash -87;
     pos \I \t -53;
@@ -1268,7 +1270,7 @@ feature kern {
     pos \T \F -79;
     pos \T \G -162;
     pos \T \H -90;
-    pos \T \I -91;
+    pos \T \I -92;
     pos \T \I.ss01 -98;
     pos \T \J -285;
     pos \T \K -95;
@@ -1635,6 +1637,7 @@ feature kern {
     pos \Z \F -18;
     pos \Z \G -64;
     pos \Z \H -19;
+    pos \Z \I -17;
     pos \Z \J -79;
     pos \Z \O -65;
     pos \Z \P -21;
@@ -1752,7 +1755,7 @@ feature kern {
     pos \b \F -44;
     pos \b \G -25;
     pos \b \H -43;
-    pos \b \I -45;
+    pos \b \I -46;
     pos \b \I.ss01 -75;
     pos \b \J -20;
     pos \b \K -41;
@@ -1827,7 +1830,7 @@ feature kern {
     pos \c \F -34;
     pos \c \G -49;
     pos \c \H -34;
-    pos \c \I -23;
+    pos \c \I -24;
     pos \c \I.ss01 -26;
     pos \c \J -22;
     pos \c \K -32;
@@ -2051,7 +2054,7 @@ feature kern {
     pos \e \F -35;
     pos \e \G -47;
     pos \e \H -35;
-    pos \e \I -34;
+    pos \e \I -35;
     pos \e \I.ss01 -21;
     pos \e \J -30;
     pos \e \K -34;
@@ -2121,7 +2124,7 @@ feature kern {
     pos \eight \E 17;
     pos \eight \F 21;
     pos \eight \H 22;
-    pos \eight \I 20;
+    pos \eight \I 19;
     pos \eight \I.ss01 -34;
     pos \eight \K 20;
     pos \eight \L 17;
@@ -2311,7 +2314,7 @@ feature kern {
     pos \five \B -20;
     pos \five \C -20;
     pos \five \E -23;
-    pos \five \I -21;
+    pos \five \I -22;
     pos \five \I.ss01 -68;
     pos \five \L -23;
     pos \five \M -25;
@@ -2502,7 +2505,7 @@ feature kern {
     pos \h \F -42;
     pos \h \G -34;
     pos \h \H -43;
-    pos \h \I -41;
+    pos \h \I -42;
     pos \h \I.ss01 -35;
     pos \h \J -24;
     pos \h \K -41;
@@ -2636,7 +2639,7 @@ feature kern {
     pos \i \F -17;
     pos \i \G -34;
     pos \i \H -15;
-    pos \i \I -17;
+    pos \i \I -18;
     pos \i \I.ss01 -52;
     pos \i \J -46;
     pos \i \K -17;
@@ -2704,7 +2707,7 @@ feature kern {
     pos \j \F -14;
     pos \j \G -35;
     pos \j \H -12;
-    pos \j \I -14;
+    pos \j \I -15;
     pos \j \I.ss01 -41;
     pos \j \J -36;
     pos \j \K -14;
@@ -3104,7 +3107,7 @@ feature kern {
     pos \o \F -30;
     pos \o \G -24;
     pos \o \H -28;
-    pos \o \I -30;
+    pos \o \I -31;
     pos \o \I.ss01 -80;
     pos \o \J -26;
     pos \o \K -29;
@@ -3173,7 +3176,7 @@ feature kern {
     pos \one \F 38;
     pos \one \G 20;
     pos \one \H 40;
-    pos \one \I 37;
+    pos \one \I 36;
     pos \one \J -44;
     pos \one \K 37;
     pos \one \L 34;
@@ -3414,7 +3417,7 @@ feature kern {
     pos \question \F -52;
     pos \question \G -76;
     pos \question \H -61;
-    pos \question \I -51;
+    pos \question \I -52;
     pos \question \I.ss01 -99;
     pos \question \J -230;
     pos \question \K -50;
@@ -3548,7 +3551,7 @@ feature kern {
     pos \quotedblleft \F -57;
     pos \quotedblleft \G -138;
     pos \quotedblleft \H -88;
-    pos \quotedblleft \I -63;
+    pos \quotedblleft \I -62;
     pos \quotedblleft \I.ss01 -108;
     pos \quotedblleft \J -230;
     pos \quotedblleft \K -65;
@@ -3658,7 +3661,7 @@ feature kern {
     pos \quoteleft \F -57;
     pos \quoteleft \G -138;
     pos \quoteleft \H -88;
-    pos \quoteleft \I -63;
+    pos \quoteleft \I -62;
     pos \quoteleft \I.ss01 -108;
     pos \quoteleft \J -230;
     pos \quoteleft \K -65;
@@ -3991,7 +3994,7 @@ feature kern {
     pos \seven \F -39;
     pos \seven \G -58;
     pos \seven \H -36;
-    pos \seven \I -39;
+    pos \seven \I -40;
     pos \seven \I.ss01 -94;
     pos \seven \J -175;
     pos \seven \K -40;
@@ -4058,7 +4061,7 @@ feature kern {
     pos \six \E -27;
     pos \six \F -30;
     pos \six \H -29;
-    pos \six \I -31;
+    pos \six \I -32;
     pos \six \I.ss01 -59;
     pos \six \K -27;
     pos \six \L -26;
@@ -4191,7 +4194,7 @@ feature kern {
     pos \t \F -24;
     pos \t \G -45;
     pos \t \H -24;
-    pos \t \I -23;
+    pos \t \I -24;
     pos \t \I.ss01 -24;
     pos \t \J -22;
     pos \t \K -22;
@@ -4780,7 +4783,7 @@ feature kern {
     pos \zero \E 8;
     pos \zero \F 11;
     pos \zero \H 12;
-    pos \zero \I 10;
+    pos \zero \I 9;
     pos \zero \I.ss01 -44;
     pos \zero \J -56;
     pos \zero \K 10;

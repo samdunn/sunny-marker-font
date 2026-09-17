@@ -7,6 +7,13 @@ This candidate has not been accepted into Google Fonts.
 Initial proposal: [google/fonts#10972 — Add Sunny Marker](https://github.com/google/fonts/issues/10972),
 submitted on 2026-09-16.
 
+**Review outcome:** the initial proposal was closed after an outline-quality
+review. The reviewer cited symbols, accents and excessive outline points, and
+invited another look after improvements. See the
+[reviewer's comment](https://github.com/google/fonts/issues/10972#issuecomment-5714431859).
+The [outline review](OUTLINE_REVIEW.md) records the follow-up work. The historical
+1.311 package and results below are not approval of the drawing quality.
+
 ## Contents and reproducibility
 
 - [Candidate ZIP](../release/sunny-marker-googlefonts-1.311.zip): the variable

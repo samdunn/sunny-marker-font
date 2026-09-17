@@ -25,6 +25,7 @@ sources:
 	$(PYTHON) scripts/make_weights.py
 	$(PYTHON) scripts/make_variable.py
 	$(PYTHON) scripts/simplify_sources.py
+	$(PYTHON) scripts/fit_sources.py
 
 audit:
 	$(PYTHON) -m pip check

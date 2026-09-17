@@ -1,0 +1,3 @@
+# Editable UFO masters are reproducible outputs of `make sources`.
+# Collapse their large mechanical diffs; generator changes remain visible.
+sources/**/glyphs/*.glif linguist-generated=true

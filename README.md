@@ -111,7 +111,10 @@ private configuration and raw audit logs are ignored by Git.
 
 ## Google Fonts review
 
-Submitted for initial review in [google/fonts#10972](https://github.com/google/fonts/issues/10972).
+The initial proposal in [google/fonts#10972](https://github.com/google/fonts/issues/10972)
+was closed for outline-quality improvements. Follow the
+[outline review](documentation/OUTLINE_REVIEW.md) for the next candidate;
+Sunny Marker has not been accepted into Google Fonts.
 
 The [1.311 onboarding candidate](release/sunny-marker-googlefonts-1.311.zip)
 adds Google Fonts metadata to the 1.310 variable font. It has identical outlines,

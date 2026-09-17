@@ -386,6 +386,18 @@ def text_outlines(moved_map):
     for name, polys in moved_map.items():
         big = max(polys, key=lambda p: abs(signed_area(p)))
         outer_sign = np.sign(signed_area(big))
+        # Ascender accents follow the ascender, not the x-height. Translating
+        # every detached mark by the x-height increase pushed lacute above
+        # the line metrics and moved side carons away from d/l/t.
+        bodies = [p for p in polys if p[:, 1].min() <= XHEIGHT + 12]
+        body_top = max((p[:, 1].max() for p in bodies), default=XHEIGHT)
+        if body_top <= XHEIGHT:
+            mark_lift = TEXT_XHEIGHT - XHEIGHT
+        elif body_top < CAP:
+            mark_lift = (TEXT_XHEIGHT + (body_top-XHEIGHT)
+                         * (CAP-TEXT_XHEIGHT)/(CAP-XHEIGHT) - body_top)
+        else:
+            mark_lift = 0
         opened = []
         for poly in polys:
             is_counter = np.sign(signed_area(poly)) != outer_sign
@@ -401,7 +413,7 @@ def text_outlines(moved_map):
                 if poly[:, 1].min() > XHEIGHT + 12:
                     # Detached dots and accents travel with the taller body;
                     # preserve their thickness instead of stretching them.
-                    moved[:, 1] += TEXT_XHEIGHT - XHEIGHT
+                    moved[:, 1] += mark_lift
                 else:
                     # A larger lowercase body helps at 16–24 px. Keep the
                     # baseline, descenders and ascender/cap height anchored.
