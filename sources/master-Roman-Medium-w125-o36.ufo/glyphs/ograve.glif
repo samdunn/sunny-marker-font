@@ -1,87 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="ograve" format="2">
-  <advance width="479" />
-  <unicode hex="00F2" />
+  <advance width="501.0"/>
+  <unicode hex="00F2"/>
+  <anchor x="277.752" y="741.534" name="top"/>
+  <anchor x="226.655" y="-28.734" name="bottom"/>
+  <anchor x="226.655" y="13.266" name="cedilla"/>
+  <anchor x="356.559" y="17.266" name="ogonek"/>
+  <anchor x="489.969" y="440.747" name="side"/>
   <outline>
-    <contour>
-      <point x="39.0" y="122.0" type="curve" />
-      <point x="42.2779" y="110.5707" />
-      <point x="47.3222" y="98.4366" />
-      <point x="53.0000" y="88.0000" type="curve" />
-      <point x="83.2057" y="32.4776" />
-      <point x="143.2020" y="3.3733" />
-      <point x="205.0000" y="1.0000" type="curve" />
-      <point x="297.5396" y="-2.5540" />
-      <point x="391.9253" y="67.1601" />
-      <point x="428.0000" y="150.0000" type="curve" />
-      <point x="439.4285" y="176.2438" />
-      <point x="448.6140" y="203.1705" />
-      <point x="451.0000" y="232.0000" type="curve" />
-      <point x="455.5755" y="287.2846" />
-      <point x="438.4757" y="343.0257" />
-      <point x="399.0000" y="383.0000" type="curve" />
-      <point x="385.1403" y="397.0348" />
-      <point x="369.3666" y="408.7057" />
-      <point x="352.0000" y="418.0000" type="curve" />
-      <point x="326.5040" y="431.6450" />
-      <point x="297.7672" y="439.3413" />
-      <point x="269.0000" y="441.0000" type="curve" />
-      <point x="240.5292" y="442.6416" />
-      <point x="209.1756" y="433.5878" />
-      <point x="184.0000" y="421.0000" type="curve" />
-      <point x="166.4569" y="412.2285" />
-      <point x="147.6970" y="403.1544" />
-      <point x="133.0000" y="390.0000" type="curve" />
-      <point x="75.7405" y="338.7503" />
-      <point x="34.5444" y="284.0744" />
-      <point x="28.0000" y="205.0000" type="curve" />
-      <point x="25.7389" y="177.6802" />
-      <point x="31.5445" y="147.9957" />
-    </contour>
-    <contour>
-      <point x="343.0" y="261.0" type="line" />
-      <point x="337.8584" y="212.2884" />
-      <point x="336.3279" y="158.8643" />
-      <point x="288.0000" y="133.0000" type="curve" />
-      <point x="267.7227" y="122.1479" />
-      <point x="247.0230" y="116.2751" />
-      <point x="224.0000" y="115.0000" type="curve" />
-      <point x="181.2192" y="112.6306" />
-      <point x="130.0000" y="129.6102" />
-      <point x="130.0000" y="180.0000" type="curve" />
-      <point x="130.0000" y="204.4537" />
-      <point x="132.5120" y="223.1856" />
-      <point x="141.0000" y="246.0000" type="curve" />
-      <point x="160.5044" y="298.4247" />
-      <point x="198.8393" y="329.5036" />
-      <point x="255.0000" y="333.0000" type="curve" />
-      <point x="286.3219" y="334.9500" />
-      <point x="341.7134" y="324.7112" />
-      <point x="345.0000" y="285.0000" type="curve" />
-      <point x="345.0000" y="279.0000" type="line" />
-    </contour>
-    <contour>
-      <point x="314.0" y="479.0" type="curve" />
-      <point x="333.5413" y="483.6131" />
-      <point x="347.3014" y="495.4765" />
-      <point x="349.0000" y="516.0000" type="curve" />
-      <point x="352.4404" y="557.5697" />
-      <point x="283.4578" y="618.9808" />
-      <point x="262.0000" y="645.0000" type="curve" />
-      <point x="245.8299" y="664.6074" />
-      <point x="231.6519" y="685.6279" />
-      <point x="214.0000" y="704.0000" type="curve" />
-      <point x="204.5073" y="713.8800" />
-      <point x="192.8738" y="721.0000" />
-      <point x="179.0000" y="721.0000" type="curve" />
-      <point x="159.0718" y="721.0000" />
-      <point x="138.1546" y="709.7592" />
-      <point x="136.0000" y="688.0000" type="curve" />
-      <point x="131.7033" y="644.6074" />
-      <point x="198.2042" y="584.3287" />
-      <point x="221.0000" y="559.0000" type="curve" />
-      <point x="241.0537" y="536.7181" />
-      <point x="276.2378" y="470.0855" />
-    </contour>
+    <component base="o"/>
+    <component base="gravecomb" xOffset="277.752" yOffset="474.747"/>
   </outline>
 </glyph>

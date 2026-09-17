@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="period" format="2">
-  <advance width="251" />
-  <unicode hex="002E" />
+  <advance width="251.0"/>
+  <unicode hex="002E"/>
+  <anchor x="136.87" y="178.383" name="top"/>
+  <anchor x="113.835" y="26.817" name="bottom"/>
+  <anchor x="120.487" y="68.817" name="cedilla"/>
+  <anchor x="149.708" y="72.817" name="ogonek"/>
+  <anchor x="189.774" y="144.383" name="side"/>
   <outline>
     <contour>
-      <point x="168.0" y="105.0" type="curve" />
-      <point x="168.0000" y="110.3791" />
-      <point x="169.8613" y="116.6927" />
-      <point x="169.0000" y="122.0000" type="curve" />
-      <point x="166.2863" y="138.7226" />
-      <point x="145.8061" y="144.7385" />
-      <point x="131.0000" y="144.0000" type="curve" />
-      <point x="106.3769" y="142.7719" />
-      <point x="89.9840" y="131.4939" />
-      <point x="83.0000" y="108.0000" type="curve" />
-      <point x="76.3958" y="85.7839" />
-      <point x="83.6443" y="57.0000" />
-      <point x="111.0000" y="57.0000" type="curve" />
-      <point x="129.8289" y="57.0000" />
-      <point x="158.3044" y="65.3432" />
-      <point x="167.0000" y="85.0000" type="curve" />
-      <point x="169.2763" y="90.1457" />
-      <point x="168.0000" y="100.6377" />
+      <point x="167.58785" y="104.99408" type="line"/>
+      <point x="168.9648" y="131.7459"/>
+      <point x="163.2905" y="144.0923"/>
+      <point x="130.8238" y="144.3809" type="curve"/>
+      <point x="104.8944" y="144.6113"/>
+      <point x="87.52" y="127.7622"/>
+      <point x="82.0748" y="103.3287" type="curve"/>
+      <point x="77.3251" y="82.0163"/>
+      <point x="86.2884" y="57.8774"/>
+      <point x="110.7661" y="56.857" type="curve"/>
+      <point x="129.4957" y="56.0762"/>
+      <point x="163.6695" y="66.8433"/>
+      <point x="167.6744" y="89.0179" type="curve"/>
     </contour>
   </outline>
 </glyph>

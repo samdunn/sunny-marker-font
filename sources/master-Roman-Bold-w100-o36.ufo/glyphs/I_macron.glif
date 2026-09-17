@@ -1,70 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="Imacron" format="2">
-  <advance width="283" />
-  <unicode hex="012A" />
+  <advance width="256.0"/>
+  <unicode hex="012A"/>
+  <anchor x="177.807" y="820.847" name="top"/>
+  <anchor x="61.332" y="-32.923" name="bottom"/>
+  <anchor x="61.332" y="9.077" name="cedilla"/>
+  <anchor x="149.668" y="13.077" name="ogonek"/>
+  <anchor x="244.528" y="696.612" name="side"/>
   <outline>
-    <contour>
-      <point x="164.0" y="696.0" type="curve" />
-      <point x="151.0000" y="697.0000" type="line" />
-      <point x="131.9620" y="695.5063" />
-      <point x="117.3225" y="689.4844" />
-      <point x="106.0000" y="674.0000" type="curve" />
-      <point x="87.1096" y="648.1659" />
-      <point x="87.1733" y="603.9431" />
-      <point x="84.0000" y="574.0000" type="curve" />
-      <point x="80.4661" y="540.6548" />
-      <point x="78.6631" y="507.3038" />
-      <point x="75.0000" y="474.0000" type="curve" />
-      <point x="68.5819" y="415.6476" />
-      <point x="61.8707" y="357.4129" />
-      <point x="56.0000" y="299.0000" type="curve" />
-      <point x="50.0000" y="241.0000" type="line" />
-      <point x="47.0000" y="212.0000" type="line" />
-      <point x="41.6978" y="166.9663" />
-      <point x="35.7316" y="122.0881" />
-      <point x="32.0000" y="77.0000" type="curve" />
-      <point x="28.6846" y="36.9411" />
-      <point x="38.4810" y="1.3060" />
-      <point x="85.0000" y="-2.0000" type="curve" />
-      <point x="112.7033" y="-3.9688" />
-      <point x="137.0677" y="2.7908" />
-      <point x="152.0000" y="28.0000" type="curve" />
-      <point x="165.7953" y="51.2897" />
-      <point x="167.0711" y="85.3558" />
-      <point x="170.0000" y="111.0000" type="curve" />
-      <point x="173.9917" y="145.9499" />
-      <point x="175.9576" y="181.0435" />
-      <point x="180.0000" y="216.0000" type="curve" />
-      <point x="184.9349" y="258.6738" />
-      <point x="189.9578" y="301.2530" />
-      <point x="194.0000" y="344.0000" type="curve" />
-      <point x="205.0000" y="456.0000" type="line" />
-      <point x="209.8852" y="504.4492" />
-      <point x="221.0000" y="553.2119" />
-      <point x="221.0000" y="602.0000" type="curve" />
-      <point x="221.0000" y="652.1718" />
-      <point x="226.0315" y="686.4012" />
-    </contour>
-    <contour>
-      <point x="274.0" y="751.0" type="curve" />
-      <point x="277.5129" y="772.6475" />
-      <point x="259.9662" y="789.0624" />
-      <point x="240.0000" y="791.0000" type="curve" />
-      <point x="232.8016" y="791.6985" />
-      <point x="159.0204" y="787.0571" />
-      <point x="157.0000" y="787.0000" type="curve" />
-      <point x="80.0000" y="787.0000" type="line" />
-      <point x="64.0407" y="785.0353" />
-      <point x="44.8224" y="773.3927" />
-      <point x="42.0000" y="756.0000" type="curve" />
-      <point x="38.5888" y="734.9790" />
-      <point x="58.1477" y="720.4341" />
-      <point x="76.0000" y="716.0000" type="curve" />
-      <point x="82.0000" y="715.0000" type="line" />
-      <point x="160.0000" y="718.0000" type="line" />
-      <point x="219.0000" y="719.0000" type="line" />
-      <point x="240.1610" y="719.7669" />
-      <point x="269.8012" y="725.1256" />
-    </contour>
+    <component base="I"/>
+    <component base="macroncomb.case" xOffset="177.807" yOffset="722.612"/>
   </outline>
 </glyph>

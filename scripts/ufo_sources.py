@@ -11,7 +11,7 @@ from fontTools.pens.pointPen import ReverseContourPointPen
 from ufoLib2 import Font
 
 
-def export_master(ttfont, features, path):
+def export_master(ttfont, features, path, outlines=None, sidebearings=None):
     font = Font()
     info = font.info
     info.familyName = "Sunny Marker"
@@ -62,7 +62,16 @@ def export_master(ttfont, features, path):
         # their geometry while making their UFO winding agree with the family.
         if name in {".notdef", "braceright"}:
             pen = ReverseContourPointPen(pen)
-        glyph_set[name].drawPoints(pen)
+        if outlines is not None and name in outlines:
+            # Keep source precision. Going through a rounded TrueType master
+            # before curve fitting turns sub-unit samples into tiny zigzags.
+            for contour in outlines[name]:
+                pen.beginPath()
+                for x, y in contour:
+                    pen.addPoint((float(x+sidebearings.get(name,(0,0))[0]), float(y)), segmentType='line')
+                pen.endPath()
+        else:
+            glyph_set[name].drawPoints(pen)
     font.features.text = features
     target = Path(path).with_suffix(".ufo")
     target.parent.mkdir(parents=True, exist_ok=True)

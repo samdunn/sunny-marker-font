@@ -1,12 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name=".notdef" format="2">
-  <advance width="500" />
+  <advance width="735.8691082271754"/>
+  <anchor x="428.754" y="734.0" name="top"/>
+  <anchor x="307.748" y="-30.0" name="bottom"/>
+  <anchor x="314.401" y="12.0" name="cedilla"/>
+  <anchor x="515.347" y="16.0" name="ogonek"/>
+  <anchor x="682.119" y="700.0" name="side"/>
   <outline>
     <contour>
-      <point x="80.0" y="0.0" type="line" />
-      <point x="420.0000" y="0.0000" type="line" />
-      <point x="420.0000" y="700.0000" type="line" />
-      <point x="80.0000" y="700.0000" type="line" />
+      <point x="81.25" y="0.0" type="line"/>
+      <point x="543.75" y="0.0" type="line"/>
+      <point x="654.6191082271754" y="700.0" type="line"/>
+      <point x="192.1191082271754" y="700.0" type="line"/>
+    </contour>
+    <contour>
+      <point x="158.7111442178495" y="55.0" type="line"/>
+      <point x="252.1579640093259" y="645.0" type="line"/>
+      <point x="577.157964009326" y="645.0" type="line"/>
+      <point x="483.7111442178495" y="55.0" type="line"/>
     </contour>
   </outline>
 </glyph>

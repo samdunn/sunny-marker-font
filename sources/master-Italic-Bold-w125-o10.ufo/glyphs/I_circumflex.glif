@@ -1,83 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="Icircumflex" format="2">
-  <advance width="492" />
-  <unicode hex="00CE" />
+  <advance width="419.0"/>
+  <unicode hex="00CE"/>
+  <anchor x="357.222" y="916.628" name="top"/>
+  <anchor x="75.336" y="-32.928" name="bottom"/>
+  <anchor x="81.988" y="9.072" name="cedilla"/>
+  <anchor x="170.735" y="13.072" name="ogonek"/>
+  <anchor x="384.872" y="696.612" name="side"/>
   <outline>
-    <contour>
-      <point x="309.0" y="696.0" type="curve" />
-      <point x="295.0000" y="697.0000" type="line" />
-      <point x="254.8057" y="694.0022" />
-      <point x="239.8934" y="667.6554" />
-      <point x="227.0000" y="633.0000" type="curve" />
-      <point x="213.0000" y="591.0000" type="line" />
-      <point x="208.0000" y="574.0000" type="line" />
-      <point x="189.0000" y="504.0000" type="line" />
-      <point x="181.0000" y="474.0000" type="line" />
-      <point x="153.0000" y="381.0000" type="line" />
-      <point x="136.0000" y="323.0000" type="line" />
-      <point x="106.0000" y="217.0000" type="line" />
-      <point x="92.2858" y="170.9329" />
-      <point x="72.9528" y="124.7169" />
-      <point x="65.0000" y="77.0000" type="curve" />
-      <point x="58.8195" y="39.9168" />
-      <point x="53.3416" y="1.5291" />
-      <point x="103.0000" y="-2.0000" type="curve" />
-      <point x="165.8140" y="-6.4641" />
-      <point x="182.5821" y="35.2868" />
-      <point x="201.0000" y="87.0000" type="curve" />
-      <point x="212.0000" y="117.8856" />
-      <point x="218.2695" y="149.4636" />
-      <point x="227.0000" y="181.0000" type="curve" />
-      <point x="240.4605" y="229.6220" />
-      <point x="257.0096" y="279.3709" />
-      <point x="271.0000" y="327.0000" type="curve" />
-      <point x="286.4378" y="379.5569" />
-      <point x="299.6684" y="432.7077" />
-      <point x="316.0000" y="485.0000" type="curve" />
-      <point x="327.6447" y="522.2853" />
-      <point x="343.4365" y="562.6189" />
-      <point x="350.0000" y="602.0000" type="curve" />
-      <point x="357.7003" y="648.2020" />
-      <point x="369.9664" y="686.9558" />
-    </contour>
-    <contour>
-      <point x="238.0" y="727.0" type="curve" />
-      <point x="243.0000" y="732.0000" type="line" />
-      <point x="297.0000" y="778.0000" type="line" />
-      <point x="297.0077" y="778.0064" />
-      <point x="302.9909" y="782.9959" />
-      <point x="303.0000" y="783.0000" type="curve" />
-      <point x="305.8269" y="784.2545" />
-      <point x="325.8036" y="785.4015" />
-      <point x="332.0000" y="782.0000" type="curve" />
-      <point x="332.1740" y="781.9045" />
-      <point x="337.9933" y="776.0074" />
-      <point x="338.0000" y="776.0000" type="curve" />
-      <point x="353.0000" y="758.0000" type="line" />
-      <point x="359.1323" y="750.5882" />
-      <point x="382.2801" y="714.3838" />
-      <point x="399.0000" y="713.0000" type="curve" />
-      <point x="419.5249" y="711.3013" />
-      <point x="436.9368" y="728.9458" />
-      <point x="441.0000" y="748.0000" type="curve" />
-      <point x="444.3932" y="763.9120" />
-      <point x="439.8817" y="777.2095" />
-      <point x="429.0000" y="789.0000" type="curve" />
-      <point x="366.0000" y="863.0000" type="line" />
-      <point x="358.7448" y="871.9141" />
-      <point x="349.5054" y="887.7822" />
-      <point x="336.0000" y="888.0000" type="curve" />
-      <point x="315.7592" y="888.3264" />
-      <point x="299.9466" y="867.9891" />
-      <point x="286.0000" y="856.0000" type="curve" />
-      <point x="268.4247" y="840.8915" />
-      <point x="250.8348" y="825.8088" />
-      <point x="233.0000" y="811.0000" type="curve" />
-      <point x="216.6512" y="797.4251" />
-      <point x="191.9460" y="782.4525" />
-      <point x="185.0000" y="760.0000" type="curve" />
-      <point x="173.2321" y="721.9611" />
-      <point x="206.0621" y="695.0621" />
-    </contour>
+    <component base="I"/>
+    <component base="circumflexcomb.case" xOffset="326.493" yOffset="722.612"/>
   </outline>
 </glyph>

@@ -1,111 +1,111 @@
-# Google Fonts onboarding candidate
+# Google Fonts resubmission candidate — 1.312
 
-Sunny Marker **1.311** is a review candidate derived from the **1.310** general
-release. The website, npm package and regular desktop downloads remain 1.310.
-This candidate has not been accepted into Google Fonts.
+The initial [Sunny Marker proposal](https://github.com/google/fonts/issues/10972)
+was closed for outline quality: symbols, accents and excessive points. The
+[1.312 outline review](OUTLINE_REVIEW.md) documents revised drawings, construction,
+shaping and visual proofs. This package is prepared for renewed design review;
+it is **not an accepted Google Fonts release or a fully passing onboarding
+package**. Remaining Google subset-routing failures need resolution with the
+onboarding team. Published website, npm and desktop assets remain 1.310.
 
-Initial proposal: [google/fonts#10972 — Add Sunny Marker](https://github.com/google/fonts/issues/10972),
-submitted on 2026-09-16.
+## Package
 
-**Review outcome:** the initial proposal was closed after an outline-quality
-review. The reviewer cited symbols, accents and excessive outline points, and
-invited another look after improvements. See the
-[reviewer's comment](https://github.com/google/fonts/issues/10972#issuecomment-5714431859).
-The [outline review](OUTLINE_REVIEW.md) records the follow-up work. The historical
-1.311 package and results below are not approval of the drawing quality.
+[Download the complete 1.312 candidate](../release/sunny-marker-googlefonts-1.312.zip).
 
-## Contents and reproducibility
+- **391 glyphs**, including all 319 GF Latin Core codepoints.
+- Separate upright and italic variable TTFs under `ofl/sunnymarker/`, with
+  `wght` 300–700, `wdth` 75–125 and `opsz` 10–36 (default 14).
+  The self-hosted font keeps its continuous fourth `slnt` axis, −9–0°.
+  Google recommends separate styles for applications with an italic button.
+- Upright **943,568 bytes**; italic **960,108 bytes**.
+- OFL, METADATA.pb, article, a new specimen rendered from this candidate, and
+  the specimen's CC BY-SA 4.0 image license.
+- Sam Dunn's designer profile under `catalog/designers/samdunn/`, including the
+  user-approved **300 × 300** portrait, stripped of embedded metadata, and a
+  linked biography. The files are prepared; Google's catalog entry has not been
+  registered. The portrait is separate from the font's OFL license.
 
-- [Candidate ZIP](../release/sunny-marker-googlefonts-1.311.zip): the variable
-  TTF, OFL, METADATA.pb, article and specimen in `ofl/sunnymarker/`.
-- 336 glyphs; all 319 codepoints in GF Latin Core are present.
-- Axes: `wght` 300–700, `wdth` 75–125, `opsz` 10–36 (default 14),
-  `slnt` −9–0 degrees (default 0).
-- Metadata changes: designer name and URL, unique PostScript names for all ten
-  instances, SemiCondensed/SemiExpanded STAT labels, and a non-elidable optical
-  size label. The internal version is incremented to 1.311.
-- Binary comparison against 1.310 changes only `head`, `name`, `STAT` and `fvar`.
-  Outlines, metrics, shaping/layout and axis ranges are unchanged.
+Run `make review` with the README's pinned dependencies to reproduce the candidate
+and verification. `make submission` only repackages an already built review font.
+See [package hashes and checks](outline-review/submission-check.json).
 
-Use the pinned Python environment described in the README:
+## Current QA
 
-```sh
-./sources/build.sh
-make submission
-```
-
-The first command builds the general release from editable UFO/designspace
-sources using fontmake; the second creates the metadata-only review candidate.
-
-## Current QA results
-
-Fontspector **1.7.4**, unmodified `googlefonts` profile, was run on the complete
-candidate package on 2026-09-16 with network access and no check exclusions:
+**Fontspector 1.7.4**, unmodified `googlefonts` profile, 2026-09-17, with network
+access and no exclusions or severity overrides:
 
 | PASS | WARN | FAIL | SKIP | INFO | ERROR / FATAL |
 | --- | --- | --- | --- | --- | --- |
-| 148 | 22 | 7 | 42 | 9 | 0 / 0 |
+| 297 | 17 | **9** | 93 | 18 | 0 / 0 |
 
-See the [full report](fontspector-1.311.md) and
-[machine-readable summary](googlefonts-candidate-summary.json).
+[Full report](outline-review/googlefonts.md) ·
+[Machine-readable results](outline-review/googlefonts.json)
 
 ```sh
-fontspector -p googlefonts --timeout 20 --ghmarkdown qa/fontspector.md \
-  'release/googlefonts/ofl/sunnymarker/SunnyMarker[opsz,slnt,wdth,wght].ttf' \
+fontspector -p googlefonts --timeout 20 \
+  --json build/googlefonts.json --ghmarkdown build/googlefonts.md \
+  release/googlefonts/ofl/sunnymarker/*.ttf \
   release/googlefonts/ofl/sunnymarker/METADATA.pb \
   release/googlefonts/ofl/sunnymarker/OFL.txt \
   release/googlefonts/ofl/sunnymarker/article/*
 ```
 
-### Remaining failures
+Independent geometry, layout, package and 92-format checks pass; all 48 outline
+locations have **zero FAIL/ERROR**, with 40 disclosed warnings. FontBakery 1.1.0
+also reports zero FAIL/ERROR for the general variable and static exports. Those
+results do not replace the current full Fontspector profile.
 
-All seven FAIL results come from `googlefonts/tofu`, code `bad-sample-text`.
-The checker infers language support from base exemplars, then finds additional
-characters in those languages' specimen strings that the font does not cover:
+## Remaining Google Fonts failures
 
-| Missing character | Affected language samples |
+All nine failures are `googlefonts/tofu`, code **`missing-subsetted`**. The font
+contains and shapes the affected characters. Google's current `latin`/`latin-ext`
+subset definitions do not route them to its web API output:
+
+| Character | Affected sample texts |
 | --- | --- |
-| U+0331 COMBINING MACRON BELOW | Amarakaeri; Otomi, Mezquital; Secoya |
-| U+02BC MODIFIER LETTER APOSTROPHE | Qʼeqchiʼ; Yapese; Yucateco |
-| U+014B LATIN SMALL LETTER ENG | Purepecha |
+| U+0331 COMBINING MACRON BELOW | Amarakaeri, Chickasaw, Otomi (Mezquital), Secoya, Siona, Ticuna |
+| U+1EBC Ẽ / U+1EBD ẽ | Guarani, Yanomamö, Ticuna |
 
-The checker suggests a sample-data inconsistency. That diagnosis has not been
-independently confirmed. These are recorded for onboarding review; no test has
-been disabled and these languages are not claimed as supported. We need to
-resolve the sample data or add and proof the required glyphs before production
-onboarding, unless Google grants an exception.
+This was checked against Fontspector's `google-fonts-subsets 0.202602.1` and
+`googlefonts/nam-files` main at `1d38a7d77ce11452ccbfe8fa9a0cb728ee6d7cd3`.
+It differs from earlier 1.311 failures: those were missing font glyphs, which
+have now been added and proofed.
 
-### Warnings to review
+Related upstream discussions already cover [missing combining marks](https://github.com/googlefonts/nam-files/issues/6),
+[combining-mark distribution](https://github.com/googlefonts/nam-files/issues/23),
+and [deriving subsets from language support](https://github.com/googlefonts/nam-files/pull/29).
+The onboarding team needs to advise on subset generation or an approved exception.
+The candidate does not declare unrelated script subsets, delete working characters,
+or suppress these failures to obtain a passing report.
 
-- A single `slnt` font is intentional. Google Workspace does not use this axis
-  for its italic button; a separate italic companion may be needed for that
-  distribution without removing the self-hosted font's continuous slant axis.
-- Google Fonts subset routing and the `latin-ext` declaration need review so
-  supported marks and symbols remain reachable through its API.
-- Sam Dunn needs a Google Fonts designer profile and an approved photo.
-- Other warnings cover the 3.72 MB variable TTF, vendor ID `NONE`, GDEF mark
-  classes, WWS naming flag, soft-dot behavior, optional language/currency and
-  separator coverage, `.notdef` sidebearings, mathematical widths, heart contour
-  count, decomposed carons and overlapping-path heuristics. The full report
-  lists the exact affected glyphs.
+## Remaining warnings
 
-The earlier **FontBakery 1.1.0** run on the 1.310 release passed with no failures
-or errors: 125 PASS / 9 WARN for the variable font and 413 PASS / 24 WARN for
-representative statics. That does not replace current Fontspector results.
-[Completed CI run](https://github.com/buildinternet/sunny-marker-font/actions/runs/35109462366).
+- Subset coverage and routing: `latin-ext` is sparse, and some combining marks,
+  arrows and doodles are outside the current declared web subsets.
+- Optional language additions (such as Ŧ/ŧ, Ĳ/ĳ and Ʒ/ʒ), and a rupee inferred
+  from Romanized Indic coverage. These are not missing Latin Core characters.
+- Vendor ID `NONE` is not registered; no fabricated vendor identifier is used.
+- A few sidebearings change non-monotonically between variable masters.
+- Sam Dunn's designer profile is prepared but not yet in Google's catalog.
 
-## License, authorship and onboarding
+Earlier file-size, mark-class, soft-dot, naming, mathematical-width,
+unreachable-glyph and contour-direction findings have been addressed. Exact
+warnings and affected glyphs remain in the complete reports.
 
-The complete font family and editable sources use OFL 1.1 with no Reserved Font
-Names. Sam Dunn confirmed ownership/right to release, no separate proprietary
-edition, willingness to maintain the project during onboarding, and completion
-of Google's CLA. The CLA signature is maintainer-reported.
+## Authorship and onboarding
 
-The intended family menu name is **Sunny Marker**. Fontdata's name check found
-no exact match on 2026-09-16. Sam Dunn directs the design; ChatGPT was used for
-the original concept art, and AI tools assisted with font engineering and QA.
-See [CONTRIBUTING.md](../CONTRIBUTING.md).
+Sam Dunn confirmed ownership and the right to release the entire family and
+editable sources under OFL 1.1, no Reserved Font Names, no separate proprietary
+edition, willingness to maintain the project, and completion of Google's CLA.
+The CLA signature is maintainer-reported. The approved portrait is included with
+permission for the designer profile; it is not font-source artwork.
+
+Sam Dunn directs the design. ChatGPT was used for the original concept art, and
+AI tools assisted with font engineering and QA. See [CONTRIBUTING.md](../CONTRIBUTING.md).
+The historical [1.311 archive](../release/sunny-marker-googlefonts-1.311.zip) and
+[report](fontspector-1.311.md) remain available for comparison, not current results.
 
 [Designer website](https://samdunn.org) ·
-[Interactive specimen](https://sunnysdk.com/fonts/sunny-marker/) ·
-[Google Fonts onboarding guide](https://googlefonts.github.io/gf-guide/onboarding.html)
+[Published 1.310 specimen](https://sunnysdk.com/fonts/sunny-marker/) ·
+[Google Fonts designer profile guidance](https://googlefonts.github.io/gf-guide/profile.html) ·
+[Variable-family guidance](https://googlefonts.github.io/gf-guide/variable.html)

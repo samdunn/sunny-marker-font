@@ -98,6 +98,10 @@ make audit
 
 `make build` compiles committed UFO/designspace sources with fontmake, then
 packages matching desktop/web fonts, metadata, checksums and a deterministic ZIP.
+The current source builds are version **1.312**. The committed release files,
+live website and npm package remain **1.310** until a new release is published.
+Use `make review` to build, verify and proof the 1.312 candidate without replacing
+those release assets.
 `make check` runs the unmodified Google Fonts FontBakery profile, including its
 network and interpolation checks. Timeouts are errors, not passing results.
 
@@ -116,15 +120,15 @@ was closed for outline-quality improvements. Follow the
 [outline review](documentation/OUTLINE_REVIEW.md) for the next candidate;
 Sunny Marker has not been accepted into Google Fonts.
 
-The [1.311 onboarding candidate](release/sunny-marker-googlefonts-1.311.zip)
-adds Google Fonts metadata to the 1.310 variable font. It has identical outlines,
-spacing, layout tables and axis ranges. The website and npm package remain on
-the general release, **1.310**.
+The [1.312 review package](release/sunny-marker-googlefonts-1.312.zip) contains
+the rebuilt outlines, shared accents and mark positioning, separate upright
+and italic variable fonts for Google's style controls, specimens, and the
+prepared Sam Dunn designer profile. The general font retains continuous slant.
 
-Run `make submission` after building to reproduce the candidate. Google's
-current Fontspector checks identified remaining language-sample failures and
-warnings that need onboarding review; this is not an accepted Google Fonts
-release. See [the candidate report](documentation/GOOGLE_FONTS.md).
+Run `make review` from the pinned environment to reproduce it. The full,
+unmodified Fontspector results and outstanding Google subset-routing findings
+are documented in [the candidate report](documentation/GOOGLE_FONTS.md).
+This is a resubmission candidate, not an accepted Google Fonts release.
 
 ## Project files
 
@@ -148,3 +152,6 @@ font engineering. See the contribution guide for provenance and attribution.
 
 Sunny brand artwork in `web/branding/` is separate from the font software.
 See its `NOTICE.txt`; it is excluded from the npm package.
+Specimen artwork has its own [CC BY-SA 4.0 license](documentation/image-license.txt).
+The approved [designer portrait](sources/googlefonts/README.md) is provided for
+the Google Fonts profile; the font license does not grant separate portrait rights.

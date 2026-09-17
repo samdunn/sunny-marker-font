@@ -7,6 +7,7 @@ per-weight raster traces remain in build/ as design references only.
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import zipfile
@@ -21,7 +22,7 @@ from fontTools.varLib.instancer import instantiateVariableFont
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / 'build'
 FDIR = ROOT / 'fonts'
-VERSION = '1.310'
+VERSION = '1.312'
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1788998400')
 COPYRIGHT = ('Copyright 2026 The Sunny Marker Project Authors '
              '(https://github.com/buildinternet/sunny-marker-font)')
@@ -199,6 +200,10 @@ def package_family():
 def package_web():
     web = ROOT / 'web'
     web.mkdir(exist_ok=True)
+    index = web / 'index.html'
+    if index.exists():
+        index.write_text(re.sub(r'SunnyMarker-(Static-OTF-)?\d+\.\d+\.zip',
+            lambda m: 'SunnyMarker-' + (m.group(1) or '') + VERSION + '.zip', index.read_text()))
     css = [f'''/* Sunny Marker {VERSION} — SIL OFL 1.1. Keep beside webfonts/. */
 @font-face {{
   font-family: "Sunny Marker";

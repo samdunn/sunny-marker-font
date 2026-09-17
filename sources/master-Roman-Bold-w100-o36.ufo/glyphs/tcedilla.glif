@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="tcedilla" format="2">
+  <advance width="378.0"/>
+  <unicode hex="0163"/>
+  <anchor x="193.824" y="624.109" name="top"/>
+  <anchor x="213.603" y="-23.177" name="bottom"/>
+  <anchor x="213.603" y="-210.898" name="cedilla"/>
+  <anchor x="334.703" y="22.823" name="ogonek"/>
+  <anchor x="373.903" y="590.109" name="side"/>
+  <outline>
+    <component base="t"/>
+    <component base="cedillacomb" xOffset="213.603" yOffset="18.823"/>
+  </outline>
+</glyph>

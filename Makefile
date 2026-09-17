@@ -20,12 +20,15 @@ preview:
 check:
 	$(PYTHON) scripts/check_fontbakery.py
 
-.PHONY: sources audit atlas submission
+.PHONY: sources audit atlas submission review
 sources:
 	$(PYTHON) scripts/make_weights.py
 	$(PYTHON) scripts/make_variable.py
+	$(PYTHON) scripts/regularize_sources.py
 	$(PYTHON) scripts/simplify_sources.py
 	$(PYTHON) scripts/fit_sources.py
+	$(PYTHON) scripts/round_source_joins.py
+	$(PYTHON) scripts/prepare_layout.py
 
 audit:
 	$(PYTHON) -m pip check
@@ -37,6 +40,9 @@ atlas:
 
 submission:
 	$(PYTHON) scripts/package_submission.py
+
+review:
+	$(PYTHON) scripts/build_review.py
 
 .PHONY: npm
 npm:

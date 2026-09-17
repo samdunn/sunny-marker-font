@@ -1,85 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="Iogonek" format="2">
-  <advance width="400" />
-  <unicode hex="012E" />
+  <advance width="401.0"/>
+  <unicode hex="012E"/>
+  <anchor x="314.468" y="722.443" name="top"/>
+  <anchor x="71.253" y="-33.211" name="bottom"/>
+  <anchor x="77.905" y="8.789" name="cedilla"/>
+  <anchor x="124.106" y="-167.655" name="ogonek"/>
+  <anchor x="362.564" y="696.443" name="side"/>
   <outline>
-    <contour>
-      <point x="301.0" y="696.0" type="curve" />
-      <point x="289.0000" y="696.0000" type="line" />
-      <point x="259.0178" y="693.8692" />
-      <point x="250.6595" y="672.9630" />
-      <point x="241.0000" y="647.0000" type="curve" />
-      <point x="227.0000" y="605.0000" type="line" />
-      <point x="222.0000" y="586.0000" type="line" />
-      <point x="202.0000" y="511.0000" type="line" />
-      <point x="193.0000" y="480.0000" type="line" />
-      <point x="163.0000" y="381.0000" type="line" />
-      <point x="145.0000" y="319.0000" type="line" />
-      <point x="113.0000" y="206.0000" type="line" />
-      <point x="98.6294" y="157.4440" />
-      <point x="78.5587" y="108.2605" />
-      <point x="70.0000" y="58.0000" type="curve" />
-      <point x="65.2397" y="30.0454" />
-      <point x="55.7172" y="0.1684" />
-      <point x="94.0000" y="-3.0000" type="curve" />
-      <point x="144.4883" y="-7.1785" />
-      <point x="156.7468" y="31.7479" />
-      <point x="171.0000" y="73.0000" type="curve" />
-      <point x="182.1297" y="105.2119" />
-      <point x="189.1371" y="139.1815" />
-      <point x="198.0000" y="172.0000" type="curve" />
-      <point x="211.8311" y="223.2149" />
-      <point x="229.7837" y="279.8684" />
-      <point x="244.0000" y="328.0000" type="curve" />
-      <point x="260.4945" y="383.8447" />
-      <point x="274.9017" y="440.3491" />
-      <point x="292.0000" y="496.0000" type="curve" />
-      <point x="304.8399" y="537.7907" />
-      <point x="317.5801" y="577.0479" />
-      <point x="328.0000" y="619.0000" type="curve" />
-      <point x="336.0100" y="651.2494" />
-      <point x="348.0978" y="693.8636" />
-    </contour>
-    <contour>
-      <point x="216.0" y="-94.0" type="curve" />
-      <point x="217.9582" y="-92.0418" />
-      <point x="216.1004" y="-90.1717" />
-      <point x="217.0000" y="-88.0000" type="curve" />
-      <point x="217.8050" y="-86.0565" />
-      <point x="221.9959" y="-85.6761" />
-      <point x="220.0000" y="-86.0000" type="curve" />
-      <point x="214.7627" y="-86.8499" />
-      <point x="209.2761" y="-88.0688" />
-      <point x="204.0000" y="-89.0000" type="curve" />
-      <point x="182.5191" y="-92.7913" />
-      <point x="173.1912" y="-93.8865" />
-      <point x="152.0000" y="-88.0000" type="curve" />
-      <point x="143.0000" y="-76.0000" type="line" />
-      <point x="141.7637" y="-67.6716" />
-      <point x="149.9191" y="-62.1185" />
-      <point x="155.0000" y="-58.0000" type="curve" />
-      <point x="167.4931" y="-47.8732" />
-      <point x="181.4362" y="-41.0511" />
-      <point x="194.0000" y="-31.0000" type="curve" />
-      <point x="206.8973" y="-20.6821" />
-      <point x="200.6159" y="-15.6151" />
-      <point x="205.0000" y="-10.0000" type="curve" />
-      <point x="206.2561" y="-8.3912" />
-      <point x="211.0000" y="-9.0000" />
-      <point x="211.0000" y="-9.0000" type="curve" />
-      <point x="206.0000" y="-9.0000" type="line" />
-      <point x="197.0000" y="-12.0000" type="line" />
-      <point x="190.9090" y="-14.3624" />
-      <point x="183.1645" y="-18.1194" />
-      <point x="178.0000" y="-22.0000" type="curve" />
-      <point x="161.2564" y="-34.5812" />
-      <point x="136.8621" y="-56.3778" />
-      <point x="132.0000" y="-78.0000" type="curve" />
-      <point x="126.9826" y="-100.3128" />
-      <point x="143.2580" y="-117.5036" />
-      <point x="166.0000" y="-120.0000" type="curve" />
-      <point x="180.3135" y="-121.5712" />
-      <point x="216.0000" y="-110.9946" />
-    </contour>
+    <component base="I"/>
+    <component base="ogonekcomb" xOffset="152.685" yOffset="12.789"/>
   </outline>
 </glyph>

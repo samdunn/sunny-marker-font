@@ -45,7 +45,7 @@ def main():
             assert abs(f['head'].fontRevision - float(VERSION)) < 1 / 65536
             assert f['OS/2'].fsType == 0
             assert f['name'].getDebugName(13).startswith('This Font Software')
-            assert len(f.getGlyphOrder()) == 336
+            assert len(f.getGlyphOrder()) == 391
             assert f['hhea'].ascent == 960 and f['hhea'].descent == -340
             if 'fvar' in f:
                 assert {a.axisTag: (a.minValue, a.defaultValue, a.maxValue)
@@ -181,6 +181,7 @@ def verify_y_stems():
 
 
 def proof():
+    (ROOT / 'proofs').mkdir(parents=True, exist_ok=True)
     img = Image.new('RGB', (1720, 1590), '#faf8f0')
     d = ImageDraw.Draw(img)
     label = ImageFont.load_default(size=19)

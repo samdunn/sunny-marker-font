@@ -25,6 +25,7 @@ from fontTools.feaLib.builder import addOpenTypeFeaturesFromString
 
 import build_font
 import spacing
+from clean_polylines import clean_polyline, round_cusps
 from ufo_sources import export_master, export_designspace
 from glyph_extensions import ZERO_ADVANCE, UNENCODED, CCMP_FEA, ALT_FEA
 from build_font import CMAP, UPM, CAP
@@ -348,7 +349,8 @@ def build_master(style, wght, opsz, moved_map, widths, sbs, kern, path,
                       CCMP_FEA + "\n" + ALT_FEA + "\nfeature kern {")
     addOpenTypeFeaturesFromString(fb.font, fea)
     fb.save(path)
-    export_master(fb.font, fea, os.path.join(ROOT, "sources", os.path.basename(path)))
+    export_master(fb.font, fea, os.path.join(ROOT, "sources", os.path.basename(path)),
+                  outlines=moved_map, sidebearings=sbs)
 
 
 def width_transform(poly, scale, stroke, outer=True):
@@ -422,6 +424,8 @@ def text_outlines(moved_map):
                     moved[body, 1] = ys[body] * TEXT_XHEIGHT / XHEIGHT
                     moved[ascender, 1] = (TEXT_XHEIGHT + (ys[ascender] - XHEIGHT)
                                           * (CAP - TEXT_XHEIGHT) / (CAP - XHEIGHT))
+            if name not in {'star','sparkle'}:
+                moved=round_cusps(moved)
             opened.append(moved)
         result[name] = opened
     return result
@@ -447,7 +451,13 @@ def run(italic):
                     # strokes instead of applying a whole-letter nib offset.
                     local_nib = min(1.0, np.ptp(poly[:, 0]) / 124,
                                     np.ptp(poly[:, 1]) / 124)
+                    # Miniature letters retain a miniature nib. Applying a
+                    # full-size erosion inverted the Light ordinal's ring.
+                    if gname in {'ordfeminine','ordmasculine','trademark'}:
+                        local_nib *= .58
                     factor = local_nib if is_outer else (0.40 if d < 0 else 0.20)
+                    if not is_outer and gname in {'ordfeminine','ordmasculine','trademark'}:
+                        factor *= .58
                     if gname in {"Ccedilla", "ccedilla", "Scedilla", "scedilla",
                                  "cedilla.spacing", "cedillacomb"} and poly[:, 1].max() < 60:
                         # The cedilla nib is smaller than a letter's nib; applying
@@ -460,6 +470,9 @@ def run(italic):
                     moved[:, 1] = (moved[:, 1] + d) * s_comp
                     moved = width_transform(moved, scale, (124 + 2 * d) * s_comp,
                                             np.sign(signed_area(poly)) == outer_sign)
+                    moved = clean_polyline(moved)
+                    if gname not in {'star','sparkle'}:
+                        moved=round_cusps(moved)
                     if italic:
                         moved[:, 0] += moved[:, 1] * TAN
                     moved_polys.append(moved)

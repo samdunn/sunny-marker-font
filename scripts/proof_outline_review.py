@@ -10,6 +10,7 @@ from fontTools.pens.recordingPen import RecordingPointPen
 from PIL import Image, ImageDraw, ImageFont
 
 from glyph_atlas import label_font
+from shaped_proof import draw_shaped
 
 LOCATION = dict(wght=400, wdth=100, opsz=36, slnt=0)
 BG, INK, MUTED = "#faf8f1", "#252525", "#77746d"
@@ -46,7 +47,7 @@ def main():
         y = 156 + row*173
         draw.text((55, y), label, font=label_font(18), fill=MUTED)
         for col, path in enumerate(paths):
-            draw.text((55+col*780, y+112), text, font=face(path, size), fill=INK, anchor="ls")
+            draw_shaped(draw, (55+col*780, y+112), text, path, size, LOCATION, INK)
     image.save(args.output / "before-after.png")
 
     # PUA mappings exist only in these in-memory proof fonts.

@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="dotaccent.spacing" format="2">
-  <advance width="213" />
-  <unicode hex="02D9" />
+  <advance width="213.0"/>
+  <unicode hex="02D9"/>
+  <anchor x="107.745" y="691.811" name="top"/>
+  <anchor x="104.802" y="533.445" name="bottom"/>
+  <anchor x="104.802" y="575.445" name="cedilla"/>
+  <anchor x="133.198" y="579.445" name="ogonek"/>
+  <anchor x="166.296" y="657.811" name="side"/>
   <outline>
     <contour>
-      <point x="149.0" y="614.0" type="curve" />
-      <point x="149.0000" y="621.2664" />
-      <point x="149.4836" y="627.2861" />
-      <point x="147.0000" y="634.0000" type="curve" />
-      <point x="141.6045" y="648.5853" />
-      <point x="125.6564" y="653.7761" />
-      <point x="112.0000" y="657.0000" type="curve" />
-      <point x="86.8775" y="662.9306" />
-      <point x="64.0000" y="643.1610" />
-      <point x="64.0000" y="618.0000" type="curve" />
-      <point x="64.0000" y="595.5623" />
-      <point x="68.8966" y="567.3366" />
-      <point x="96.0000" y="564.0000" type="curve" />
-      <point x="116.5121" y="561.4748" />
-      <point x="143.5819" y="572.3276" />
-      <point x="149.0000" y="594.0000" type="curve" />
-      <point x="150.6414" y="600.5657" />
-      <point x="149.0000" y="607.2288" />
+      <point x="148.51586" y="613.9853" type="line"/>
+      <point x="146.8958" y="642.6645"/>
+      <point x="137.4755" y="657.507"/>
+      <point x="103.4773" y="657.8092" type="curve"/>
+      <point x="77.3289" y="658.0416"/>
+      <point x="63.7004" y="636.5935"/>
+      <point x="63.5" y="612.8196" type="curve"/>
+      <point x="63.2851" y="587.3181"/>
+      <point x="76.6302" y="561.8314"/>
+      <point x="104.802" y="563.5255" type="curve"/>
+      <point x="124.127" y="564.6876"/>
+      <point x="146.4077" y="576.9313"/>
+      <point x="149.7961" y="597.6502" type="curve"/>
     </contour>
   </outline>
 </glyph>

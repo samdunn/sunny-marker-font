@@ -1,73 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="idieresis" format="2">
-  <advance width="392" />
-  <unicode hex="00EF" />
+  <advance width="222.0"/>
+  <unicode hex="00EF"/>
+  <anchor x="132.233" y="562.919" name="top"/>
+  <anchor x="98.824" y="-31.892" name="bottom"/>
+  <anchor x="98.824" y="10.108" name="cedilla"/>
+  <anchor x="142.765" y="14.108" name="ogonek"/>
+  <anchor x="198.004" y="399.387" name="side"/>
   <outline>
-    <contour>
-      <point x="163.0" y="-1.0" type="curve" />
-      <point x="167.0000" y="-2.0000" type="line" />
-      <point x="203.5095" y="-6.4945" />
-      <point x="213.8741" y="20.8986" />
-      <point x="219.0000" y="51.0000" type="curve" />
-      <point x="222.6452" y="72.4062" />
-      <point x="223.3687" y="72.6999" />
-      <point x="225.0000" y="93.0000" type="curve" />
-      <point x="226.0000" y="111.0000" type="line" />
-      <point x="231.0000" y="172.0000" type="line" />
-      <point x="234.5098" y="214.4659" />
-      <point x="246.0000" y="257.4404" />
-      <point x="246.0000" y="300.0000" type="curve" />
-      <point x="246.0000" y="335.7364" />
-      <point x="252.8439" y="394.0645" />
-      <point x="203.0000" y="399.0000" type="curve" />
-      <point x="193.7385" y="399.9171" />
-      <point x="189.5438" y="397.2719" />
-      <point x="181.0000" y="393.0000" type="curve" />
-      <point x="151.0414" y="378.0207" />
-      <point x="155.0659" y="325.2624" />
-      <point x="153.0000" y="300.0000" type="curve" />
-      <point x="149.0000" y="263.0000" type="line" />
-      <point x="133.0000" y="135.0000" type="line" />
-      <point x="130.1874" y="111.1742" />
-      <point x="126.0000" y="86.9633" />
-      <point x="126.0000" y="63.0000" type="curve" />
-      <point x="126.0000" y="34.4355" />
-      <point x="133.4572" y="9.1720" />
-    </contour>
-    <contour>
-      <point x="32.0" y="487.0" type="curve" />
-      <point x="39.1857" y="474.9355" />
-      <point x="42.9997" y="462.0814" />
-      <point x="59.0000" y="459.0000" type="curve" />
-      <point x="86.4692" y="453.7099" />
-      <point x="123.4946" y="469.7284" />
-      <point x="126.0000" y="500.0000" type="curve" />
-      <point x="128.2822" y="527.5758" />
-      <point x="107.4495" y="558.1829" />
-      <point x="79.0000" y="561.0000" type="curve" />
-      <point x="54.9037" y="563.3860" />
-      <point x="24.3226" y="535.4556" />
-      <point x="22.0000" y="512.0000" type="curve" />
-      <point x="20.9353" y="501.2478" />
-      <point x="26.7643" y="495.7904" />
-    </contour>
-    <contour>
-      <point x="336.0" y="558.0" type="line" />
-      <point x="322.0000" y="563.0000" type="line" />
-      <point x="318.0000" y="564.0000" type="line" />
-      <point x="294.6490" y="566.8746" />
-      <point x="270.6943" y="531.4721" />
-      <point x="269.0000" y="511.0000" type="curve" />
-      <point x="266.5116" y="480.9336" />
-      <point x="294.7947" y="463.2516" />
-      <point x="322.0000" y="461.0000" type="curve" />
-      <point x="349.1109" y="458.7562" />
-      <point x="367.8720" y="481.2882" />
-      <point x="370.0000" y="507.0000" type="curve" />
-      <point x="371.3137" y="522.8731" />
-      <point x="368.7510" y="543.8834" />
-      <point x="354.0000" y="553.0000" type="curve" />
-      <point x="350.0000" y="555.0000" type="line" />
-    </contour>
+    <component base="dotlessi"/>
+    <component base="dieresiscomb" xOffset="132.233" yOffset="433.387"/>
   </outline>
 </glyph>

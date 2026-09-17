@@ -35,8 +35,9 @@ def web_gallery(font, inventory, reverse):
         codes = reverse.get(name, [])
         label = ', '.join(entry['unicode']) or ('missing glyph' if name == '.notdef' else 'alternate')
         char = chr(codes[0]) if codes else ''
-        if name in {'space', 'nbspace'}:
-            visual = '<span class="empty-glyph">space</span>'
+        if not font['glyf'][name].numberOfContours:
+            blank = {'lineSeparator': 'line break', 'paragraphSeparator': 'paragraph break'}.get(name, 'space')
+            visual = f'<span class="empty-glyph">{blank}</span>'
         elif codes and entry['advance']:
             visual = f'<span class="marker">{escape(char)}</span>'
         else:
@@ -50,6 +51,8 @@ def web_gallery(font, inventory, reverse):
         cards.append(f'<li class="glyph-card" data-search="{search}" aria-label="{escape(name)}: {escape(label)}"><div class="glyph-drawing" aria-hidden="true">{visual}</div><span class="glyph-name" title="{escape(name)}">{escape(name)}</span><span class="glyph-code">{escape(label)}</span></li>')
     page = ROOT / 'web/index.html'
     source = page.read_text()
+    import re
+    source = re.sub(r'\b\d+ glyphs\b', f'{len(inventory)} glyphs', source)
     start, end = '<!-- GLYPH CARDS START -->', '<!-- GLYPH CARDS END -->'
     if start in source and end in source:
         before, tail = source.split(start, 1)

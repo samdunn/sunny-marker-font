@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="iogonek.dotless" format="2">
+  <advance width="285.0"/>
+  <anchor x="165.46" y="509.489" name="top"/>
+  <anchor x="135.347" y="-31.789" name="bottom"/>
+  <anchor x="135.347" y="10.211" name="cedilla"/>
+  <anchor x="189.762" y="-198.275" name="ogonek"/>
+  <anchor x="234.871" y="475.489" name="side"/>
+  <outline>
+    <component base="dotlessi"/>
+    <component base="ogonekcomb" xOffset="189.762" yOffset="14.211"/>
+  </outline>
+</glyph>

@@ -39,7 +39,7 @@ jobs:
       - run: make audit
       - run: python scripts/check_secrets.py
       - run: python scripts/test_outline_geometry.py
-      - run: make build
+      - run: make review
+      - run: make package
       - run: make verify
-      - run: make submission
       - run: make check

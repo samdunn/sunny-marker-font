@@ -1,56 +1,58 @@
 {
-  "glyphs": 336,
+  "glyphs": 391,
   "points_before": 63565,
-  "points_after": 34350,
+  "points_after": 15789,
   "glyph_bound_locations": 51,
   "shaping_locations": 375,
   "overflows": [],
   "passed": true,
+  "expanded_points_before": 63565,
+  "expanded_points_after": 36653,
   "sha256": {
     "before": "54f0a06f3d29bcd042752d882a69809206856845ecf099ce929c6829fe55d51d",
-    "after": "7c1d72e37ddf16826b5cd947d1c22331fc633b2947565bb482cf0bde8bca2f4a"
+    "after": "b50998fe46d94123240e69e912a58163c4abc0305ff341c9af743ede05b0b502"
   },
-  "edge_comparisons": 1005,
-  "largest_edge_deviations": [
+  "compiled_edge_comparisons": 1164,
+  "largest_compiled_edge_deviations": [
     {
-      "master": "Roman-Light-w75-o10",
-      "glyph": "Q",
-      "error": 2.879782271674107
+      "master": "Roman-Regular-w100-o36",
+      "glyph": "sacute",
+      "error": 1.6341624600868923
     },
     {
       "master": "Roman-Regular-w100-o36",
-      "glyph": "circumflex.spacing",
-      "error": 2.6822393239616735
-    },
-    {
-      "master": "Roman-Light-w75-o10",
-      "glyph": "p",
-      "error": 2.6265340193322153
-    },
-    {
-      "master": "Italic-Bold-w125-o36",
-      "glyph": "star",
-      "error": 2.5555062599997633
-    },
-    {
-      "master": "Italic-Bold-w125-o36",
-      "glyph": "bracketleft",
-      "error": 2.5390488247442287
+      "glyph": "Scedilla",
+      "error": 1.5474425109503367
     },
     {
       "master": "Roman-Regular-w100-o36",
-      "glyph": "amacron",
-      "error": 2.511350038965583
-    },
-    {
-      "master": "Roman-Regular-w100-o36",
-      "glyph": "F",
-      "error": 2.5050522912140782
+      "glyph": "wdieresis",
+      "error": 1.5124828125710266
     },
     {
       "master": "Roman-Light-w75-o10",
-      "glyph": "braceright",
-      "error": 2.4921175734703995
+      "glyph": "L",
+      "error": 1.5117858439899394
+    },
+    {
+      "master": "Roman-Light-w75-o10",
+      "glyph": "Lacute",
+      "error": 1.5117858439899394
+    },
+    {
+      "master": "Roman-Light-w75-o10",
+      "glyph": "Lcommaaccent",
+      "error": 1.5117858439899394
+    },
+    {
+      "master": "Roman-Light-w75-o10",
+      "glyph": "Lcaron",
+      "error": 1.5117858439899394
+    },
+    {
+      "master": "Roman-Regular-w100-o36",
+      "glyph": "jacute",
+      "error": 1.4954414217805478
     }
   ]
 }
