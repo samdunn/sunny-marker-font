@@ -1,7 +1,39 @@
-# Outline quality review — 1.313
+# Outline quality review
 
-For the latest font-side coverage changes and passing checker results, see the
-[1.314 candidate](../candidates/1.314/). The results below describe 1.313.
+## 1.315
+
+The [1.315 candidate](../candidates/1.315/) is the answer to the
+[Google Fonts review](https://github.com/google/fonts/issues/10972#issuecomment-5714431859)
+of 1.311, which named symbols, accents and the number of points on outlines.
+
+- Every master is refit with fewer nodes, within 6 units of 1.314's drawing,
+  with a node at every horizontal and vertical extreme. Near-straight line
+  joins are merged, and near-axis lines are made exact in the upright masters.
+- The vertical caron of ď ľ ť Ľ, a fixed hairline wedge since 1.312, is now a
+  marker stroke that follows the weight axis.
+- The Gothic alphabet added in 1.314 for subset routing is left out.
+
+| | 1.311 (reviewed) | 1.314 | 1.315 |
+| --- | ---: | ---: | ---: |
+| Median points per character | 187 | 93 | **77** |
+| Near-straight line joins | 484,877 | 11,766 | **0** |
+| Short segments that are lines | 465,192 | 77 | **0** |
+| Short segments under 3 units | 20,463 | 570 | **232** |
+
+**A correction to earlier results.** Fontspector's short-segment, near-straight
+and alignment checks treat more than 100 findings in a font as intentional and
+report PASS. The clean outline results recorded for 1.313 and 1.314 came from
+that cutoff: 1.314 had 11,766 near-straight joins and 53,342 short segments.
+1.315 is measured with [`scripts/audit_outline_counts.py`](../scripts/audit_outline_counts.py),
+which applies the same rules and counts every finding.
+
+Methods, all checker results and the one remaining Google Fonts failure are in
+the [candidate README](../candidates/1.315/README.md).
+
+## 1.313 results (historical)
+
+These describe the 1.313 release. Its outline results are affected by the
+cutoff described above.
 
 **Quality record for the 1.313 release. Google Fonts resubmission remains on hold.**
 This continues the work prompted by the [Google Fonts review](https://github.com/google/fonts/issues/10972#issuecomment-5714431859).
@@ -10,7 +42,7 @@ The full Google Fonts profile still has nine subset-routing failures, explained 
 [the onboarding report](GOOGLE_FONTS.md). This is not a claim of Google acceptance.
 The same checked outlines are packaged for the 1.313 web and desktop release.
 
-## Improvements in this pass
+### Improvements in this pass
 
 - Removed 421 shared short curve segments using tangent-preserving fits bounded
   to two units at sampled parameters in every master. Shared topology is retained.
@@ -30,7 +62,7 @@ The earlier revision replaced dense polylines with compatible cubic curves,
 balanced symbols, rebuilt accents as components, and added mark-to-base and
 mark-to-mark positioning, soft-dot removal and contextual language forms.
 
-## Visual proofs
+### Visual proofs
 
 ![Accent placement](outline-review/accent-weight-comparison.png)
 
@@ -48,7 +80,7 @@ Also reviewed: [small-size extremes](outline-review/extremes-opsz10.png),
 [languages and stacked marks](outline-review/language-proof.png).
 Text proofs use HarfBuzz shaping; individual glyph plates show the actual outlines.
 
-## Measured results
+### Measured results
 
 | Check | Result |
 | --- | --- |
@@ -80,7 +112,7 @@ Reports: [geometry](outline-review/geometry-check.json),
 [submission integrity](outline-review/submission-check.json),
 [92 exports](outline-review/export-verification.json).
 
-## Outline QA
+### Outline QA
 
 Fontspector **1.7.4**, all seven outline checks including overlapping segments,
 on **48 master + 36 intermediate locations**:
@@ -93,7 +125,7 @@ they are not distributed static styles.
 [Full outline report](outline-review/outlines.md) ·
 [Machine-readable results](outline-review/outlines.json)
 
-## Reproduce
+### Reproduce
 
 Use the pinned environment from the README. `make review` compiles editable UFOs,
 verifies geometry and shaping, renders proofs and builds the Google package.

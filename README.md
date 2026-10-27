@@ -8,11 +8,11 @@ irregular character across compact labels and large display type.
 
 [Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse all 391 glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
 
-**Latest development:** the [1.314 coverage review candidate](candidates/1.314/)
-adds Gothic coverage and fixes the remaining Google Fonts checker failures.
-It includes editable sources, downloadable fonts, a visual proof, and full
-results: **0 failures/errors, 12 advisory warnings**. The report also documents
-the remaining limitation with Google's default split web delivery.
+**Latest development:** the [1.315 outline review candidate](candidates/1.315/)
+answers Google's outline review: far fewer points (a median of 77 per character,
+down from 187 in the reviewed 1.311), a node at every extreme, no near-straight
+joins, and a vertical caron (ď ľ ť Ľ) that follows the weight axis. It includes
+editable sources, fonts, proofs and full checker results.
 The website, npm package and stable downloads below remain **1.313**.
 
 ## Use the fonts
@@ -122,16 +122,17 @@ private configuration and raw audit logs are ignored by Git.
 
 ## Google Fonts review
 
-The newest candidate is [1.314](candidates/1.314/), with font-side coverage
-changes and a passing unmodified Fontspector profile. Run `make coverage-review`
-to rebuild its separate source snapshot. It does not require any upstream
-subset-definition change. See its report for the web-delivery limitation and
-remaining advisories; acceptance is still subject to Google's review.
+The newest candidate is [1.315](candidates/1.315/). It refits every outline
+of 1.314 with far fewer points, redraws the vertical caron, and leaves out the
+Gothic alphabet that 1.314 added only for subset routing. Run
+`make outline-sources`, `make outline-review` and `make outline-verify` to
+rebuild and check it. One Google Fonts check still fails, for U+0331, because
+Google's Latin subsets don't include that mark; the candidate report explains it.
+Acceptance is still subject to Google's review.
 
 The initial proposal in [google/fonts#10972](https://github.com/google/fonts/issues/10972)
-was closed for outline-quality improvements. Follow the
-[outline review](documentation/OUTLINE_REVIEW.md) for the next candidate;
-Sunny Marker has not been accepted into Google Fonts.
+was closed for outline quality. The [outline review](documentation/OUTLINE_REVIEW.md)
+records the work since then; Sunny Marker has not been accepted into Google Fonts.
 
 The previous [1.313 review package](release/sunny-marker-googlefonts-1.313.zip) contains
 the rebuilt outlines, shared accents and mark positioning, separate upright
@@ -151,7 +152,8 @@ This is a resubmission candidate, not an accepted Google Fonts release.
 - `web/`: standalone marketing page, type tester, glyph gallery and downloads.
 - `references/` and `glyphs/manifest.json`: original drawing inputs.
 - `documentation/`: quality results, glyph atlas and release guidance.
-- `candidates/1.314/`: latest review fonts, source snapshot, proof and QA results.
+- `candidates/1.315/`: latest review fonts, source snapshot, proofs and QA results.
+- `candidates/1.314/`: the previous coverage candidate, kept for comparison.
 
 ## License and credits
 

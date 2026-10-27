@@ -30,6 +30,8 @@ def main():
     parser.add_argument("before", type=Path)
     parser.add_argument("after", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--before-label", default="published 1.310")
+    parser.add_argument("--after-label", default="working candidate")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     paths = [args.before, args.after]
@@ -38,7 +40,7 @@ def main():
     draw.text((55, 36), "SUNNY MARKER / OUTLINE REVIEW", font=label_font(30), fill=INK)
     draw.text(
         (55, 83),
-        "Actual font renders. Left: published 1.310. Right: working candidate.",
+        f"Actual font renders. Left: {args.before_label}. Right: {args.after_label}.",
         font=label_font(21),
         fill=MUTED,
     )
@@ -75,7 +77,7 @@ def main():
     draw = ImageDraw.Draw(image)
     draw.text(
         (45, 25),
-        "OUTLINE POINTS / PUBLISHED → CANDIDATE",
+        f"OUTLINE POINTS / {args.before_label.upper()} → {args.after_label.upper()}",
         font=label_font(29),
         fill=INK,
     )

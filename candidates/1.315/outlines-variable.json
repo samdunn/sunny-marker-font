@@ -1,0 +1,242 @@
+{
+  "summary": {
+    "SKIP": 8,
+    "PASS": 6
+  },
+  "results": {
+    "SunnyMarker[opsz,wdth,wght].ttf": {
+      "Outline Checks": [
+        {
+          "check_id": "outline_alignment_miss",
+          "check_name": "Are there any misaligned on-curve points?",
+          "check_rationale": "This check heuristically looks for on-curve points which are close to, but do not sit on, significant boundary coordinates. For example, a point which has a Y-coordinate of 1 or -1 might be a misplaced baseline point. As well as the baseline, here we also check for points near the x-height (but only for lowercase Latin letters), cap-height, ascender and descender Y coordinates.\n\nNot all such misaligned curve points are a mistake, and sometimes the design may call for points in locations near the boundaries. As this check is liable to generate significant numbers of false positives, it will pass if there are more than 100 reported misalignments.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "severity": "PASS"
+            }
+          ],
+          "worst_status": "PASS",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_colinear_vectors",
+          "check_name": "Do any segments have colinear vectors?",
+          "check_rationale": "This check looks for consecutive line segments which have the same angle. This normally happens if an outline point has been added by accident.\n\nThis check is not run for variable fonts, as they may legitimately have colinear vectors.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_direction",
+          "check_name": "Check the direction of the outermost contour in each glyph",
+          "check_rationale": "In TrueType fonts, the outermost contour of a glyph should be oriented clockwise, while the inner contours should be oriented counter-clockwise. Getting the path direction wrong can lead to rendering issues in some software.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "severity": "PASS"
+            }
+          ],
+          "worst_status": "PASS",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_jaggy_segments",
+          "check_name": "Do outlines contain any jaggy segments?",
+          "check_rationale": "This check heuristically detects outline segments which form a particularly small angle, indicative of an outline error. This may cause false positives in cases such as extreme ink traps, so should be regarded as advisory and backed up by manual inspection.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "overlapping_path_segments",
+          "check_name": "Check there are no overlapping path segments",
+          "check_rationale": "Some rasterizers encounter difficulties when rendering glyphs with overlapping path segments.\n\nA path segment is a section of a path defined by two on-curve points. When two segments share the same coordinates, they are considered overlapping.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "severity": "PASS"
+            }
+          ],
+          "worst_status": "PASS",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_semi_vertical",
+          "check_name": "Do outlines contain any semi-vertical or semi-horizontal lines?",
+          "check_rationale": "This check detects line segments which are nearly, but not quite, exactly horizontal or vertical. Sometimes such lines are created by design, but often they are indicative of a design error.\n\nThis check is disabled for italic styles, which often contain nearly-upright lines.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_short_segments",
+          "check_name": "Are any segments inordinately short?",
+          "check_rationale": "This check looks for outline segments which seem particularly short (less than 0.6% of the overall path length).\n\nThis check is not run for variable fonts, as they may legitimately have short segments. As this check is liable to generate significant numbers of false positives, it will pass if there are more than 100 reported short segments.",
+          "filename": "SunnyMarker[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        }
+      ]
+    },
+    "SunnyMarker-Italic[opsz,wdth,wght].ttf": {
+      "Outline Checks": [
+        {
+          "check_id": "outline_alignment_miss",
+          "check_name": "Are there any misaligned on-curve points?",
+          "check_rationale": "This check heuristically looks for on-curve points which are close to, but do not sit on, significant boundary coordinates. For example, a point which has a Y-coordinate of 1 or -1 might be a misplaced baseline point. As well as the baseline, here we also check for points near the x-height (but only for lowercase Latin letters), cap-height, ascender and descender Y coordinates.\n\nNot all such misaligned curve points are a mistake, and sometimes the design may call for points in locations near the boundaries. As this check is liable to generate significant numbers of false positives, it will pass if there are more than 100 reported misalignments.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "severity": "PASS"
+            }
+          ],
+          "worst_status": "PASS",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_colinear_vectors",
+          "check_name": "Do any segments have colinear vectors?",
+          "check_rationale": "This check looks for consecutive line segments which have the same angle. This normally happens if an outline point has been added by accident.\n\nThis check is not run for variable fonts, as they may legitimately have colinear vectors.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_direction",
+          "check_name": "Check the direction of the outermost contour in each glyph",
+          "check_rationale": "In TrueType fonts, the outermost contour of a glyph should be oriented clockwise, while the inner contours should be oriented counter-clockwise. Getting the path direction wrong can lead to rendering issues in some software.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "severity": "PASS"
+            }
+          ],
+          "worst_status": "PASS",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_jaggy_segments",
+          "check_name": "Do outlines contain any jaggy segments?",
+          "check_rationale": "This check heuristically detects outline segments which form a particularly small angle, indicative of an outline error. This may cause false positives in cases such as extreme ink traps, so should be regarded as advisory and backed up by manual inspection.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "overlapping_path_segments",
+          "check_name": "Check there are no overlapping path segments",
+          "check_rationale": "Some rasterizers encounter difficulties when rendering glyphs with overlapping path segments.\n\nA path segment is a section of a path defined by two on-curve points. When two segments share the same coordinates, they are considered overlapping.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "severity": "PASS"
+            }
+          ],
+          "worst_status": "PASS",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_semi_vertical",
+          "check_name": "Do outlines contain any semi-vertical or semi-horizontal lines?",
+          "check_rationale": "This check detects line segments which are nearly, but not quite, exactly horizontal or vertical. Sometimes such lines are created by design, but often they are indicative of a design error.\n\nThis check is disabled for italic styles, which often contain nearly-upright lines.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        },
+        {
+          "check_id": "outline_short_segments",
+          "check_name": "Are any segments inordinately short?",
+          "check_rationale": "This check looks for outline segments which seem particularly short (less than 0.6% of the overall path length).\n\nThis check is not run for variable fonts, as they may legitimately have short segments. As this check is liable to generate significant numbers of false positives, it will pass if there are more than 100 reported short segments.",
+          "filename": "SunnyMarker-Italic[opsz,wdth,wght].ttf",
+          "section": "Outline Checks",
+          "subresults": [
+            {
+              "message": "This check produces too many false positives with variable fonts.",
+              "severity": "SKIP",
+              "code": "variable-font"
+            }
+          ],
+          "worst_status": "SKIP",
+          "hotfix_available": false,
+          "sourcefix_available": false
+        }
+      ]
+    }
+  }
+}

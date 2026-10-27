@@ -1,4 +1,8 @@
-"""Rebuild the 1.314 review snapshot without replacing stable release assets."""
+"""Rebuild a review candidate snapshot without replacing stable release assets.
+
+1.314 is the archived coverage candidate. 1.315 builds from the refit outline
+sources (`scripts/refine_outlines.py`) and leaves out the Gothic alphabet.
+"""
 
 import argparse
 import hashlib
@@ -17,9 +21,20 @@ import package_gf
 from submission_font import prepare_submission_font
 
 ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT = ROOT / "candidates/1.314"
-OUT = ROOT / "build/coverage-candidate-1.314"
 FILENAME = "SunnyMarker[opsz,slnt,wdth,wght].ttf"
+GOTHIC = set(range(0x10330, 0x1034B))
+CANDIDATES = {
+    "1.314": {
+        "out": "build/coverage-candidate-1.314",
+        "omit": {0x1EBC, 0x1EBD},
+        "languages": "Latn, Goth",
+    },
+    "1.315": {
+        "out": "build/outline-candidate-1.315",
+        "omit": {0x1EBC, 0x1EBD} | GOTHIC,
+        "languages": "Latn",
+    },
+}
 
 
 def compress_variations(font):
@@ -39,7 +54,11 @@ def compress_variations(font):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sources-only", action="store_true")
+    parser.add_argument("--version", choices=sorted(CANDIDATES), default="1.314")
     args = parser.parse_args()
+    config = CANDIDATES[args.version]
+    SNAPSHOT = ROOT / "candidates" / args.version
+    OUT = ROOT / config["out"]
     os.environ.setdefault("SOURCE_DATE_EPOCH", "1788998400")
     OUT.mkdir(parents=True, exist_ok=True)
     archive = SNAPSHOT / "sources.zip"
@@ -83,9 +102,9 @@ def main():
     font["OS/2"].fsSelection = 0xC0
     font["head"].macStyle = 0
     font["post"].italicAngle = 0
-    package_gf.VERSION = "1.314"
+    package_gf.VERSION = args.version
     package_gf.apply_metadata(font)
-    font["meta"].data = {"dlng": "Latn, Goth", "slng": "Latn, Goth"}
+    font["meta"].data = {"dlng": config["languages"], "slng": config["languages"]}
     package_gf.build_stat(font)
     if "avar" not in font:
         font["avar"] = newTable("avar")
@@ -106,7 +125,7 @@ def main():
     options.recommended_glyphs = True
     options.glyph_names = True
     selection = subset.Subsetter(options=options)
-    selection.populate(unicodes=set(font.getBestCmap()) - {0x1EBC, 0x1EBD})
+    selection.populate(unicodes=set(font.getBestCmap()) - config["omit"])
     metadata = font["meta"]
     selection.subset(font)
     font["meta"] = metadata
@@ -120,7 +139,7 @@ def main():
             "SunnyMarker" + ("-Italic" if italic else "") + "[opsz,wdth,wght].ttf"
         )
         prepare_submission_font(
-            OUT / FILENAME, destination, italic=italic, version="1.314", optimize=False,
+            OUT / FILENAME, destination, italic=italic, version=args.version, optimize=False,
         )
         style = TTFont(destination, recalcTimestamp=False)
         compress_variations(style)
