@@ -25,7 +25,7 @@ FDIR = ROOT / 'fonts'
 VERSION = '1.313'
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1788998400')
 COPYRIGHT = ('Copyright 2026 The Sunny Marker Project Authors '
-             '(https://github.com/buildinternet/sunny-marker-font)')
+             '(https://github.com/samdunn/sunny-marker-font)')
 OFL_URL = 'https://openfontlicense.org'
 OFL_NOTICE = ('This Font Software is licensed under the SIL Open Font License, '
               'Version 1.1. This license is available with a FAQ at: ' + OFL_URL)

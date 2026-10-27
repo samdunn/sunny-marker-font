@@ -42,7 +42,7 @@ def export_master(ttfont, features, path, outlines=None, sidebearings=None):
     info.versionMajor = 1
     info.versionMinor = 310
     info.copyright = ("Copyright 2026 The Sunny Marker Project Authors "
-                      "(https://github.com/buildinternet/sunny-marker-font)")
+                      "(https://github.com/samdunn/sunny-marker-font)")
     info.openTypeNameLicense = ("This Font Software is licensed under the SIL Open "
                                 "Font License, Version 1.1.")
     info.openTypeNameLicenseURL = "https://openfontlicense.org"

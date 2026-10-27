@@ -79,7 +79,7 @@ subprocess.run(
         "-m",
         "gftools.scripts.add_font",
         "--github_url",
-        "https://github.com/buildinternet/sunny-marker-font",
+        "https://github.com/samdunn/sunny-marker-font",
         str(FAMILY),
     ],
     check=True,
@@ -90,7 +90,7 @@ family = text_format.Parse(metadata.read_text(), FamilyProto())
 family.designer = "Sam Dunn"
 family.category[:] = ["HANDWRITING"]
 family.date_added = "2026-09-17"
-family.source.repository_url = "https://github.com/buildinternet/sunny-marker-font"
+family.source.repository_url = "https://github.com/samdunn/sunny-marker-font"
 family.source.branch = "codex/resubmission-polish"
 metadata.write_text(text_format.MessageToString(family))
 description = """<p>Sunny Marker is a flexible handwritten marker typeface for labels,
@@ -109,7 +109,7 @@ currencies, directional arrows, and a small collection of playful symbols.
 The project provides editable UFO sources and a reproducible build pipeline
 under the SIL Open Font License. Development includes AI-assisted concept
 work and font engineering.</p>
-<p>To contribute, see <a href="https://github.com/buildinternet/sunny-marker-font">the
+<p>To contribute, see <a href="https://github.com/samdunn/sunny-marker-font">the
 Sunny Marker project on GitHub</a>.</p>
 """
 (FAMILY / "DESCRIPTION.en_us.html").unlink(missing_ok=True)
