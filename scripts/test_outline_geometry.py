@@ -1,6 +1,12 @@
-"""Regression tests for source geometry, independent of font packaging."""
+"""Regression tests for source geometry, independent of font packaging.
 
+Set SUNNY_MARKER_SOURCES to run the source checks on another folder of
+masters, such as a candidate's extracted sources.zip.
+"""
+
+import os
 import unittest
+from pathlib import Path
 
 import numpy as np
 
@@ -8,6 +14,11 @@ from fit_sources import fit_contour
 from glyph_extensions import _bbox, _match_winding, _signed_area_contour, joined_stroke
 from clean_polylines import round_cusps
 from regularize_sources import redistribute
+
+
+SOURCES = Path(
+    os.environ.get("SUNNY_MARKER_SOURCES", Path(__file__).resolve().parents[1] / "sources")
+)
 
 
 class GeometryTests(unittest.TestCase):
@@ -20,7 +31,7 @@ class GeometryTests(unittest.TestCase):
         from round_source_joins import segment_curves
 
         doc = DesignSpaceDocument.fromfile(
-            Path(__file__).resolve().parents[1] / "sources/SunnyMarker.designspace"
+            SOURCES / "SunnyMarker.designspace"
         )
         axes = {a.name: (a.minimum, a.default, a.maximum) for a in doc.axes}
         model = VariationModel(
@@ -48,9 +59,7 @@ class GeometryTests(unittest.TestCase):
         from pathlib import Path
         from ufoLib2 import Font
 
-        masters = sorted(
-            (Path(__file__).resolve().parents[1] / "sources").glob("master-*.ufo")
-        )
+        masters = sorted(SOURCES.glob("master-*.ufo"))
         self.assertEqual(len(masters), 48)
         for master in masters:
             font = Font.open(master)

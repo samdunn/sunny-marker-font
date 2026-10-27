@@ -55,3 +55,14 @@ coverage-verify:
 .PHONY: npm
 npm:
 	$(PYTHON) scripts/package_npm.py
+
+.PHONY: outline-sources outline-review outline-verify
+# Rebuild candidates/1.315/sources.zip from the archived 1.314 sources.
+outline-sources:
+	$(PYTHON) scripts/make_outline_sources.py
+
+outline-review:
+	$(PYTHON) scripts/build_coverage_candidate.py --version 1.315
+
+outline-verify:
+	$(PYTHON) scripts/verify_outline_candidate.py

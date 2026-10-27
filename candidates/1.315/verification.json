@@ -1,0 +1,36 @@
+{
+  "font": "SunnyMarker[opsz,slnt,wdth,wght].ttf",
+  "sha256": "a4f617b72af9fc28a4f0fd74222cc6ff91879bb481e5f530e74fdb0e1b631192",
+  "glyphs": 389,
+  "codepoints": 374,
+  "removed_codepoints": "U+10330-U+1034A (27 Gothic letters)",
+  "axis_locations": 108,
+  "retained_shaping_checks": 39960,
+  "mark_checks": 3240,
+  "vertical_caron": {
+    "redrawn_characters": "U+013D U+010F U+013E U+0165 (\u013d \u010f \u013e \u0165)",
+    "advance_checks": 432,
+    "smallest_gap_to_letter_units": 4.9,
+    "mark_thickness_units": {
+      "wght_300": 34.3,
+      "wght_700": 51.8
+    }
+  },
+  "outline_checks": 39312,
+  "largest_outline_distance_units": 7.98,
+  "largest_outline_distance_at": {
+    "glyph": "T",
+    "wght": 300,
+    "wdth": 125,
+    "opsz": 36,
+    "slnt": 0
+  },
+  "p99_outline_distance_units": 6.61,
+  "median_outline_distance_units": 4.72,
+  "points_in_default_outlines": {
+    "1.314": 14781,
+    "1.315": 11927,
+    "median_per_glyph_1.314": 70.0,
+    "median_per_glyph_1.315": 58.0
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "characters_compared": 223,
+  "fonts": {
+    "1.311": {
+      "files": [
+        "SunnyMarker[opsz,slnt,wdth,wght].ttf"
+      ],
+      "points_per_character": {
+        "median": 187,
+        "mean": 184.9,
+        "max": 446,
+        "by_category": {
+          "upper": {
+            "median": 170.5,
+            "max": 270
+          },
+          "lower": {
+            "median": 167.0,
+            "max": 219
+          },
+          "digits": {
+            "median": 185.5,
+            "max": 255
+          },
+          "punctuation": {
+            "median": 106.5,
+            "max": 388
+          },
+          "symbols": {
+            "median": 117,
+            "max": 446
+          },
+          "accented": {
+            "median": 245.5,
+            "max": 329
+          },
+          "marks": {
+            "median": 85.5,
+            "max": 98
+          }
+        }
+      },
+      "on_curve_hops_under_10_units": 20650,
+      "static_instances": 17,
+      "uncapped_findings": {
+        "colinear": 484877,
+        "short": 465192,
+        "short_curve_pieces": 0,
+        "short_lines": 465192,
+        "short_under_3_units": 20463,
+        "short_whole_curves": 0
+      }
+    },
+    "1.314": {
+      "files": [
+        "SunnyMarker[opsz,wdth,wght].ttf",
+        "SunnyMarker-Italic[opsz,wdth,wght].ttf"
+      ],
+      "points_per_character": {
+        "median": 93,
+        "mean": 91.2,
+        "max": 197,
+        "by_category": {
+          "upper": {
+            "median": 90.5,
+            "max": 135
+          },
+          "lower": {
+            "median": 87.5,
+            "max": 128
+          },
+          "digits": {
+            "median": 77.0,
+            "max": 108
+          },
+          "punctuation": {
+            "median": 51.0,
+            "max": 177
+          },
+          "symbols": {
+            "median": 74,
+            "max": 197
+          },
+          "accented": {
+            "median": 116.0,
+            "max": 180
+          },
+          "marks": {
+            "median": 35.0,
+            "max": 53
+          }
+        }
+      },
+      "on_curve_hops_under_10_units": 59,
+      "static_instances": 18,
+      "uncapped_findings": {
+        "colinear": 11766,
+        "short": 53342,
+        "short_curve_pieces": 52529,
+        "short_lines": 77,
+        "short_under_3_units": 570,
+        "short_whole_curves": 736
+      }
+    },
+    "1.315": {
+      "files": [
+        "SunnyMarker[opsz,wdth,wght].ttf",
+        "SunnyMarker-Italic[opsz,wdth,wght].ttf"
+      ],
+      "points_per_character": {
+        "median": 77,
+        "mean": 73.7,
+        "max": 148,
+        "by_category": {
+          "upper": {
+            "median": 76.0,
+            "max": 119
+          },
+          "lower": {
+            "median": 71.5,
+            "max": 110
+          },
+          "digits": {
+            "median": 61.5,
+            "max": 86
+          },
+          "punctuation": {
+            "median": 42.5,
+            "max": 148
+          },
+          "symbols": {
+            "median": 64,
+            "max": 137
+          },
+          "accented": {
+            "median": 93.0,
+            "max": 130
+          },
+          "marks": {
+            "median": 28.5,
+            "max": 44
+          }
+        }
+      },
+      "on_curve_hops_under_10_units": 32,
+      "static_instances": 18,
+      "uncapped_findings": {
+        "colinear": 0,
+        "short": 24127,
+        "short_curve_pieces": 23630,
+        "short_lines": 0,
+        "short_under_3_units": 232,
+        "short_whole_curves": 497
+      }
+    }
+  }
+}
