@@ -12,6 +12,8 @@ from PIL import Image
 from gfmetadata import FamilyProto, DesignerInfoProto, text_format
 import uharfbuzz as hb
 
+from package_gf import VERSION
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -44,9 +46,13 @@ def main():
     )
     assert metadata.name == "Sunny Marker" and metadata.designer == "Sam Dunn"
     assert {f.style for f in metadata.fonts} == {"normal", "italic"}
-    source = (
-        ROOT / "build/outline-review/candidate/SunnyMarker[opsz,slnt,wdth,wght].ttf"
-    )
+    # Google's packager copies these repository files; each must exist.
+    assert metadata.source.repository_url == "https://github.com/samdunn/sunny-marker-font"
+    assert metadata.source.branch == "main" and metadata.source.files
+    for entry in metadata.source.files:
+        assert (ROOT / entry.source_file).is_file(), entry.source_file
+        assert (family_dir / entry.dest_file).read_bytes() == (ROOT / entry.source_file).read_bytes()
+    source = ROOT / "fonts/variable/SunnyMarker[opsz,slnt,wdth,wght].ttf"
     checks = 0
     samples = [
         "ÁVÁTÁR À bientôt Ąą Ęę Ľďľť",
@@ -61,6 +67,8 @@ def main():
         assert bool(font["OS/2"].fsSelection & 1) == italic
         assert font["post"].italicAngle == (-9 if italic else 0)
         assert path.stat().st_size < 1050000
+        # The package ships the repository's built fonts unchanged.
+        assert path.read_bytes() == (ROOT / "fonts/variable" / entry.filename).read_bytes()
         for weight, width, optical in itertools.product(
             (300, 400, 700), (75, 100, 125), (10, 14, 36)
         ):
@@ -87,7 +95,7 @@ def main():
     assert 200 < len((designer / "bio.html").read_text()) < 1000
     assert "https://samdunn.org" in (designer / "bio.html").read_text()
     with zipfile.ZipFile(
-        ROOT / "release/sunny-marker-googlefonts-1.313.zip"
+        ROOT / f"release/sunny-marker-googlefonts-{VERSION}.zip"
     ) as archive:
         assert archive.testzip() is None
         expected = {str(p.relative_to(root)): p for p in root.rglob("*") if p.is_file()}
@@ -106,7 +114,8 @@ def main():
             if p.is_file()
         },
     }
-    (ROOT / "build/outline-review/submission-check.json").write_text(
+    (ROOT / "build").mkdir(exist_ok=True)
+    (ROOT / "build/submission-check.json").write_text(
         json.dumps(report, indent=2) + "\n"
     )
     print(

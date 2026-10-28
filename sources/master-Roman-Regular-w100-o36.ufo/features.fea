@@ -1,5 +1,6 @@
 languagesystem DFLT dflt;
 languagesystem latn dflt;
+languagesystem goth dflt;
 
 @TopMarks = [gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotaccentcomb dieresiscomb ringcomb hungarumlautcomb caroncomb];
 @CaseMarks = [gravecomb.case acutecomb.case circumflexcomb.case tildecomb.case macroncomb.case brevecomb.case dotaccentcomb.case dieresiscomb.case ringcomb.case hungarumlautcomb.case caroncomb.case];

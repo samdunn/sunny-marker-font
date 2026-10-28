@@ -1,8 +1,8 @@
 # Sunny Marker
 
 A handwritten variable font for little notes, labels, headings and playful interfaces.
-One self-hosted WOFF2 contains all four axes and 391 glyphs. Font version 1.313;
-package version 1.313.0. Free for personal and commercial use under the SIL OFL 1.1.
+One self-hosted WOFF2 contains all four axes and 389 glyphs. Font version 1.315;
+package version 1.315.0. Free for personal and commercial use under the SIL OFL 1.1.
 
 ## Install in your project
 
@@ -18,7 +18,7 @@ In a pnpm workspace, add it to the app that consumes it.
 
 Also works with `pnpm add @sunnyai/sunny-marker`, `yarn add @sunnyai/sunny-marker` and
 `bun add @sunnyai/sunny-marker`. The same package is available as a versioned tarball
-from the [Sunny website](https://sunnysdk.com/fonts/sunny-marker/downloads/sunnyai-sunny-marker-1.313.0.tgz).
+from the [Sunny website](https://sunnysdk.com/fonts/sunny-marker/downloads/sunnyai-sunny-marker-1.315.0.tgz).
 
 ## Any CSS bundler (Vite, React, Vue, Svelte, Astro)
 
@@ -81,7 +81,7 @@ request or runtime library is required.
 
 ## Desktop apps (Font Book, design tools and documents)
 
-[Download the desktop font ZIP](https://sunnysdk.com/fonts/sunny-marker/downloads/SunnyMarker-1.313.zip),
+[Download the desktop font ZIP](https://sunnysdk.com/fonts/sunny-marker/downloads/SunnyMarker-1.315.zip),
 extract it, and install `SunnyMarker[opsz,slnt,wdth,wght].ttf`. On macOS, open the
 TTF in Font Book and choose Install. No WOFF2 conversion is needed.
 
@@ -111,8 +111,8 @@ history or Sunny brand artwork. Keep `OFL.txt` with redistributed font files.
 
 ## Desktop formats: both are OpenType
 
-- [Variable desktop (.ttf)](downloads/SunnyMarker-1.313.zip): one OpenType font with TrueType outlines and all four adjustable axes.
-- [Static desktop (.otf)](downloads/SunnyMarker-Static-OTF-1.313.zip): 30 fixed styles with CFF outlines, useful when an application does not expose variable controls.
+- [Variable desktop (.ttf)](downloads/SunnyMarker-1.315.zip): one OpenType font with TrueType outlines and all four adjustable axes.
+- [Static desktop (.otf)](downloads/SunnyMarker-Static-OTF-1.315.zip): 30 fixed styles with CFF outlines, useful when an application does not expose variable controls.
 - WOFF2 is the compressed browser format. Installing the npm package does not install a desktop font.
 
 The `.ttf` extension does not mean the variable font lacks OpenType features.

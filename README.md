@@ -6,14 +6,14 @@ irregular character across compact labels and large display type.
 
 ![Sunny Marker — handwritten, variable, made for little notes](web/specimens/github-header.png)
 
-[Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse all 391 glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
+[Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse the glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
 
-**Latest development:** the [1.315 outline review candidate](candidates/1.315/)
-answers Google's outline review: far fewer points (a median of 77 per character,
-down from 187 in the reviewed 1.311), a node at every extreme, no near-straight
-joins, and a vertical caron (ď ľ ť Ľ) that follows the weight axis. It includes
-editable sources, fonts, proofs and full checker results.
-The website, npm package and stable downloads below remain **1.313**.
+The sources and fonts in this repository are version **1.315**. It answers
+Google's outline review: far fewer points (a median of 77 per character, down
+from 187 in the reviewed 1.311), a node at every extreme, no near-straight joins,
+and a vertical caron (ď ľ ť Ľ) that follows the weight axis.
+The website and the published npm package stay on **1.313** until Google's review
+is complete.
 
 ## Use the fonts
 
@@ -30,13 +30,13 @@ Install inside your project. For Next.js, use the optional
 
 ### Downloads and formats
 
-Version **1.313** includes a four-axis OpenType variable font and 30 matching static styles.
+Version **1.315** includes a four-axis OpenType variable font and 30 matching static styles.
 
 | Download | What it contains |
 | --- | --- |
-| [Variable desktop (.ttf)](web/downloads/SunnyMarker-1.313.zip) | One OpenType font with TrueType outlines; adjustable weight, width, slant, and optical size. The ZIP also includes its WOFF2 and license. |
-| [Static desktop (.otf)](web/downloads/SunnyMarker-Static-OTF-1.313.zip) | 30 fixed OpenType styles with CFF outlines, plus the license. |
-| [Web package](release/sunny-marker-web-1.313.zip) | WOFF2 files, CSS, and a standalone type tester. |
+| [Variable desktop (.ttf)](web/downloads/SunnyMarker-1.315.zip) | One OpenType font with TrueType outlines; adjustable weight, width, slant, and optical size. The ZIP also includes its WOFF2 and license. |
+| [Static desktop (.otf)](web/downloads/SunnyMarker-Static-OTF-1.315.zip) | 30 fixed OpenType styles with CFF outlines, plus the license. |
+| [Web package](release/sunny-marker-web-1.315.zip) | WOFF2 files, CSS, and a standalone type tester. |
 
 **TTF is OpenType too.** The file extension describes the outline format; it does
 not determine whether a font is variable or supports OpenType features. Our
@@ -72,7 +72,7 @@ The variable font has ten named instances: five weights at upright and slanted e
 adjustable. Static styles use display optical size 36. At smaller optical sizes,
 lowercase letters grow taller and spacing opens. Slant moves continuously from upright to a 9° right lean in the same file.
 
-The family contains **391 glyphs**, including Latin accents, punctuation,
+The family contains **389 glyphs**, including Latin accents, punctuation,
 currencies, eight directional arrows, a sun, star, sparkle, heart, check and cross.
 Capital Y has an upright lower stem. Capital I has a bare stem by default;
 `ss01` or `salt` selects its barred alternate. Dutch j-acute uses `ccmp`.
@@ -97,18 +97,21 @@ python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --upgrade pip==26.2.1
 python -m pip install -r requirements-qa.txt
-make build
+sh sources/build.sh
 make verify
 make check
 make audit
 ```
 
-`make build` compiles committed UFO/designspace sources with fontmake, then
-packages matching desktop/web fonts, metadata, checksums and a deterministic ZIP.
-The current source and packaged release files are version **1.313**.
-The npm package uses version **1.313.0**.
-Use `make review` to build, verify and proof the 1.313 candidate without replacing
-those release assets.
+`sources/build.sh` (or `make build`) is the one-command build. It compiles the
+UFO/designspace sources in `sources/` with fontmake and writes every font in
+`fonts/`: the four-axis variable font, the separate upright and italic variable
+fonts Google Fonts serves, the static styles, the WOFF2 files and a checksum
+manifest. It also rebuilds `web/` and the release ZIPs. CI rebuilds from
+`sources/` and fails if the result differs from the committed fonts.
+The npm package in `packages/` is version **1.315.0**; it is not yet published.
+`make review` runs the outline tests, checks layout, and prepares the
+Google Fonts package from the built fonts.
 `make check` runs the unmodified Google Fonts FontBakery profile, including its
 network and interpolation checks. Timeouts are errors, not passing results.
 
@@ -122,37 +125,34 @@ private configuration and raw audit logs are ignored by Git.
 
 ## Google Fonts review
 
-The newest candidate is [1.315](candidates/1.315/). It refits every outline
-of 1.314 with far fewer points, redraws the vertical caron, and leaves out the
-Gothic alphabet that 1.314 added only for subset routing. Run
-`make outline-sources`, `make outline-review` and `make outline-verify` to
-rebuild and check it. One Google Fonts check still fails, for U+0331, because
-Google's Latin subsets don't include that mark; the candidate report explains it.
-Acceptance is still subject to Google's review.
+Sunny Marker is proposed for Google Fonts in
+[google/fonts#10972](https://github.com/google/fonts/issues/10972). The first
+proposal was closed for outline quality; 1.315 is the answer, and the
+[outline review](documentation/OUTLINE_REVIEW.md) records the work. It has not
+been accepted into Google Fonts.
 
-The initial proposal in [google/fonts#10972](https://github.com/google/fonts/issues/10972)
-was closed for outline quality. The [outline review](documentation/OUTLINE_REVIEW.md)
-records the work since then; Sunny Marker has not been accepted into Google Fonts.
+Google's packager copies `OFL.txt`, the upright and italic fonts in
+`fonts/variable/` and the About article in `documentation/article/`, as listed
+in the package's `METADATA.pb`. Run `make review` to rebuild that package in
+`release/googlefonts/`. One Google Fonts check still fails, for U+0331, because
+Google's Latin subsets don't include that mark; the
+[candidate report](candidates/1.315/README.md) explains it.
 
-The previous [1.313 review package](release/sunny-marker-googlefonts-1.313.zip) contains
-the rebuilt outlines, shared accents and mark positioning, separate upright
-and italic variable fonts for Google's style controls, specimens, and the
-prepared Sam Dunn designer profile. The general font retains continuous slant.
-
-Run `make review` from the pinned environment to reproduce 1.313. Its full,
-unmodified Fontspector results and outstanding Google subset-routing findings
-are documented in [the candidate report](documentation/GOOGLE_FONTS.md).
-This is a resubmission candidate, not an accepted Google Fonts release.
+[`candidates/1.315/`](candidates/1.315/) keeps the reviewed snapshot, proofs and
+full checker results. `make outline-review` rebuilds it, and `make outline-verify`
+checks it. The [1.313 package](release/sunny-marker-googlefonts-1.313.zip) and
+earlier ones are kept for comparison.
 
 ## Project files
 
-- `sources/`: editable UFO masters and designspaces.
+- `sources/`: editable UFO masters, the designspace and `build.sh`.
 - `scripts/`: source generation, fontmake build, packaging and verification.
-- `fonts/`: released fonts plus a SHA-256 manifest.
+- `fonts/`: built fonts plus a SHA-256 manifest. `fonts/variable/` holds the
+  four-axis font and the upright and italic fonts for Google Fonts.
 - `web/`: standalone marketing page, type tester, glyph gallery and downloads.
 - `references/` and `glyphs/manifest.json`: original drawing inputs.
 - `documentation/`: quality results, glyph atlas and release guidance.
-- `candidates/1.315/`: latest review fonts, source snapshot, proofs and QA results.
+- `candidates/1.315/`: the reviewed 1.315 snapshot, proofs and QA results.
 - `candidates/1.314/`: the previous coverage candidate, kept for comparison.
 
 ## License and credits

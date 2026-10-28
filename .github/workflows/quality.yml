@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '24'
       - run: python3 scripts/package_npm.py
-      - run: npm install --prefix build/npm-smoke ./web/downloads/sunnyai-sunny-marker-1.313.0.tgz --ignore-scripts --no-audit --no-fund
+      - run: npm install --prefix build/npm-smoke ./web/downloads/sunnyai-sunny-marker-$(node -p "require('./packages/sunny-marker/package.json').version").tgz --ignore-scripts --no-audit --no-fund
       - run: node scripts/verify_npm.mjs build/npm-smoke
   quality:
     runs-on: ubuntu-latest
@@ -40,8 +40,10 @@ jobs:
       - run: make outline-verify
       - run: make audit
       - run: python scripts/check_secrets.py
-      - run: python scripts/test_outline_geometry.py
+      # The one-command build from sources/; the committed fonts must match it.
+      - run: PYTHON=python sh sources/build.sh
+      - run: git diff --exit-code --stat -- fonts
+      # Outline tests, layout check and the Google Fonts package.
       - run: make review
-      - run: make package
       - run: make verify
       - run: make check
