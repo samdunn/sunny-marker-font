@@ -1,4 +1,9 @@
-"""Prepare a Google Fonts review package without submitting or publishing it."""
+"""Prepare a Google Fonts package from the built fonts, without submitting it.
+
+The upright and italic fonts are copied unchanged from fonts/variable, where
+sources/build.sh writes them. METADATA.pb lists the repository files that
+Google's packager copies, and the About article is kept in documentation/article.
+"""
 
 from pathlib import Path
 import shutil
@@ -7,12 +12,13 @@ import sys
 import zipfile
 from gfmetadata import FamilyProto, text_format
 
-from submission_font import prepare_submission_font
 from PIL import Image, ImageDraw
 from shaped_proof import draw_shaped
+from package_gf import VERSION
 
-# Review exports from the current source build; published web/npm stays separate.
-VERSION = "1.313"
+REPOSITORY = "https://github.com/samdunn/sunny-marker-font"
+STYLES = ("SunnyMarker[opsz,wdth,wght].ttf", "SunnyMarker-Italic[opsz,wdth,wght].ttf")
+ARTICLE = ("ARTICLE.en_us.html", "sunny-marker-specimen.png", "image-license.txt")
 
 
 def specimen(source, destination):
@@ -64,22 +70,21 @@ FAMILY = ROOT / "release/googlefonts/ofl/sunnymarker"
 FAMILY.mkdir(parents=True, exist_ok=True)
 for stale in FAMILY.glob("*.ttf"):
     stale.unlink()
-source = ROOT / "build/outline-review/candidate/SunnyMarker[opsz,slnt,wdth,wght].ttf"
-if not source.exists():
-    raise FileNotFoundError(
-        "Build the current review font with make review before packaging"
-    )
-for italic in (False, True):
-    stem = "SunnyMarker" + ("-Italic" if italic else "") + "[opsz,wdth,wght].ttf"
-    prepare_submission_font(source, FAMILY / stem, italic=italic, version=VERSION)
+VARIABLE = ROOT / "fonts/variable"
+source = VARIABLE / "SunnyMarker[opsz,slnt,wdth,wght].ttf"
+if not all((VARIABLE / name).exists() for name in (source.name, *STYLES)):
+    raise FileNotFoundError("Build the fonts with sources/build.sh before packaging")
+for name in STYLES:
+    shutil.copyfile(VARIABLE / name, FAMILY / name)
 shutil.copyfile(ROOT / "OFL.txt", FAMILY / "OFL.txt")
+(FAMILY / "METADATA.pb").unlink(missing_ok=True)
 subprocess.run(
     [
         sys.executable,
         "-m",
         "gftools.scripts.add_font",
         "--github_url",
-        "https://github.com/samdunn/sunny-marker-font",
+        REPOSITORY,
         str(FAMILY),
     ],
     check=True,
@@ -90,8 +95,16 @@ family = text_format.Parse(metadata.read_text(), FamilyProto())
 family.designer = "Sam Dunn"
 family.category[:] = ["HANDWRITING"]
 family.date_added = "2026-09-17"
-family.source.repository_url = "https://github.com/samdunn/sunny-marker-font"
-family.source.branch = "codex/resubmission-polish"
+family.source.repository_url = REPOSITORY
+family.source.branch = "main"
+del family.source.files[:]
+for source_file, dest_file in (
+    ("OFL.txt", "OFL.txt"),
+    *((f"fonts/variable/{name}", name) for name in STYLES),
+    *((f"documentation/article/{name}", f"article/{name}") for name in ARTICLE),
+):
+    entry = family.source.files.add()
+    entry.source_file, entry.dest_file = source_file, dest_file
 metadata.write_text(text_format.MessageToString(family))
 description = """<p>Sunny Marker is a flexible handwritten marker typeface for labels,
 notes, headings, and playful interfaces. Its rounded strokes retain the uneven
@@ -113,16 +126,20 @@ work and font engineering.</p>
 Sunny Marker project on GitHub</a>.</p>
 """
 (FAMILY / "DESCRIPTION.en_us.html").unlink(missing_ok=True)
-(FAMILY / "article").mkdir(exist_ok=True)
-(FAMILY / "article/ARTICLE.en_us.html").write_text(description)
-specimen(source, FAMILY / "article/sunny-marker-specimen.png")
-(FAMILY / "article/LICENSE.txt").unlink(missing_ok=True)
-(FAMILY / "article/image-license.txt").write_text(
+article = ROOT / "documentation/article"
+article.mkdir(parents=True, exist_ok=True)
+(article / "ARTICLE.en_us.html").write_text(description)
+specimen(source, article / "sunny-marker-specimen.png")
+(article / "image-license.txt").write_text(
     "Sunny Marker specimen artwork © 2026 Sam Dunn.\n"
     "Licensed under Creative Commons Attribution-ShareAlike 4.0 International.\n"
     "https://creativecommons.org/licenses/by-sa/4.0/\n"
     "The font itself is licensed under SIL OFL 1.1; see ../OFL.txt.\n"
 )
+shutil.rmtree(FAMILY / "article", ignore_errors=True)
+(FAMILY / "article").mkdir()
+for name in ARTICLE:
+    shutil.copyfile(article / name, FAMILY / "article" / name)
 submission_root = FAMILY.parent.parent
 shutil.copytree(
     ROOT / "sources/googlefonts/catalog",

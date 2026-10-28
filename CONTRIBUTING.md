@@ -12,10 +12,16 @@ run `make build`, `make verify`, `make check`, and `make audit`.
 The editable masters and designspaces are in `sources/`. `make build` compiles
 them with fontmake. It does not require Potrace or any cached files.
 
-For changes to the parametric drawing generator, install Potrace 1.16 and run
-`make sources` before rebuilding. This regenerates the UFOs from the committed
-reference art and Python design code and replaces direct UFO edits. Keep the
-generator and committed UFOs in sync when changing generated shapes.
+Since 1.315, `sources/` holds refit outlines. `make outline-sources` makes them
+from the archived 1.314 sources in `candidates/1.314/sources.zip`: it refits
+every outline with fewer points and redraws the vertical caron, then writes
+`candidates/1.315/sources.zip`; `sources/` is that archive, extracted. Edit the
+UFOs in `sources/` directly for small corrections.
+
+`make sources` runs the original parametric drawing generator (Potrace 1.16)
+and writes the pre-refit outlines into `sources/`, replacing the 1.315 ones.
+Run it only when changing the generator, and refit its output before building a
+release.
 
 Review actual font proofs at small and large sizes. Preserve glyph coverage,
 OpenType features, kerning, and compatible point/contour order across masters.
@@ -29,7 +35,8 @@ working tree and all fetched Git history with Gitleaks.
 ## Attribution
 
 Sam Dunn directs the design and owns the project. The original concept art was
-created with ChatGPT; AI tools also assisted with font engineering and QA.
+created with ChatGPT. AI tools also assisted with font engineering and QA,
+including writing the scripts that refit the 1.315 outlines.
 `AUTHORS.txt` lists copyright holders and `CONTRIBUTORS.txt` lists people.
 
 ## Releases

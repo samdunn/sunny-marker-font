@@ -1,16 +1,22 @@
 # Google Fonts onboarding
 
-## Current candidate: 1.315
+## Current version: 1.315
 
-[1.315](../candidates/1.315/) is prepared for renewed review in
+1.315 is proposed for renewed review in
 [google/fonts#10972](https://github.com/google/fonts/issues/10972), which was
-closed for outline quality. Its [README](../candidates/1.315/README.md) has the
-outline changes, measurements and every checker result.
+closed for outline quality. Its sources are in `sources/`, and
+`sources/build.sh` builds every font into `fonts/`. The reviewed snapshot in
+[`candidates/1.315/`](../candidates/1.315/) has the outline changes,
+measurements and every checker result.
 
-- **Package:** `googlefonts/ofl/sunnymarker/` holds separate upright and italic
-  variable TTFs with `wght` 300–700, `wdth` 75–125 and `opsz` 10–36 (default 14),
-  plus METADATA.pb, OFL and the article. Sam Dunn's designer profile is under
-  `googlefonts/catalog/designers/samdunn/`.
+- **Fonts:** `fonts/variable/SunnyMarker[opsz,wdth,wght].ttf` and
+  `SunnyMarker-Italic[opsz,wdth,wght].ttf`, with `wght` 300–700, `wdth` 75–125
+  and `opsz` 10–36 (default 14). They match the candidate's fonts byte for byte.
+- **Package:** `make review` writes `release/googlefonts/ofl/sunnymarker/` with
+  those fonts, METADATA.pb, OFL and the article. METADATA.pb lists the
+  repository files Google's packager copies: `OFL.txt`, the two fonts and
+  `documentation/article/`. Sam Dunn's designer profile is under
+  `release/googlefonts/catalog/designers/samdunn/`.
 - **Coverage:** 389 glyphs and 374 encoded characters, including all of GF Latin
   Core. Declared subsets are `latin`, `latin-ext` and `menu`.
 - **Sizes:** upright 815,208 bytes, italic 835,476 bytes.
@@ -31,6 +37,13 @@ Gothic alphabet so that Google's `gothic` subset would carry U+0331; 1.315 does
 not claim a script for that reason. The 12 warnings are the same 12 that 1.314
 gets from the same Fontspector version.
 
+FontBakery 1.1.0's Google profile fails one more check on these two fonts,
+`name/family_and_style_max_length`. The STAT table that gftools builds names the
+default optical size "14pt", so the longest style, "14pt Condensed Light", plus
+the family name is 33 characters. Fontspector passes the same check. `make check`
+runs FontBakery's Google profile on the four-axis font, whose STAT leaves out
+"14pt".
+
 ## Authorship and onboarding
 
 Sam Dunn confirmed ownership and the right to release the entire family and
@@ -39,8 +52,10 @@ edition, willingness to maintain the project, and completion of Google's CLA.
 The CLA signature is maintainer-reported. The approved portrait is included with
 permission for the designer profile; it is not font-source artwork.
 
-Sam Dunn directs the design. ChatGPT was used for the original concept art, and
-AI tools assisted with font engineering and QA. See [CONTRIBUTING.md](../CONTRIBUTING.md).
+Sam Dunn directs the design. ChatGPT was used for the original concept art.
+AI tools assisted with font engineering and QA, including writing the scripts
+that refit the 1.315 outlines; Sam Dunn reviewed the results. See
+[CONTRIBUTING.md](../CONTRIBUTING.md).
 The historical [1.311 archive](../release/sunny-marker-googlefonts-1.311.zip) and
 [report](fontspector-1.311.md) remain available for comparison, not current results.
 

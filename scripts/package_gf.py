@@ -12,6 +12,7 @@ from pathlib import Path
 import shutil
 import zipfile
 
+from fontTools import subset
 from fontTools.fontBuilder import FontBuilder
 from fontTools.otlLib.builder import buildStatTable
 from fontTools.pens.t2CharStringPen import T2CharStringPen
@@ -22,7 +23,12 @@ from fontTools.varLib.instancer import instantiateVariableFont
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / 'build'
 FDIR = ROOT / 'fonts'
-VERSION = '1.313'
+VERSION = '1.315'
+# The sources still carry the Gothic letters 1.314 added for subset routing,
+# and Ẽ ẽ. The fonts leave them out.
+GOTHIC = set(range(0x10330, 0x1034B))
+OMIT = {0x1EBC, 0x1EBD} | GOTHIC
+LANGUAGES = 'Latn'
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1788998400')
 COPYRIGHT = ('Copyright 2026 The Sunny Marker Project Authors '
              '(https://github.com/samdunn/sunny-marker-font)')
@@ -132,32 +138,98 @@ def save_otf(font, path):
     fb.save(path)
 
 
-def package_family():
-    vf = TTFont(BUILD / 'SunnyMarkerVariable.ttf')
+def compress_variations(font):
+    """Apply FontTools' standard IUP delta compression and rounding tolerance."""
+    for name in font.getGlyphOrder():
+        coordinates, controls = font['glyf']._getCoordinatesAndControls(
+            name, font['hmtx'].metrics
+        )
+        for variation in font['gvar'].variations.get(name, []):
+            variation.optimize(
+                coordinates,
+                controls.endPts,
+                isComposite=controls.numberOfContours < 0,
+            )
+
+
+def finish_variable(raw, omit=OMIT, languages=LANGUAGES):
+    """Turn fontmake's variable output into the four-axis release font.
+
+    The 1.314 and 1.315 review candidates were built with this same code, so
+    the release and the archived candidates cannot drift apart.
+    """
+    font = instantiateVariableFont(
+        TTFont(raw, recalcTimestamp=False), {'opsz': (10, 14, 36)},
+        inplace=True, optimize=False,
+    )
     # Rebase the optical default without changing the 10-36 design range.
-    vf = instantiateVariableFont(vf, {'opsz': (10, 14, 36)}, inplace=True)
-    vf['fvar'].instances = [i for i in vf['fvar'].instances if i.coordinates['wdth'] == 100]
-    for instance in vf['fvar'].instances:
+    font['fvar'].instances = [
+        i for i in font['fvar'].instances if i.coordinates['wdth'] == 100
+    ]
+    for instance in font['fvar'].instances:
         instance.coordinates['opsz'] = 14
-    if 'avar' not in vf:
-        avar = newTable('avar')
-        avar.segments = {a.axisTag: {-1.0: -1.0, 0.0: 0.0, 1.0: 1.0} for a in vf['fvar'].axes}
-        vf['avar'] = avar
-    sub = 'Regular'
-    for nid, value in ((1, 'Sunny Marker'), (2, sub), (4, f'Sunny Marker {sub}'),
-                       (6, f'SunnyMarker-{sub}'),
-                       (25, 'SunnyMarker')):
-        set_name(vf, value, nid)
-    for nid in (16, 17):
-        vf['name'].removeNames(nameID=nid)
-    vf['OS/2'].fsSelection = 0xC0
-    vf['head'].macStyle = 0
-    vf['post'].italicAngle = 0
-    apply_metadata(vf)
-    build_stat(vf)
+    for name_id, value in (
+        (1, 'Sunny Marker'), (2, 'Regular'), (4, 'Sunny Marker Regular'),
+        (6, 'SunnyMarker-Regular'), (25, 'SunnyMarker'),
+    ):
+        set_name(font, value, name_id)
+    for name_id in (16, 17):
+        font['name'].removeNames(nameID=name_id)
+    font['OS/2'].fsSelection = 0xC0
+    font['head'].macStyle = 0
+    font['post'].italicAngle = 0
+    apply_metadata(font)
+    font['meta'].data = {'dlng': languages, 'slng': languages}
+    build_stat(font)
+    if 'avar' not in font:
+        font['avar'] = newTable('avar')
+        font['avar'].segments = {
+            a.axisTag: {-1.0: -1.0, 0.0: 0.0, 1.0: 1.0}
+            for a in font['fvar'].axes
+        }
+    # FontTools removes empty records while instancing; its subsetter expects
+    # every retained glyph to have a key, including constant composites.
+    for name in font.getGlyphOrder():
+        font['gvar'].variations.setdefault(name, [])
+    options = subset.Options()
+    options.name_IDs = ['*']
+    options.name_languages = ['*']
+    options.name_legacy = True
+    options.layout_features = ['*']
+    options.notdef_outline = True
+    options.recommended_glyphs = True
+    options.glyph_names = True
+    selection = subset.Subsetter(options=options)
+    selection.populate(unicodes=set(font.getBestCmap()) - omit)
+    metadata = font['meta']
+    selection.subset(font)
+    font['meta'] = metadata
+    compress_variations(font)
+    return font
+
+
+def package_google_fonts(source, directory=FDIR / 'variable'):
+    """The upright and italic variable fonts Google Fonts serves."""
+    from submission_font import prepare_submission_font
+
+    for italic in (False, True):
+        destination = directory / (
+            'SunnyMarker' + ('-Italic' if italic else '') + '[opsz,wdth,wght].ttf'
+        )
+        prepare_submission_font(
+            source, destination, italic=italic, version=VERSION, optimize=False,
+        )
+        style = TTFont(destination, recalcTimestamp=False)
+        compress_variations(style)
+        style.save(destination)
+
+
+def package_family():
+    vf = finish_variable(BUILD / 'SunnyMarkerVariable.ttf')
     stem = 'SunnyMarker[opsz,slnt,wdth,wght]'
     vf.save(FDIR / 'variable' / (stem + '.ttf'))
     save_woff2(vf, FDIR / 'webfonts' / 'SunnyMarker-Variable.woff2')
+    package_google_fonts(FDIR / 'variable' / (stem + '.ttf'))
     for italic in (False, True):
         # Pin the shared dimensions once per style before making 15 exports.
         style_vf = instantiateVariableFont(vf, {'opsz': 36, 'slnt': -9 if italic else 0}, optimize=False)
@@ -194,7 +266,7 @@ def package_family():
                 font.save(FDIR / 'ttf' / (basename + '.ttf'))
                 save_woff2(font, FDIR / 'webfonts' / (basename + '.woff2'))
                 save_otf(font, FDIR / 'otf' / (basename + '.otf'))
-    print('Packaged', sub, flush=True)
+    print('Packaged', VERSION, flush=True)
 
 
 def package_web():

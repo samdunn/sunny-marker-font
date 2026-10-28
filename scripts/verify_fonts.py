@@ -21,6 +21,7 @@ import uharfbuzz as hb
 ROOT = Path(__file__).resolve().parents[1]
 AXES = {'wght': (300, 400, 700), 'wdth': (75, 100, 125), 'opsz': (10, 14, 36), 'slnt': (-9, 0, 0)}
 TEXT = 'Sunny day! Warm heads & cozy vibes 08'
+GOOGLE_FONTS = {'SunnyMarker[opsz,wdth,wght].ttf', 'SunnyMarker-Italic[opsz,wdth,wght].ttf'}
 
 
 def shaped(path, variations=None, text=TEXT, features=None):
@@ -38,16 +39,22 @@ def shaped(path, variations=None, text=TEXT, features=None):
 def main():
     paths = sorted((ROOT / 'fonts').rglob('*'))
     fonts = [p for p in paths if p.suffix in ('.ttf', '.otf', '.woff2')]
-    assert len(fonts) == 92, len(fonts)  # 1 VF TTF + 1 VF WOFF2 + 30 x 3 statics
+    # Four-axis VF TTF + its WOFF2 + Google's upright/italic VFs + 30 x 3 statics.
+    assert len(fonts) == 94, len(fonts)
     checks = 0
     for path in fonts:
         with TTFont(path) as f:
             assert abs(f['head'].fontRevision - float(VERSION)) < 1 / 65536
             assert f['OS/2'].fsType == 0
             assert f['name'].getDebugName(13).startswith('This Font Software')
-            assert len(f.getGlyphOrder()) == 391
+            assert len(f.getGlyphOrder()) == 389
             assert f['hhea'].ascent == 960 and f['hhea'].descent == -340
-            if 'fvar' in f:
+            if 'fvar' in f and path.name in GOOGLE_FONTS:
+                # The slant split is checked against the four-axis font by
+                # verify_submission.py.
+                assert {a.axisTag: (a.minValue, a.defaultValue, a.maxValue)
+                        for a in f['fvar'].axes} == {k: v for k, v in AXES.items() if k != 'slnt'}
+            elif 'fvar' in f:
                 assert {a.axisTag: (a.minValue, a.defaultValue, a.maxValue)
                         for a in f['fvar'].axes} == AXES
                 assert len(f['fvar'].instances) == 10
@@ -66,7 +73,7 @@ def main():
                 assert TTFont(io.BytesIO(data.getvalue())).getBestCmap() == f.getBestCmap()
         checks += 1
     measurements = []
-    for path in sorted((ROOT / 'fonts/variable').glob('*.ttf')):
+    for path in [ROOT / 'fonts/variable/SunnyMarker[opsz,slnt,wdth,wght].ttf']:
         for weight, optical, slant in itertools.product((300, 350, 400, 550, 700), (10, 23, 36), (0, -2.25, -4.5, -6.75, -9)):
             widths = [shaped(path, {'wght': weight, 'wdth': width, 'opsz': optical, 'slnt': slant})[0]
                       for width in (75, 87.5, 100, 112.5, 125)]

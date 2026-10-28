@@ -1,6 +1,6 @@
 """Independent checks for the expanded candidate and actual Google subset fonts."""
 from pathlib import Path
-import sys,json,hashlib,itertools,unicodedata
+import sys,io,json,hashlib,itertools,unicodedata,zipfile
 from fontTools.ttLib import TTFont
 from fontTools import subset
 from fontTools.pens.boundsPen import BoundsPen
@@ -16,8 +16,11 @@ if len(sys.argv)==1:
     for line in (snapshot/'SHA256SUMS').read_text().splitlines():
         digest,name=line.split('  ',1)
         assert hashlib.sha256((snapshot/name).read_bytes()).hexdigest()==digest,name
-current=ROOT/'fonts/variable/SunnyMarker[opsz,slnt,wdth,wght].ttf'
-f=TTFont(vf);old=TTFont(current)
+# 1.314 is checked against the 1.313 release it extended, from the archived web package.
+with zipfile.ZipFile(ROOT/'release/sunny-marker-web-1.313.zip') as archive:
+    old=TTFont(io.BytesIO(archive.read('sunny-marker-web/webfonts/SunnyMarker-Variable-1.313.woff2')))
+old.flavor=None;baseline=io.BytesIO();old.save(baseline);baseline=baseline.getvalue()
+f=TTFont(vf);old=TTFont(io.BytesIO(baseline))
 chars=set(f.getBestCmap());kept=set(old.getBestCmap())-{0x1ebc,0x1ebd}
 assert kept<=chars
 assert len(chars)==401 and len(f.getGlyphOrder())==416
@@ -31,7 +34,7 @@ def shape(font,order,text,loc):
     return [(order[i.codepoint],p.x_advance,p.y_advance,p.x_offset,p.y_offset)
             for i,p in zip(b.glyph_infos,b.glyph_positions)]
 
-a=hb.Font(hb.Face(current.read_bytes()));b=hb.Font(hb.Face(vf.read_bytes()))
+a=hb.Font(hb.Face(baseline));b=hb.Font(hb.Face(vf.read_bytes()))
 locations=list(itertools.product((300,400,550,700),(75,100,125),(10,23,36),(0,-4.5,-9)))
 latin_checks=0;mark_checks=0
 for values in locations:

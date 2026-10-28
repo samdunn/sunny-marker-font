@@ -13,7 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'qa'
 OUT.mkdir(exist_ok=True)
 GROUPS = {
-    'googlefonts': ('check-googlefonts', sorted((ROOT / 'fonts/variable').glob('*.ttf'))),
+    # The four-axis font. Google's upright and italic fonts are checked with
+    # Fontspector; see documentation/GOOGLE_FONTS.md.
+    'googlefonts': ('check-googlefonts', [ROOT / 'fonts/variable/SunnyMarker[opsz,slnt,wdth,wght].ttf']),
     'static': ('check-universal', [ROOT / 'fonts/ttf' / name for name in (
         'SunnyMarker-CondensedLight.ttf', 'SunnyMarker-CondensedBoldItalic.ttf',
         'SunnyMarker-Regular.ttf', 'SunnyMarker-Italic.ttf',
