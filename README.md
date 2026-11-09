@@ -6,7 +6,7 @@ irregular character across compact labels and large display type.
 
 ![Sunny Marker — handwritten, variable, made for little notes](web/specimens/github-header.png)
 
-[Try the font](https://sunnysdk.com/fonts/sunny-marker/) · [View specimens](https://sunnysdk.com/fonts/sunny-marker/#specimens) · [Browse the glyphs](https://sunnysdk.com/fonts/sunny-marker/#glyphs)
+[Try the font](https://www.samdunn.org/sunny-marker) · [View specimens](https://www.samdunn.org/sunny-marker#specimens) · [Browse the glyphs](https://www.samdunn.org/sunny-marker#glyphs) · [Download the latest release](https://github.com/samdunn/sunny-marker-font/releases/latest)
 
 The sources and fonts in this repository are version **1.315**. It answers
 Google's outline review: far fewer points (a median of 77 per character, down

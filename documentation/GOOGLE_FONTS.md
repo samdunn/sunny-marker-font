@@ -60,7 +60,7 @@ The historical [1.311 archive](../release/sunny-marker-googlefonts-1.311.zip) an
 [report](fontspector-1.311.md) remain available for comparison, not current results.
 
 [Designer website](https://samdunn.org) ·
-[Sunny Marker specimen](https://sunnysdk.com/fonts/sunny-marker/) ·
+[Sunny Marker specimen](https://www.samdunn.org/sunny-marker) ·
 [Google Fonts designer profile guidance](https://googlefonts.github.io/gf-guide/profile.html) ·
 [Variable-family guidance](https://googlefonts.github.io/gf-guide/variable.html)
 
